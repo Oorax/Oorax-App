@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+
+{% block content %}
+{% if categories %}
+
+         <select  name="cat" id="selectContinents" >
+              <option value="">----------------------</option>
+                    {% for b in categories %}
+                        <option value="{{ b.id }}"  id="er">{{ b.nom_categorie }} </option>
+                    {% endfor %}
+        <select>
+
+    {% endif %}
+<br><br><form method="post" action="">
+
+
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <input name="hide" type="hidden"  id="hide" readonly />
+    <input type="submit" value="submit" />
+</form>
+
+<script>
+
+    $(document).ready(function(){
+    $("#selectContinents").change(function(){
+        $a = $("#selectContinents").val();
+        $("input[id=hide]").val($a);
+});
+})
+
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'categorie' %}',
+        data:{
+            hide:$("input[name=hide]").val(),
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+</script>
+{% endblock %}
+
+
+

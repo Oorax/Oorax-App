@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Correction</h3>
+{% for inte in question %}
+<ul>
+    <li><a href="{% url 'option_page' inte.id %}">{{ inte.question_texte }}</a> </li>
+</ul>
+{% endfor %}
+</body>
+</html>

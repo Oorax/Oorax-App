@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<label>Type: </label>
+    <select id="type" onchange="changementType();">
+      <option value="">-----------</option>
+      <option value="Definition">Definition</option>
+      <option value="Exemple">Exemple</option>
+      <option value="Explication">Explication</option>
+      <option value="Lien">Lien</option>
+    </select><br><br>
+<form method="post" id="form1" style="display:none" action="">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input name="hide" type="hidden"  id="hide" readonly />
+    <input type="submit" value="submit" />
+</form>
+
+<form method="post" id="form2" style="display:none" action="">
+
+    {% csrf_token %}
+    {{ form2.as_p }}
+    <input name="hide" type="texte"  id="hides" readonly />
+    <input type="submit" value="submit" />
+</form>
+
+<div class="ligne" ><h4 class="lignes">Cour:<a href="{% url 'cour'   %}">{{ cou }}</a>  >>> Chapitre: <a href="{% url 'chapitre_cour' id=fo  %}">{{ c }}</a> >>> Lesson: <a href="{% url 'lesson_chapitre' id=m  %}"> {{ nom }}</a> >>> Contenu:</h4></div>
+        <table>
+            <thead> <!-- En-tête du tableau -->
+               <tr>
+                   <th>N</th>
+                   <th>Titre</th>
+                   <th>Contenue</th>
+                   <th>Lien</th>
+                   <th>Description</th>
+                   <th>Actions</th>
+               </tr>
+            </thead>
+            {% for co in contenu %}
+            <tr>
+                <td>{{ co.id }}</td>
+                <td>{{ co.titre }} </td>
+                <td>{{ co.contenu_texte }} </td>
+                <td>{{ co.url }} </td>
+                <td>{{ co.description }} </td>
+               
+                <td> <a href="{% url 'contenu_edit' co.id %}">Edit</a> || <a href="{% url 'contenu_delete' co.id %}">Delete</a> </td>
+            </tr>
+
+            {% endfor %}
+        </table>
+
+
+</body>
+<script>
+function changementType()
+{
+
+
+var type = document.getElementById("type").value;
+
+
+if (type == "Lien")
+{
+document.getElementById("form2").style="display:block";
+document.getElementById("form1").style="display:none";
+}
+else
+{
+document.getElementById("form1").style="display:block";
+document.getElementById("form2").style="display:none";
+}
+
+}
+
+ $(document).ready(function(){
+    $("#type").change(function(){
+        $a = $("#type").val();
+        $("input[id=hide]").val($a);
+});
+})
+ $(document).ready(function(){
+    $("#type").change(function(){
+        $a = $("#type").val();
+        $("input[id=hides]").val($a);
+});
+})
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'contenu_lesson' id=m %}',
+        data:{
+            hide:$("input[name=hide]").val(),
+            hides:$("input[name=hides]").val(),
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+</script>
+<style>
+    td /* Toutes les cellules des tableaux... */
+{
+    border: 1px solid black; /* auront une bordure de 1px */
+     padding:15px;
+}
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+     padding:15px;
+}
+td
+{
+    border: 1px solid black;
+    padding:15px;
+}
+
+th
+{
+    border: 1px solid black;
+    padding:15px;
+}
+</style>
+
+</html>
+{% endblock %}

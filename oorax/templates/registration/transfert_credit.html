@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+
+{% block content %}
+            <form method="post" id="form1"  action="">
+
+
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <label>Identifiant du beneficière: </label><input name="idents" type="texte"  id="idents"  />
+                <input name="ident" type="hidden"  id="ident" readonly />
+                <input name="montant" type="hidden"  id="montant" readonly />
+                <br><br><input type="submit" value="submit" />
+            </form>
+
+
+<script>
+
+
+ $(document).ready(function(){
+    $("#idents").change(function(){
+        $a = $("#idents").val();
+        $("input[id=ident]").val($a);
+
+});
+})
+
+$(document).ready(function(){
+    $("#id_montant").change(function(){
+        $a = $("#id_montant").val();
+        $("input[id=montant]").val($a);
+
+});
+})
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'transfert_credit' %}',
+        data:{
+            ident:$("input[name=ident]").val(),
+            montant:$("input[name=montant]").val(),
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+</script>
+{% endblock %}
+

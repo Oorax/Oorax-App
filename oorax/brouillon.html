@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ {% for l in lesson %}
+    {% for eva in liste_evalu %}
+        {% for qe in quesevalu %}
+            {% if eva is qe.evaluation_id %}
+                {% for q in question %}
+                    {% if qe.question_id is q.id %}
+
+
+                        <tr>
+                            <td>{{ l.id }}</td>
+                            {% if l.id is q.lesson_id %}
+
+                            <td><button><a href="{% url 'faire_interro' id=eva %}">Evaluation {{ eva }}</a></button></td>
+                            {% else %}
+                            <td>{{ l.nom_lesson }} </td>
+                              {% endif %}
+                             <td><a href="{% url 'contenu_lesson' l.id %}">Ajouter Contenu</a> || <a href="{% url 'lesson_edit' l.id %}">Edit</a> || <a href="{% url 'lesson_delete' l.id %}">Delete</a> </td>
+
+                        </tr>
+
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+</body>
+</html>

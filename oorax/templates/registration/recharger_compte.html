@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+
+{% block content %}
+
+{% if omoney %}
+<label>Mode de payement: </label>
+         <select  id="type" onchange="changementType();" >
+              <option value="">----------------------</option>
+                    {% for money in omoney %}
+                        <option value="{{ money.id }}" name="{{ money.raisonsocial }}"  id="{{ money.id }}">{{ money.raisonsocial }} </option>
+                    {% endfor %}
+        <select>
+
+    {% endif %}
+<br><br>
+            <form method="post" id="form1" style="display:none" action="">
+
+
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <input name="hide" type="texte"  id="hide" readonly />
+                <input name="ref" type="texte"  id="ref" readonly />
+                   <input type="submit" value="submit" />
+            </form>
+
+
+            <form method="post" id="form2" style="display:none" action="">
+
+
+                {% csrf_token %}
+                {{ form2.as_p }}
+
+                <input name="hide" type="texte"  id="hides" readonly />
+                 <input type="submit" value="submit" />
+            </form>
+
+<script>
+
+
+function changementType()
+{
+
+
+var type = document.getElementById("type").value;
+
+console.log(type);
+
+
+if (type == 5)
+{
+document.getElementById("form2").style="display:block";
+document.getElementById("form1").style="display:none";
+}
+else
+{
+document.getElementById("form1").style="display:block";
+document.getElementById("form2").style="display:none";
+}
+
+}
+
+
+ $(document).ready(function(){
+    $("#type").change(function(){
+        $a = $("#type").val();
+        $("input[id=hide]").val($a);
+
+});
+})
+ $(document).ready(function(){
+    $("#type").change(function(){
+        $a = $("#type").val();
+        $("input[id=hides]").val($a);
+});
+})
+
+$(document).ready(function(){
+    $("#id_reference").change(function(){
+        $a = $("#id_reference").val();
+        $("input[id=ref]").val($a);
+});
+})
+
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'recharger_compte' %}',
+        data:{
+            hide:$("input[name=hide]").val(),
+
+            ref:$("input[name=ref]").val(),
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+</script>
+{% endblock %}
+

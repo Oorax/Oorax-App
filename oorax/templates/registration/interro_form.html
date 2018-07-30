@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+<h1>Créer des interrogations</h1>
+<div class="col-md-12">
+
+    <div class="col-md-6">
+        <form method="post" action="" name="formulaire">
+
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="col-md-6">
+
+                            {% for interro in lesson %}
+
+                                 <ul>
+                                    <li>
+                                     <input type="checkbox" name="check"  id="check" value="{{ interro.id }}">{{ interro.nom_lesson }}
+                                    </li>
+                                 </ul>
+                            {% endfor %}
+
+
+
+    </div>
+            <input name="interne" type="hidden"  id="interne" readonly />
+            <input name="lesson" type="hidden"  id="lesson" readonly />
+            <input type="submit" value="submit" />
+        </form>
+    </div>
+
+
+</div>
+
+<script language="JavaScript">
+
+
+ $(document).ready(function(){
+    $("#id_prix").change(function(){
+        $a = $("#id_prix").val();
+        $("input[id=interne]").val($a);
+});
+})
+
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'interrogation' id=a %}',
+        data:{
+            interne:$("input[name=interne]").val(),
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+</script>
+</body>
+
+{% endblock %}

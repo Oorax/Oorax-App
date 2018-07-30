@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form method="post" action="">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="submit" />
+</form>
+<a href="{% url 'interrogation' id=a %}"><button>Creer une interro</button></a>
+
+
+
+
+<div class="ligne" >
+    <h4 class="lignes">
+    Cour: <a href="{% url 'cour'  %}">{{ j }}</a> >>> Chapitre:<a href="{% url 'chapitre_cour' id=m  %}">{{ nom }}</a> >>> Lesson
+    </h4>
+</div>
+
+
+        <table>
+            <thead> <!-- En-tête du tableau -->
+               <tr>
+                   <th>N</th>
+                   <th>Titre</th>
+
+                   <th>Actions</th>
+               </tr>
+            </thead>
+            {% for l in lesson %}
+                 {% for eva in liste_evalu %}
+                    {% for qe in quesevalu %}
+                        {% if eva is qe.evaluation_id %}
+                            {% for q in question %}
+                                {% if qe.question_id is q.id %}
+
+                                    <tr>
+                                        <td>{{ l.id }}</td>
+                                         {% if l.id is q.lesson_id %}
+
+                                            <td><button><a href="{% url 'faire_interro' id=eva %}">Evaluation {{ eva }}</a></button></td>
+                                            {% else %}
+                                            <td>{{ l.nom_lesson }} </td>
+                                         {% endif %}
+
+                                         <td><a href="{% url 'contenu_lesson' l.id %}">Ajouter Contenu</a> || <a href="{% url 'lesson_edit' l.id %}">Edit</a> || <a href="{% url 'lesson_delete' l.id %}">Delete</a> </td>
+
+                                    </tr>
+                             {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                 {% endfor %}
+            {% endfor %}
+        </table>
+
+
+</body>
+<style>
+    td /* Toutes les cellules des tableaux... */
+{
+    border: 1px solid black; /* auront une bordure de 1px */
+     padding:15px;
+}
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+     padding:15px;
+}
+td
+{
+    border: 1px solid black;
+    padding:15px;
+}
+
+th
+{
+    border: 1px solid black;
+    padding:15px;
+}
+</style>
+
+</html>
+{% endblock %}

@@ -1,0 +1,175 @@
+
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Statistique : {{ user.username }}</h1>
+
+
+<div class="container">
+ <table border="1">
+
+{% for q in liste_question %}
+{% for z in question %}
+     {% if q is z.id %}
+
+	  <tr>
+        <td>{{ z.question_texte }}</td>
+		<td>
+            <table border width =100%>
+                <thead>
+                    <tr>
+                        <th>Reponses</th>
+                        <th>Corigés</th>
+
+                    </tr>
+                </thead>
+
+                {% for opq in optquests %}
+                        {% if q is opq.question_id %}
+
+                                              {% for op in option %}
+                                                    {% if op.id is opq.option_id %}
+                                                        {% for se in sessioneva %}
+
+                                                                 <tr>
+                                                                     {% if op.id in se.reponse %}
+
+                                                                        <td class="color">{{ op.libelle }}</td>
+                                                                        {% else %}
+                                                                        <td>{{ op.libelle }}</td>
+                                                                     {% endif %}
+
+
+
+
+                                                                     {% if opq.juste is True %}
+                                                                            <td class="color">
+                                                                               <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAM8SURBVGhD7VrPi9NAGC2of4IXzx68iezBmx4EadK1COJJFBH04knEq6ug6LbprotePChIb3sSPK9rk+4q6x73IPgDPSiyCqK4KCwav9d+aZvkSzNpZ7Sp++DRNjP5vvcmmenMJIUt/G9wmsUTIP/MJ5xmqVz17E0Q3/lwvlB17f1V19ogE36L+E7HuHg04HilcyTqcs0r7eVDIdSWD+8m8esdE12uo4yrhYBYiInYfMg8Kp69EIiruNbrimfNVBv2gfn549uuu8WdFdd+2SM+RJShDuriHJyLGJ1yis1pzGJq8eB2Sva9V1xXhPWJWvWVVBYi1WnVFcoQGzk4nTnQpZ+QBOgkcnA6c6CWPC8l10nk4HTmUPWsupRcL606pzMHaq03cnJ9RA5OpwfodLhf27eTVe8dXUyznYtyUm5oGGgAoCBniYsYQaQk/4LQ0tJE2lhmOmisn5KCjQKhjWWmw3lS3CcFMc17ayf9By/OiGUBoY1lqoHmRu+kQKYIEyu/av7q79lkM6SJ5amDOtmcGMwAOyb8W20mmIEmlqcOxy0eigYywZgJ5sP3F2J1oYnlqePu6sQOaoEv0WA6mWjiw0UqL4XqQgs0sTx1TDfLu0z2kywmWiQt0MTy1OAsTe6h8fptLJgmZjbBhCZoY5n9gVUcuf8sBdLBQU10CG1pK81p15qkit3laQrnnh31b68cE8skDm0iIGmEVpYdRqVhn6ZK2CiQT44QJhob13zvxw0lM9pMdLkJzSy/iyxGAhOBmDQzBkyAshFA9dZ69PFSTBTM3HkeN3N/7ZR+E/1urQAqnX32adl//PVKTFzUjCET6Z09gMrwm2bGhIlMw28AlT9EmFn4djUmdunnTRNXIvsfIqA6RUkyE+WQHXvwKUqWSWOamWFNBBxo0ogpsxQsiUlmdJkAoYnlqSOtf0iMmtFpokXSxPLUMMxSNzCj3QQz01J32M2HmeUj9KnfBJhp8wFbLsT8bwcFyP0GXT9Q4PxtmUpAK0nJ9fLvbGKPx2MF3K9Scp1EDk5nDuh0GEEkAdSS+Xn0BlCy/D8MBejSj8fjaRVgFUdzo9F+YUAVY/EKR4CxeKlmC5lRKPwBqMsnVTMDSoIAAAAASUVORK5CYII=">
+                                                                            </td>
+                                                                     {% else %}
+                                                                             <td class="color">
+                                                                                   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJGSURBVGhD7ZnLSsNAFIaLPoT6GmLiQqGQCCqICNIquGmXCi7d6kpRFMU3EPsIXjZCN2JVfAEvO1FBRTdJWwvimNPOlNaexJOEmZQ2P3ybyWRyvsyEkEwiTpw4cTorLJXqtYzhedvUc7ahn6nEMrVDyxyaY2uJHl5OsNjjgwOWod84EixKLFO/tpNaPy/LX6ozYWpX2MBR4NzQQqCZ4csJHTQqYJnx8uhxTsz9HShq4Jnh5dFjm1oeGyxatDwvjx7b0M7xwSLEqYmXR09XipRXlpk9PoIe+4/iVBJtR5EpUtnZYOztg32fHvuWqexusp/be1ZamEGPtyBLREiw988qfmRAQpxHlpEhUpydYD+PT/ViBBSZRgkByBSnDbR/HVkzUl7KOjLPLUV5yWASALRj/ZuQJQL4kQklAcgUASgyoSUA2SKAl0xlf7ulHfAlAagQAdxkMHxLAKpEAIpMIAlApQgAMuzlFZdwlhl2DgnVIm4PNkB5z7iiUsRLQhBYRpWIqwSyzALJqBBxk4B2ynuGhGwRLwnRx1Xm5IguI1OEIiEILSNLxI+EIJSMDJFSJt30LSLwkhBgMvBJUMqk0P51ZM3I1/pqkwxFQtAoAxLlxSzarwlZIoCQqextoce9qMrcPdAkAJkiACwzrJ3E5CjejiFbRBndLdIpv0zhhzE+WHQE+ondltsKhp7i5dFT23LTC9iAURB4owdS23rTLrGBFXPhrJA+XlawwF2wxrS0c0cOsA1LmcA14dqhN0PjxIkTp82SSPwCQFNrym7ccbIAAAAASUVORK5CYII=">
+                                                                             </td>
+                                                                    {% endif %}
+                                                                 </tr>
+
+                                                        {% endfor %}
+                                                    {% endif %}
+
+                                                {% endfor %}
+
+
+                        {% endif%}
+                {% endfor %}
+
+
+	        </table>
+        </td>
+	  </tr>
+{% endif%}
+{% endfor %}
+{% endfor %}
+
+	</table>
+</div>
+
+
+</body>
+<style>
+    /* Layout */
+
+.container {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* largeur 250px et "espace restant" */
+  grid-template-rows: 100px 1fr;
+  grid-template-areas: "h n" "a f";
+  height: 300px;
+}
+
+/* Decoration */
+
+* {box-sizing: border-box}
+body {
+	margin: 20px;
+	background: #fff;
+	font-family: "Century Gothic", helvetica, arial, sans-serif;
+	font-size: 1.2em;
+}
+.container {
+	background: beige;
+	border: 3px dotted orange;
+	margin-bottom: 2em;
+}
+div, nav, section, article, aside, header, footer {
+	padding: 10px;
+	color: #fff;
+}
+
+.color img{width: 35px;}
+.color{color:red;font-weight:bold;}
+nav {
+	background: dodgerblue;
+}
+section {
+	background: hotpink;
+}
+article {
+  background: orange;
+}
+aside {
+  background: olivedrab;
+}
+header {
+  background: gray;
+}
+footer {
+  background: crimson;
+}
+div:nth-of-type(3) {
+	background: olivedrab;
+}
+div:nth-of-type(4) {
+	background: hotpink;
+}
+div:nth-of-type(5) {
+	background: slategray;
+}
+
+h1 {
+	margin: 0 0 1em;
+	color: #345;
+	text-align: center;
+  font-family: georgia, "trebuchet ms", arial, serif;
+}
+
+ td /* Toutes les cellules des tableaux... */
+{
+    border: 1px solid black; /* auront une bordure de 1px */
+     padding:15px;
+}
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+     padding:15px;
+}
+td
+{
+    border: 1px solid black;
+    padding:15px;
+}
+
+th
+{
+    border: 1px solid black;
+    padding:15px;
+}
+
+.corrige{border:none;}
+</style>
+
+{% endblock%}

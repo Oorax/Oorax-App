@@ -1,0 +1,186 @@
+
+{% block content %}
+<head>
+
+</head>
+<body>
+<h1>Ajouter question</h1>
+<label> Selectionner un Chapitre</label>
+         <select  name="chapitre" id="chapitre" >
+            <option value="">---------</option>
+            {% for chapitre in chap_liste %}
+            <option value="{{ chapitre.nom_chapitre }}">{{ chapitre.nom_chapitre }}</option>
+            {% endfor %}
+         </select>
+<label> Selectionner un Chapitre</label>
+        <select name ="lesson" id="lesson">
+            <option value="">---------</option>
+
+
+        </select>
+<label> Selectionner un Type</label>
+         <select  name="typeQ" id="typeQ" >
+            <option value="">---------</option>
+            {% for type in type_question %}
+            <option value="{{ type.id }}">{{ type.libelle }}</option>
+            {% endfor %}
+         </select>
+
+
+
+<form method="post" name="formulaireDynamique" id="form" action="">
+    {% csrf_token %}
+     <h4>################# QUESTION ####################</h4>
+    {{ form.as_p }}
+    <label> Selectionner un Niveau</label>
+         <select  name="niveau" id="niveau" >
+            <option value="">---------</option>
+            {% for niveau in niveaus %}
+            <option value="{{ niveau.id }}">{{ niveau.libelle }}</option>
+            {% endfor %}
+         </select>
+    <br><br>
+
+    <h4>################# OPTION ####################</h4>
+    <input type="button" onclick="ajout(this);" value="ajouter un champ"/><br><br>
+
+    <input type="hidden"  name="essai" id="essai"/>
+    <input type="hidden"  name="typeid" id="typeid"/>
+    <input type="hidden" name="lessonid"  id="lessonid" readonly >
+    <input type="hidden" name="niveaus"  id="niveaus" readonly >
+    <input type="submit" value="submit" />
+</form>
+
+
+<p><tt id="results"></tt></p>
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://yourjavascript.com/7174319415/script.js"></script>
+        <script>
+        function ajout(element){
+      var formulaire = window.document.formulaireDynamique;
+      // On clone le bouton d'ajout
+      var ajout = element.cloneNode(true);
+      // Crée un nouvel élément de type "input"
+      var champ = document.createElement("input");
+      // Les valeurs encodée dans le formulaire seront stockées dans un tableau
+      champ.name = "b";
+      champ.type = "text";
+      champ.id = "essais";
+
+    //var str = $( "#form" ).serialize();
+    //$( "#essai" ).val( str );
+      //$("#essai").val($("#form").serialize());
+      var sup = document.createElement("input");
+      sup.value = "supprimer un champ";
+      sup.type = "button";
+      // Ajout de l'événement onclick
+      sup.onclick = function onclick(event)
+         {suppression(this);};
+
+      // On crée un nouvel élément de type "p" et on insère le champ l'intérieur.
+      var bloc = document.createElement("p");
+      bloc.appendChild(champ);
+      formulaire.insertBefore(ajout, element);
+      formulaire.insertBefore(sup, element);
+      formulaire.insertBefore(bloc, element);
+   }
+   function suppression(element){
+   var formulaire = window.document.formulaireDynamique;
+
+   // Supprime le bouton d'ajout
+   formulaire.removeChild(element.previousSibling);
+   // Supprime le champ
+   formulaire.removeChild(element.nextSibling);
+   // Supprime le bouton de suppression
+   formulaire.removeChild(element);
+}
+
+            $(document).ready(function(){
+                 $('select#chapitre').change(function () {
+                     var optionSelected = $(this).find("option:selected");
+                     var valueSelected  = optionSelected.val();
+                     var chapitre_name   = optionSelected.text();
+
+
+                     data = {'cnt' : chapitre_name };
+                     ajax('/getdetails',data,function(result){
+
+                            console.log(result);
+                            $("#lesson option").remove();
+                            for (var i = result.length - 1; i >= 0; i--) {
+
+                                $("#lesson").append('<option>'+ result[i].name +'</option>');
+                            };
+
+
+
+                         });
+                 });
+            });
+
+  $(document).ready(function(){
+    $("#form").change(function(){
+        $a = $("#form").serialize();
+        $("input[id=essai]").val($a);
+});
+})
+
+ $(document).ready(function(){
+    $("#niveau").change(function(){
+        $a = $("#niveau").val();
+        $("input[id=niveaus]").val($a);
+});
+})
+
+$(document).ready(function(){
+    $("#lesson").change(function(){
+        $a = $("#lesson").val();
+        $("input[id=lessonid]").val($a);
+});
+})
+
+
+
+
+$(document).ready(function(){
+    $("#typeQ").change(function(){
+        $a = $("#typeQ").val();
+        $("input[id=typeid]").val($a);
+});
+})
+
+
+//multiple champ
+$(document).ready(function(){
+$("#mytext").change(function(){
+$('input[name="mytext[]"]').each(function() {
+    $("input[id=optionid]").val(($(this).val()));
+});
+});
+})
+
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'question' id=questions %}',
+        data:{
+            lessonid:$("input[name=lessonid]").val(),
+            typeid:$("input[name=typeid]").val(),
+            essai:$("input[name=essai]").val(),
+            csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+
+
+
+</script>
+
+</body>
+{% endblock %}

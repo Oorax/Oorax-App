@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<body>
+
+
+ {% if user.is_superuser %}
+
+        <table>
+            <thead> <!-- En-tête du tableau -->
+               <tr>
+                   <th>N</th>
+                   <th>Titre</th>
+                   <th>Prix</th>
+                   <th>Actions</th>
+               </tr>
+            </thead>
+
+            {% for u in cours %}
+                {% if u.etat_cour is False %}
+
+            <tr>
+                <td>{{ u.id }}</td>
+                <td>{{ u.titre }} </td>
+                <td> {{ u.prix }}</td>
+                <td>
+                     <a href="{% url 'inscription' u.id %}">
+                         <button type="button" class="btn btn-primary">Inscription</button>
+                     </a>
+                </td>
+            </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+
+ {% else %}
+    <p>Vous n'etes pas autoriser</p>
+{% endif %}
+
+</body>
+<style>
+    td /* Toutes les cellules des tableaux... */
+{
+    border: 1px solid black; /* auront une bordure de 1px */
+     padding:15px;
+}
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+     padding:15px;
+}
+td
+{
+    border: 1px solid black;
+    padding:15px;
+}
+
+th
+{
+    border: 1px solid black;
+    padding:15px;
+}
+</style>
+{% endblock %}
+
