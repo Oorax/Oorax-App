@@ -19,6 +19,10 @@ from django.template.loader import render_to_string
 # Create your views here.
 
 #page d'accueil
+def index(request):
+    return render(request, 'registration/index.html')
+
+
 def home(request):
     cours = Cour.objects.filter(etat_cour=0)
     categories = Categorie.objects.all()
@@ -81,10 +85,14 @@ def categorie(request):
                 user.save()
             return redirect('categorie')
     else:
+        a=[]
         form = CategorieForm()
         categories = Categorie.objects.filter(parent__isnull=True)
+        categorie = Categorie.objects.filter(parent__isnull=False)
+        for cat in categorie:
+            a.append(cat.parent)
 
-    return render(request, 'registration/categorie_form.html', {'form': form, 'categories':categories})
+    return render(request, 'registration/categorie_form.html', {'a':a,'categorie':categorie,'form': form, 'categories':categories})
 
 #enregistrement cour
 def cour(request):

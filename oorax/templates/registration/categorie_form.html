@@ -5,11 +5,25 @@
 
 {% block content %}
 {% if categories %}
-
-         <select  name="cat" id="selectContinents" >
+{{ a }}<br><br>
+         <select  name="cat"   id="selectContinents" >
               <option value="">----------------------</option>
                     {% for b in categories %}
-                        <option value="{{ b.id }}"  id="er">{{ b.nom_categorie }} </option>
+
+                                <option value="{{ b.id }}"  id="er">
+                                    {% if b.id in a %}
+
+                                            <p>{{ b.nom_categorie }}<br>--
+                                                {{ x.nom_categorie }}</p>
+
+                                    {% else %}
+
+
+                                     <p>{{ b.nom_categorie }}</p>
+
+ {% endif %}
+                                </option>
+
                     {% endfor %}
         <select>
 

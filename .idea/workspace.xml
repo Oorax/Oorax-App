@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d22b3bd-247f-4e71-b05f-51625c042ddf" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Formation/.gitignore.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/oorax/templates/bases.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/oorax/templates/registration/index.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/base.html" afterPath="$PROJECT_DIR$/oorax/templates/base.html" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/categorie_form.html" afterPath="$PROJECT_DIR$/oorax/templates/registration/categorie_form.html" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html" afterPath="$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html" />
+      <change beforePath="$PROJECT_DIR$/oorax/urls.py" afterPath="$PROJECT_DIR$/oorax/urls.py" />
+      <change beforePath="$PROJECT_DIR$/oorax/views.py" afterPath="$PROJECT_DIR$/oorax/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,104 +23,90 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oorax/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+            <state relative-caret-position="20">
+              <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-                <element signature="e#681#854#0" expanded="false" />
-                <element signature="e#881#1739#0" expanded="false" />
-                <element signature="e#1821#2343#0" expanded="false" />
-                <element signature="e#2560#3132#0" expanded="false" />
-                <element signature="e#3179#3830#0" expanded="false" />
-                <element signature="e#3879#4519#0" expanded="false" />
-                <element signature="e#4570#4646#0" expanded="false" />
-                <element signature="e#4701#5328#0" expanded="false" />
-                <element signature="e#4870#5119#0" expanded="false" />
-                <element signature="e#5385#5966#0" expanded="false" />
-                <element signature="e#6025#6136#0" expanded="false" />
-                <element signature="e#6191#8245#0" expanded="false" />
-                <element signature="e#8298#9038#0" expanded="false" />
-                <element signature="e#9093#9175#0" expanded="false" />
-                <element signature="e#9237#11429#0" expanded="false" />
-                <element signature="e#11484#12599#0" expanded="false" />
-                <element signature="e#12656#12742#0" expanded="false" />
-                <element signature="e#12796#12853#0" expanded="false" />
-                <element signature="e#12912#13824#0" expanded="false" />
-                <element signature="e#13883#15239#0" expanded="false" />
-                <element signature="e#15292#15512#0" expanded="false" />
-                <element signature="e#15537#16714#0" expanded="false" />
-                <element signature="e#16762#16998#0" expanded="false" />
-                <element signature="e#17050#19394#0" expanded="false" />
-                <element signature="e#19424#20093#0" expanded="false" />
-                <element signature="e#20149#20266#0" expanded="false" />
-                <element signature="e#20315#21084#0" expanded="false" />
-                <element signature="e#21133#21187#0" expanded="false" />
-                <element signature="e#21249#23493#0" expanded="false" />
-                <element signature="e#23549#24416#0" expanded="false" />
-                <element signature="e#24486#26377#0" expanded="false" />
-                <element signature="e#26434#30972#0" expanded="false" />
-                <element signature="e#26670#27761#0" expanded="false" />
-                <element signature="e#27798#29064#0" expanded="false" />
-                <element signature="e#29116#29822#0" expanded="false" />
-                <element signature="e#30118#30972#0" expanded="false" />
-                <element signature="e#31001#31662#0" expanded="false" />
-                <element signature="e#31691#32357#0" expanded="false" />
+                <element signature="e#682#731#0" expanded="false" />
+                <element signature="e#757#930#0" expanded="false" />
+                <element signature="e#957#1815#0" expanded="false" />
+                <element signature="e#1897#2419#0" expanded="false" />
+                <element signature="e#2636#3379#0" expanded="false" />
+                <element signature="e#3426#4077#0" expanded="false" />
+                <element signature="e#4126#4766#0" expanded="false" />
+                <element signature="e#4817#4893#0" expanded="false" />
+                <element signature="e#4948#5575#0" expanded="false" />
+                <element signature="e#5117#5366#0" expanded="false" />
+                <element signature="e#5632#6213#0" expanded="false" />
+                <element signature="e#6272#6383#0" expanded="false" />
+                <element signature="e#6438#8492#0" expanded="false" />
+                <element signature="e#8545#9285#0" expanded="false" />
+                <element signature="e#9340#9422#0" expanded="false" />
+                <element signature="e#9484#11676#0" expanded="false" />
+                <element signature="e#11731#12846#0" expanded="false" />
+                <element signature="e#12903#12989#0" expanded="false" />
+                <element signature="e#13043#13100#0" expanded="false" />
+                <element signature="e#13159#14071#0" expanded="false" />
+                <element signature="e#14130#15486#0" expanded="false" />
+                <element signature="e#15539#15759#0" expanded="false" />
+                <element signature="e#15784#16961#0" expanded="false" />
+                <element signature="e#17009#17245#0" expanded="false" />
+                <element signature="e#17297#19641#0" expanded="false" />
+                <element signature="e#19671#20340#0" expanded="false" />
+                <element signature="e#20396#20513#0" expanded="false" />
+                <element signature="e#20562#21331#0" expanded="false" />
+                <element signature="e#21380#21434#0" expanded="false" />
+                <element signature="e#21496#23740#0" expanded="false" />
+                <element signature="e#23796#24663#0" expanded="false" />
+                <element signature="e#24733#26624#0" expanded="false" />
+                <element signature="e#26681#31219#0" expanded="false" />
+                <element signature="e#26917#28008#0" expanded="false" />
+                <element signature="e#28045#29311#0" expanded="false" />
+                <element signature="e#29363#30069#0" expanded="false" />
+                <element signature="e#30365#31219#0" expanded="false" />
+                <element signature="e#31248#31909#0" expanded="false" />
+                <element signature="e#31938#32604#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_approve.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oorax/templates/registration/admin_approve.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oorax/templates/registration/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+            <state relative-caret-position="323">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Formation/.gitignore.py">
+      <file leaf-file-name="contenu_cour.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+            <state relative-caret-position="17">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oorax/models.py">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/wysibb/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="14" column="56" lean-forward="false" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
-              <folding>
-                <element signature="e#350#595#0" expanded="false" />
-                <element signature="e#631#822#0" expanded="false" />
-                <element signature="e#854#1230#0" expanded="false" />
-                <element signature="e#1267#1480#0" expanded="false" />
-                <element signature="e#1514#1731#0" expanded="false" />
-                <element signature="e#1768#2229#0" expanded="false" />
-                <element signature="e#2262#2394#0" expanded="false" />
-                <element signature="e#2427#2567#0" expanded="false" />
-                <element signature="e#2605#3222#0" expanded="false" />
-                <element signature="e#3259#3925#0" expanded="false" />
-                <element signature="e#3970#4694#0" expanded="false" />
-                <element signature="e#4733#4925#0" expanded="false" />
-                <element signature="e#4959#5088#0" expanded="false" />
-                <element signature="e#5128#5264#0" expanded="false" />
-                <element signature="e#5302#5958#0" expanded="false" />
-                <element signature="e#5992#6056#0" expanded="false" />
-                <element signature="e#6098#6420#0" expanded="false" />
-                <element signature="e#6467#6757#0" expanded="false" />
-                <element signature="e#6792#7096#0" expanded="false" />
-                <element signature="e#7139#7216#0" expanded="false" />
-                <element signature="e#7255#8246#0" expanded="false" />
-                <element signature="e#8285#8402#0" expanded="false" />
-                <element signature="e#8442#8565#0" expanded="false" />
-                <element signature="e#8608#8737#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="-1633">
+              <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/oorax/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,8 +114,18 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Formation/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
+            <state relative-caret-position="2380">
               <caret line="140" column="29" lean-forward="false" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cour_register_form.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oorax/templates/registration/cour_register_form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -133,10 +136,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>padding-</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -150,7 +158,6 @@
         <option value="$PROJECT_DIR$/oorax/templates/registration/typequestion.html" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/transfert_credit.html" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/historique.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html" />
         <option value="$PROJECT_DIR$/oorax/option_page.html" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/corrige_form.html" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/option_page.html" />
@@ -162,7 +169,6 @@
         <option value="$PROJECT_DIR$/oorax/templates/registration/question.html" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/stat_users.html" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/detail_stat.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/categorie_form.html" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/cour_register_form.html" />
         <option value="$PROJECT_DIR$/oorax/brouillons.py" />
         <option value="$PROJECT_DIR$/oorax/brouillon.html" />
@@ -172,11 +178,17 @@
         <option value="$PROJECT_DIR$/oorax/tokens.py" />
         <option value="$PROJECT_DIR$/oorax/models.py" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/activation_email.html" />
-        <option value="$PROJECT_DIR$/oorax/urls.py" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/activations_email.html" />
         <option value="$PROJECT_DIR$/../../../registration/templates/registration/activation_email.html" />
-        <option value="$PROJECT_DIR$/oorax/views.py" />
         <option value="$PROJECT_DIR$/Formation/.gitignore.py" />
+        <option value="$PROJECT_DIR$/oorax/templates/registration/categorie_form.html" />
+        <option value="$PROJECT_DIR$/oorax/views.py" />
+        <option value="$PROJECT_DIR$/oorax/urls.py" />
+        <option value="$PROJECT_DIR$/oorax/templates/registration/home.html" />
+        <option value="$PROJECT_DIR$/oorax/templates/base2.html" />
+        <option value="$PROJECT_DIR$/oorax/templates/registration/index.html" />
+        <option value="$PROJECT_DIR$/oorax/templates/base.html" />
+        <option value="$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html" />
       </list>
     </option>
   </component>
@@ -201,7 +213,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -219,20 +231,46 @@
               <item name="Formation" type="462c0819:PsiDirectoryNode" />
               <item name="oorax" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Formation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Formation" type="462c0819:PsiDirectoryNode" />
+              <item name="oorax" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Formation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Formation" type="462c0819:PsiDirectoryNode" />
+              <item name="oorax" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="registration" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Formation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Formation" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Formation" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Formation" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="wysibb" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="vcs.CVS" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../myproject/Lib/site-packages/django/bin/ComptaClouds" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\1833pirates\Envs\oorax\Lib\site-packages\django\bin\Formation\static\js" />
+      <recent name="C:\Users\1833pirates\Envs\oorax\Lib\site-packages\django\bin\Formation\static\css" />
       <recent name="C:\Users\1833pirates\Envs\oorax\Lib\site-packages\django\bin\Formation\oorax\templates\registration" />
     </key>
   </component>
@@ -271,19 +309,19 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24906507" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874355" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -299,7 +337,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>506</line>
+          <line>514</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -309,7 +347,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>70</line>
+          <line>74</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -324,84 +362,40 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>670</line>
+          <line>678</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>889</line>
+          <line>897</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>459</line>
+          <line>467</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>759</line>
+          <line>767</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>396</line>
+          <line>404</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/oorax/urls.py</url>
+          <line>22</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="18" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/recharger_compte.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1105">
-          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/typequestion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/historique.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="28" column="45" lean-forward="false" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/transfert_credit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/corrige_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/oorax/contenu_confirm_delete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oorax/templates/oorax/cour_confirm_delete.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -492,27 +486,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/categorie_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="35" lean-forward="false" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/cour_register_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-867">
-          <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/detail_stat.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="42" column="81" lean-forward="false" selection-start-line="42" selection-start-column="81" selection-end-line="42" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oorax/templates/registration/chapitre_cour.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -525,13 +498,6 @@
         <state relative-caret-position="797">
           <caret line="350" column="17" lean-forward="false" selection-start-line="350" selection-start-column="17" selection-end-line="350" selection-end-column="17" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="23" column="35" lean-forward="false" selection-start-line="23" selection-start-column="35" selection-end-line="23" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -553,7 +519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="41" lean-forward="false" selection-start-line="17" selection-start-column="27" selection-end-line="22" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -561,7 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="46" column="40" lean-forward="false" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -578,8 +542,143 @@
         <state relative-caret-position="170">
           <caret line="10" column="60" lean-forward="false" selection-start-line="10" selection-start-column="60" selection-end-line="10" selection-end-column="60" />
           <folding>
-            <element signature="e#0#66#0" expanded="true" />
+            <element signature="e#0#66#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activation_email_subject.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activation_email.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Formation/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2380">
+          <caret line="140" column="29" lean-forward="false" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/registration_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activations_email.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activation_complete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activation_complete_admin_pending.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../contrib/auth/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-510">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../registration/templates/registration/activation_email.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../registration/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-113">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../registration/backends/simple/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../registration/backends/default/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2518">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/admin_approve_complete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../registration/backends/default/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="34" column="47" lean-forward="true" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../registration/backends/simple/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../registration/auth_urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="34" column="38" lean-forward="true" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/admin_approve.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Formation/.gitignore.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/detail_stat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="42" column="81" lean-forward="false" selection-start-line="42" selection-start-column="81" selection-end-line="42" selection-end-column="81" />
         </state>
       </provider>
     </entry>
@@ -616,79 +715,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activation_email_subject.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activation_email.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Formation/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="140" column="29" lean-forward="false" selection-start-line="140" selection-start-column="29" selection-end-line="140" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/registration_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activations_email.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activation_complete.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activation_complete_admin_pending.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../contrib/auth/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oorax/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="39" lean-forward="false" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        <state relative-caret-position="986">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/categorie_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="12" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/materialize/css/materialize.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="3058" column="0" lean-forward="false" selection-start-line="3058" selection-start-column="0" selection-end-line="3099" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/admin_approve_complete_email_subject.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -700,134 +755,107 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../registration/templates/registration/activation_email.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="3" lean-forward="true" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../registration/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-113">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../registration/backends/simple/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../registration/backends/default/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2518">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oorax/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
+        <state relative-caret-position="20">
+          <caret line="21" column="19" lean-forward="false" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#681#854#0" expanded="false" />
-            <element signature="e#881#1739#0" expanded="false" />
-            <element signature="e#1821#2343#0" expanded="false" />
-            <element signature="e#2560#3132#0" expanded="false" />
-            <element signature="e#3179#3830#0" expanded="false" />
-            <element signature="e#3879#4519#0" expanded="false" />
-            <element signature="e#4570#4646#0" expanded="false" />
-            <element signature="e#4701#5328#0" expanded="false" />
-            <element signature="e#4870#5119#0" expanded="false" />
-            <element signature="e#5385#5966#0" expanded="false" />
-            <element signature="e#6025#6136#0" expanded="false" />
-            <element signature="e#6191#8245#0" expanded="false" />
-            <element signature="e#8298#9038#0" expanded="false" />
-            <element signature="e#9093#9175#0" expanded="false" />
-            <element signature="e#9237#11429#0" expanded="false" />
-            <element signature="e#11484#12599#0" expanded="false" />
-            <element signature="e#12656#12742#0" expanded="false" />
-            <element signature="e#12796#12853#0" expanded="false" />
-            <element signature="e#12912#13824#0" expanded="false" />
-            <element signature="e#13883#15239#0" expanded="false" />
-            <element signature="e#15292#15512#0" expanded="false" />
-            <element signature="e#15537#16714#0" expanded="false" />
-            <element signature="e#16762#16998#0" expanded="false" />
-            <element signature="e#17050#19394#0" expanded="false" />
-            <element signature="e#19424#20093#0" expanded="false" />
-            <element signature="e#20149#20266#0" expanded="false" />
-            <element signature="e#20315#21084#0" expanded="false" />
-            <element signature="e#21133#21187#0" expanded="false" />
-            <element signature="e#21249#23493#0" expanded="false" />
-            <element signature="e#23549#24416#0" expanded="false" />
-            <element signature="e#24486#26377#0" expanded="false" />
-            <element signature="e#26434#30972#0" expanded="false" />
-            <element signature="e#26670#27761#0" expanded="false" />
-            <element signature="e#27798#29064#0" expanded="false" />
-            <element signature="e#29116#29822#0" expanded="false" />
-            <element signature="e#30118#30972#0" expanded="false" />
-            <element signature="e#31001#31662#0" expanded="false" />
-            <element signature="e#31691#32357#0" expanded="false" />
+            <element signature="e#682#731#0" expanded="false" />
+            <element signature="e#757#930#0" expanded="false" />
+            <element signature="e#957#1815#0" expanded="false" />
+            <element signature="e#1897#2419#0" expanded="false" />
+            <element signature="e#2636#3379#0" expanded="false" />
+            <element signature="e#3426#4077#0" expanded="false" />
+            <element signature="e#4126#4766#0" expanded="false" />
+            <element signature="e#4817#4893#0" expanded="false" />
+            <element signature="e#4948#5575#0" expanded="false" />
+            <element signature="e#5117#5366#0" expanded="false" />
+            <element signature="e#5632#6213#0" expanded="false" />
+            <element signature="e#6272#6383#0" expanded="false" />
+            <element signature="e#6438#8492#0" expanded="false" />
+            <element signature="e#8545#9285#0" expanded="false" />
+            <element signature="e#9340#9422#0" expanded="false" />
+            <element signature="e#9484#11676#0" expanded="false" />
+            <element signature="e#11731#12846#0" expanded="false" />
+            <element signature="e#12903#12989#0" expanded="false" />
+            <element signature="e#13043#13100#0" expanded="false" />
+            <element signature="e#13159#14071#0" expanded="false" />
+            <element signature="e#14130#15486#0" expanded="false" />
+            <element signature="e#15539#15759#0" expanded="false" />
+            <element signature="e#15784#16961#0" expanded="false" />
+            <element signature="e#17009#17245#0" expanded="false" />
+            <element signature="e#17297#19641#0" expanded="false" />
+            <element signature="e#19671#20340#0" expanded="false" />
+            <element signature="e#20396#20513#0" expanded="false" />
+            <element signature="e#20562#21331#0" expanded="false" />
+            <element signature="e#21380#21434#0" expanded="false" />
+            <element signature="e#21496#23740#0" expanded="false" />
+            <element signature="e#23796#24663#0" expanded="false" />
+            <element signature="e#24733#26624#0" expanded="false" />
+            <element signature="e#26681#31219#0" expanded="false" />
+            <element signature="e#26917#28008#0" expanded="false" />
+            <element signature="e#28045#29311#0" expanded="false" />
+            <element signature="e#29363#30069#0" expanded="false" />
+            <element signature="e#30365#31219#0" expanded="false" />
+            <element signature="e#31248#31909#0" expanded="false" />
+            <element signature="e#31938#32604#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/admin_approve_complete.html">
+    <entry file="file://$PROJECT_DIR$/oorax/templates/bases.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-88">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/wysibb/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1633">
+          <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/cour_register_form.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../registration/backends/default/urls.py">
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="34" column="47" lean-forward="true" selection-start-line="34" selection-start-column="47" selection-end-line="34" selection-end-column="47" />
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../registration/backends/simple/urls.py">
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../registration/auth_urls.py">
+    <entry file="file://$PROJECT_DIR$/oorax/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="34" column="38" lean-forward="true" selection-start-line="34" selection-start-column="38" selection-end-line="34" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/admin_approve.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Formation/.gitignore.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+        <state relative-caret-position="100">
+          <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
           <folding />
         </state>
       </provider>
