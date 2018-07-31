@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d22b3bd-247f-4e71-b05f-51625c042ddf" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/oorax/templates/bases.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/oorax/templates/registration/index.html" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/oorax/templates/base.html" afterPath="$PROJECT_DIR$/oorax/templates/base.html" />
-      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/categorie_form.html" afterPath="$PROJECT_DIR$/oorax/templates/registration/categorie_form.html" />
       <change beforePath="$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html" afterPath="$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html" />
-      <change beforePath="$PROJECT_DIR$/oorax/urls.py" afterPath="$PROJECT_DIR$/oorax/urls.py" />
-      <change beforePath="$PROJECT_DIR$/oorax/views.py" afterPath="$PROJECT_DIR$/oorax/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -84,8 +78,18 @@
       <file leaf-file-name="contenu_cour.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+            <state relative-caret-position="68">
+              <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/oorax/templates/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -96,16 +100,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1633">
               <caret line="57" column="30" lean-forward="false" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/oorax/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -187,8 +181,8 @@
         <option value="$PROJECT_DIR$/oorax/templates/registration/home.html" />
         <option value="$PROJECT_DIR$/oorax/templates/base2.html" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/index.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/base.html" />
         <option value="$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html" />
+        <option value="$PROJECT_DIR$/oorax/templates/base.html" />
       </list>
     </option>
   </component>
@@ -828,14 +822,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/cour_register_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oorax/templates/registration/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -844,18 +830,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/cour_register_form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="68">
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/oorax/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+        <state relative-caret-position="34">
+          <caret line="2" column="1" lean-forward="false" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
           <folding />
         </state>
       </provider>
