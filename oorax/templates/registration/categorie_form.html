@@ -11,17 +11,11 @@
                     {% for b in categories %}
 
                                 <option value="{{ b.id }}"  id="er">
-                                    {% if b.id in a %}
-
-                                            <p>{{ b.nom_categorie }}<br>--
-                                                {{ x.nom_categorie }}</p>
-
-                                    {% else %}
 
 
                                      <p>{{ b.nom_categorie }}</p>
 
- {% endif %}
+
                                 </option>
 
                     {% endfor %}

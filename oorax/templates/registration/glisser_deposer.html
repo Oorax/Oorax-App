@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<nav class="navbar navbar-fixed-left navbar-minimal animate" role="navigation">
+    	<div class="navbar-toggler animate">
+			<span class="menu-icon"></span>
+		</div>
+        <ul class=" navbar-menu animate">
+                <li><a href="#">Home</a></li>
+    			<li ><a href="#">Profile</a></li>
+				<li ><a href="#">Messages</a></li>
+
+				<li><a href="#">Home</a></li>
+				<li ><a href="#">Profile</a></li>
+				<li ><a href="#">Messages</a></li>
+
+        </ul>
+</nav>
+<form method="post"  action="">
+    {% csrf_token %}
+    <div id="simpleList" class="list-group">
+    </div>
+     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+      <!-- Latest Sortable -->
+      <script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
+
+    <div id="listWithHandle" class="list-group">
+         {% for c in chapitre %}
+        <div>
+          <span  class="glyphicon glyphicon-move" aria-hidden="true"></span>
+          <input type="checkbox" id="check" name="check" value=" {{ c.id }}" checked/>{{ c.nom_chapitre }}{{ c.ordre }}
+        </div>
+        {% endfor %}
+      </div>
+     <input type="submit" value="submit" />
+</form>
+
+<script>
+
+
+// Simple list
+Sortable.create(simpleList, { /* options */ });
+
+// List with handle
+Sortable.create(listWithHandle, {
+  handle: '.glyphicon-move',
+  animation: 850
+});
+
+</script>
+</body>
+<style>
+    select#listWithHandle {
+    margin-left: 300px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+
+</style>
+</html>

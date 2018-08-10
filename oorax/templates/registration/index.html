@@ -1,85 +1,161 @@
-{% load static %}
 
+{% load static %}
 {% block content %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Title</title>
-     <!-- pour editeur de texte debut -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script>
-	<link rel="stylesheet" href="http://cdn.wysibb.com/css/default/wbbtheme.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script>
-	<link rel="stylesheet" href="http://cdn.wysibb.com/css/default/wbbtheme.css" />
-
-     <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-     <script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script>
-     <link rel="stylesheet" href="http://cdn.wysibb.com/css/default/wbbtheme.css" /-->
-
-     <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script-->
-
-     <script>
-	$(document).ready(function() {
-
-	  $("#textarea1").wysibb()
-	})
-	</script>
-
-
-       <!-- pour editeur de texte fin -->
-
-     <!--Import Google Icon Font-->
-      <!--link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <!--link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/-->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-
-      <!--Let browser know website is optimized for mobile-->
-    <!--script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script-->
-
-
-</head>
+    <head>
+        <meta charset="UTF-8">
+         <!-- pour editeur de texte debut -->
+    
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+           <!-- pour editeur de texte fin -->
+    
+         <!--Import Google Icon Font-->
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <!--Import materialize.css-->
+          <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+    
+          <!--Let browser know website is optimized for mobile-->
+        <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+    
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Title</title>
+    </head>
     <body>
+    <nav>
+
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo ">Oorax.ci</a>
+
+             <div class="input-field brand-logo right">
+                          <input id="search" type="search" required>
+                          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                          <i class="material-icons">close</i>
+             </div>
+
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
+
+        </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">Sass</a></li>
+    <li><a href="badges.html">Components</a></li>
+    <li><a href="collapsible.html">Javascript</a></li>
+    <li><a href="mobile.html">Mobile</a></li>
+    <li><a class="sidenav-close" href="#!"><i class="large material-icons">close</i></a></li>
+  </ul>
+
 
     <div class="row">
-      <div class="blue-grey col s12 m12">This div is 12-columns wide on all screen sizes</div>
+        <div class="blue-grey col s12 m12">
+            <img src="{% static 'img/pub.jpg' %}" alt="UML diagram" style="width:100%;height:100px;">
+            </div><br>
       <div class="container">
-          <div class="col s2"></div>
-          <div class="col s8">
 
-              <div class="col s12 m6 l6 card-panel teal lighten-2 padding-right-s3 bordure"><h3 class="flow-text">Oorax Pro</h3><br><p>formation professionnel</p></div>
-              <div class="col s12 m6 l6 card-panel teal lighten-2 padding-right-s bordure"><h3 class="flow-text">Oorax Exaco</h3><br><p>examens et concours</p></div>
-              <div class="col s12 m6 l6 card-panel teal lighten-2 padding-right-s3 bordure"><h3 class="flow-text">Oorax Academi</h3><br><p>aide scolaire et universitaire</p></div>
-              <div class="col s12 m6 l6 card-panel teal lighten-2 padding-right-s bordure"><h3 class="flow-text">Oorax Sondage</h3><br><p>enquette et sondage</p></div>
-          </div><br><br> <br>
+          <div class="col s1"></div>
+          <div class="col s10">
 
-       </div>
+              <div class="col s6 m6 l6 card-panel  padding-right-s3 bordure">
+                  <h3 class="flow-text center"><a href="home.html"> <i class="large material-icons iconcolor">headset_mic</i></a><br>Aide scolaire</h3>
+              </div>
+
+              <div class="col s6 m6 l6 card-panel padding-right-s bordure">
+                  <h3 class="flow-text center"><i class="large material-icons iconcolor">access_alarms</i><br>Examen et concour</h3>
+              </div>
+
+
+              <div class="col s6 m6 l6 card-panel  padding-right-s3 bordure">
+                  <h3 class="flow-text center"><i class="large material-icons iconcolor">donut_small</i><br>Professionnel</h3>
+              </div>
+
+
+              <div class="col s6 m6 l6 card-panel  padding-right-s bordure">
+                  <h3 class="flow-text center"><i class="large material-icons iconcolor">poll</i><br>Sondage</h3>
+              </div>
+
+              <div class="col s6 m6 l6 card-panel  padding-right-s3 bordure">
+                  <h3 class="flow-text center"><i class="large material-icons iconcolor">add</i><br>Aide universitaire</h3>
+              </div>
+
+
+              <div class="col s6 m6 l6 card-panel  padding-right-s bordure">
+                  <h3 class="flow-text center"><i class="large material-icons iconcolor">perm_contact_calendar</i><br>Contact</h3>
+              </div>
+          </div>
+          <div class="col s1"></div>
+
+      </div>
     </div>
- <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <textarea id="textarea1" class="materialize-textarea editor"></textarea>
+    </div>
 
-                    </div>
-                  </div>
-                </form>
-             </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+    </script>
     </body>
   <style>
-      /*.col.s12.padding-right-s3 {
+      /*.padding-right-s3 {
     margin-left: -15px;
     margin-right: 15px;
 }*/
+.iconcolor{
+    color:#ee6e73;
+    }
+.bordure{
+    border:1px solid #1a237e;
+    padding:20px;
+    box-sizing:border-box;
+    }
 
-.bordure{border:1px solid orange;padding:20px;
-  box-sizing:border-box;}
+.center {
+    font-size: 1.2rem;
+    text-align: center;
+}
+body {
+  background: green;
+  }
 
+@media screen and (min-width: 200px) and (max-width: 640px) {
+  .bloc {
+    display:block;
+    clear:both;
+  }
+  body {
+    background: #ebebeb;
+  }
+  .col.s6.padding-right-s3 {
+    margin-left: -15px;
+    margin-right: 15px;
+    }
+    .bordure{
+    border:1px solid #1a237e;
+    padding:20px;
+    box-sizing:border-box;
+    }
+
+
+}
 
   </style>
 </html>

@@ -1,5 +1,5 @@
-
-{% extends "base.html" %}
+{% load bbcode_tags %}
+{% bbcode entry.bbcode_content %}
 {% block content %}
 
 <html lang="en">
@@ -49,6 +49,7 @@
 </form>
 
 <div class="ligne" ><h4 class="lignes">Cour:<a href="{% url 'cour'   %}">{{ cou }}</a>  >>> Chapitre: <a href="{% url 'chapitre_cour' id=fo  %}">{{ c }}</a> >>> Lesson: <a href="{% url 'lesson_chapitre' id=m  %}"> {{ nom }}</a> >>> Contenu:</h4></div>
+{{ plain_txt }}
         <table>
             <thead> <!-- En-tête du tableau -->
                <tr>
@@ -64,7 +65,7 @@
             <tr>
                 <td>{{ co.id }}</td>
                 <td>{{ co.titre }} </td>
-                <td>{{ co.contenu_texte }} </td>
+                <td>{{ co.contenu_texte|bbcode  }} </td>
                 <td>{{ co.url }} </td>
                 <td>{{ co.description }} </td>
                

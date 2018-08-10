@@ -25,7 +25,7 @@ class CategorieForm(forms.ModelForm):
 class CourForm(forms.ModelForm):
     class Meta:
         model = Cour
-        fields = ('titre','prix',)
+        fields = ('titre','prix','description','image',)
 
 class ChapitreForm(forms.ModelForm):
     class Meta:

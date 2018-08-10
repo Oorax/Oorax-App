@@ -1,5 +1,9 @@
 import json as simplejson
-
+from pyquery import PyQuery as pq
+import postmarkup
+import bbcode
+from html.parser import HTMLParser
+from precise_bbcode.bbcode import get_parser
 from django.contrib.auth.views import logout
 from django.http import HttpResponse, QueryDict
 import MySQLdb as db
@@ -14,13 +18,26 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.sites.shortcuts import get_current_site
 from django.template.loader import render_to_string
-
+from django.utils import text
 
 # Create your views here.
 
 #page d'accueil
 def index(request):
+    parser = bbcode.Parser()
+    code = "[s]a = [1, 2, 3, 4, 5][/s]"
+    plain_txt = parser.strip(code)
+    print(plain_txt)
+    #parser = get_parser()
+    #rendered = parser.render('[b]Hello [u]world![/u][/b]')
+    #print(rendered)
+    #h = HTMLParser()
+    #print(h.unescape('<strong>huiz</strong>'))
+    #markup = postmarkup.PostMarkup().default_tags()
+    #bbcode = "[b]Hello, World![/b]"
+    #print(markup.render(bbcode))
     return render(request, 'registration/index.html')
+
 
 
 def home(request):
@@ -98,21 +115,26 @@ def categorie(request):
 def cour(request):
 
     if request.method == 'POST':
-        form = CourForm(request.POST)
+        form = CourForm(request.POST,request.FILES)
         if form.is_valid():
             nom_cat = request.POST["hides"]
+
             cat = Categorie.objects.get(nom_categorie=nom_cat)
             print(cat.id)
             user = form.save(commit=False)
             user.categorieid_id = cat.id
             user.etat_cour=0
+
             user.save()
-            return redirect('cour')
+        categories = Categorie.objects.all()
+        cours = Cour.objects.filter(etat_cour=0)
+        return render(request, 'registration/cour_register_form.html',
+                          {'form': form, 'categories': categories, 'cours': cours})
+
     else:
         form = CourForm()
         categories = Categorie.objects.all()
         cours = Cour.objects.filter(etat_cour=0)
-
     return render(request, 'registration/cour_register_form.html',{'form': form,'categories':categories,'cours':cours})
 
 #modiffier cour
@@ -321,8 +343,18 @@ def contenu_lesson(request,id):
         form = ContenuForm()
         form2 = ContenuLienForm()
         contenu = Contenue.objects.filter(lessoneid_id=a)
+        #parser = get_parser()
+        print(postmarkup.parser.PostMarkup)
+        #parser = bbcode.Parser()
+        markup =postmarkup.parser.PostMarkup()
+        #bbcode = "[b]Hello, World![/b]"
+
+        for c in contenu:
+            plain_txt = markup.render_to_html(c.contenu_texte)
+        print('de la base de donnee',plain_txt)
 
         cour = Cour.objects.all()
+
         for cous in cour:
             if cous.id == g:
                 cou=cous.titre
@@ -350,6 +382,7 @@ def contenu_lesson(request,id):
                        'nom':nom,
                        'chapitre':chapitre,
                        'contenu': contenu,
+                        'plain_txt':plain_txt,
                        }
                       )
 
@@ -893,7 +926,6 @@ def cherless(request):
         result_set.append({'name': city.nom_lesson})
     return HttpResponse(simplejson.dumps(result_set), content_type='application/json')
 
-
 #daatails statistique
 def details(request,id):
     questeva=QuestionEvaluation.objects.filter(evaluation_id=id)
@@ -931,9 +963,46 @@ def details(request,id):
                    'questeva':questeva,'sessioneva':sessioneva,
                    'liste_question':liste_question})
 
+def glisser(request):
+    if request.method == 'POST':
+        chek = request.POST.getlist('check')
+        print(chek)
+        chapi=[]
+       # chapp = ChapitreForm()
+        #chape = chapp.save(commit=False)
+        chapitre = Chapitre.objects.filter(courid_id=3)
+        for cha in chapitre:
+            chapi.append(cha.id)
+
+        i=0
+        if len(chapi)>i:
+            while len(chapi)>i:
+                if int(chek[i])==int(chapi[i]):
+                    print(chek[i],'==',chapi[i])
+                    pass
+                else:
+                    print(chek[i], '!=', chapi[i])
+                    chapitre = Chapitre.objects.get(id=chek[i])
+                    chapitre.ordre='2'
+                    chapitre.save()
+
+                    chapitre = Chapitre.objects.get(id=chapi[i])
+                    chapitre.ordre = '3'
+                    chapitre.save()
+                i = i + 1
+        else:
+            print('finich')
 
 
+        #for check in chek:
+         #   for cha in chapitre:
+          #      if cha.id == check:
+           #         print(check,'=',cha.id,'ok')
+            #    else:
+             #       print(check,'!=',cha.id,'no')
 
+    chapitre = Chapitre.objects.filter(courid_id=3)
+    return render(request, 'registration/glisser_deposer.html',{'chapitre':chapitre})
 
 
 

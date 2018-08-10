@@ -22,13 +22,16 @@ class Categorie(models.Model):
 class Cour(models.Model):
     #user = models.ManyToManyField(CustomUser)
     titre = models.CharField(max_length=45, blank=True, null=True)
+    description = models.CharField(max_length=255, blank=True, null=True)
     prix = models.FloatField(null=True, blank=True, default=None)
     etat_cour = models.BooleanField(default=False)
+    image = models.ImageField(upload_to="logo")
     categorieid = models.ForeignKey(Categorie, blank=True, null=True, on_delete=models.CASCADE,
                                   related_name='+', )
 
 class Chapitre(models.Model):
      nom_chapitre = models.CharField(max_length=200, blank=True, null=True)
+     ordre = models.IntegerField(blank=True,null=True)
      courid = models.ForeignKey(Cour, blank=True, null=True, on_delete=models.CASCADE,
                                     related_name='+', )
 

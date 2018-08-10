@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+
 
 {% block content %}
 
@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+      <!-- Latest compiled and minified CSS -->
+
 </head>
 <body>
 
@@ -19,7 +21,7 @@
 
 <div class="ligne" ><h4 class="lignes">Cour: <a href="{% url 'cour'  %}">{{ nom }}</a> >>>> Chapitre</h4></div>
 
-        <table>
+        <table >
             <thead> <!-- En-tête du tableau -->
                <tr>
                    <th>N</th>
@@ -28,10 +30,10 @@
                </tr>
             </thead>
             {% for c in chapitre %}
-            <tr>
+            <tr >
 
                 <td>{{ c.id }}</td>
-                <td>{{ c.nom_chapitre }} </td>
+                <td>{{ c.nom_chapitre }}</td>
                 <td><a href="{% url 'lesson_chapitre' c.id %}">Ajouter Lesson</a> || <a href="{% url 'chapitre_edit' c.id %}">Edit</a> || <a href="{% url 'chapitre_delete' c.id %}">Delete</a> </td>
             </tr>
 
@@ -39,8 +41,31 @@
         </table>
 
 
+<script>
+
+
+// Simple list
+Sortable.create(simpleList, { /* options */ });
+
+// List with handle
+Sortable.create(listWithHandle, {
+  handle: '.glyphicon-move',
+  animation: 150
+});
+
+</script>
+
 </body>
 <style>
+body {
+  margin: 10px;
+}
+
+.glyphicon-move {
+  cursor: move;
+  cursor: -webkit-grabbing;
+}
+
     td /* Toutes les cellules des tableaux... */
 {
     border: 1px solid black; /* auront une bordure de 1px */
