@@ -33,3 +33,54 @@
 {% endfor %}
 </body>
 </html>
+
+ <table >
+            <thead> <!-- En-tête du tableau -->
+               <tr>
+                   <th>N</th>
+                   <th>Titre</th>
+                   <th>Actions</th>
+               </tr>
+            </thead>
+            {% for c in chapitre %}
+            <tr >
+
+                <td>{{ c.id }}</td>
+                <td>{{ c.nom_chapitre }}</td>
+                <td>
+                    <a href="{% url 'lesson_chapitre' c.id %}">Ajouter Lesson</a> ||
+                    <a href="{% url 'chapitre_edit' c.id %}">Edit</a> ||
+                    <a href="{% url 'chapitre_delete' c.id %}">Delete</a> </td>
+            </tr>
+
+            {% endfor %}
+        </table>
+
+
+// Simple list
+Sortable.create(simpleList, { /* options */ });
+
+// List with handle
+Sortable.create(listWithHandle, {
+  handle: '.glyphicon-move',
+  animation: 150
+});
+
+
+ {% for less in lesson %}
+             {% if less.chapitre_id in chap_liste %}
+                {% for ch in chap_liste %}
+                    {% for c in chapitre %}
+                        <div class="divider"></div>
+                       <div class="section">
+                            {% if ch is c.id %}
+                                   <h5>Chapitre {{ c.id }} :  {{ c.nom_chapitre }} </h5>
+                                   <p>-------lesson {{ less.id }} :  {{ less.nom_lesson }} </p>
+                            {% else %}
+                              <h5>Chapitre {{ c.id }} :  {{ c.nom_chapitre }} </h5>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+             {% endif %}
+        {% endfor %}

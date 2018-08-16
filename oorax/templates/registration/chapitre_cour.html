@@ -1,5 +1,5 @@
 
-
+{% load static %}
 {% block content %}
 
 <html lang="en">
@@ -7,52 +7,116 @@
     <meta charset="UTF-8">
     <title>Title</title>
       <!-- Latest compiled and minified CSS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+      <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+      <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
+ <!-- Modal Trigger -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Ajouter Chapitre</h4>
+      <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+          <div class="modal-footer">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                     <i class="material-icons right">send</i>
+                </button>
+              <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat"><i class="large material-icons">close</i></a>
+          </div>
+      </form>
+    </div>
+
+</div>
+
+ <div id="modal2" class="modal">
+    <div class="modal-content">
+            <h4>Choisir chapitres</h4>
+            <div class="input-field col s12">
+                <select id="selchap">
+                  <option value="" disabled selected>Choose your option</option>
+                  {% for b in chapitre %}
+                  <option value="{{ b.id }}">{{ b.nom_chapitre }}</option>
+                  {% endfor %}
+                </select>
+
+            </div>
+
+          <h4>Ajouter Lesson</h4>
+          <form method="post" action="{% url 'lesson_chapitre' %}" >
+                {% csrf_token %}
+                {{ formless.as_p }}
+              <div class="modal-footer">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                         <i class="material-icons right">send</i>
+                    </button>
+                  <a href="" class=" modal-action modal-close waves-effect waves-green btn-flat"><i class="large material-icons">close</i></a>
+              </div>
+              <input name="less" type="hidden"  id="less" readonly />
+          </form>
+
+    </div>
+ </div>
 
 
-<form method="post" action="">
+  <!-- Modal Structure -->
 
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="submit" />
-</form>
+<div class="ligne">
+    <h4 class="lignes">
+    Cour: <a href="{% url 'cour'  %}">{{ nom }}</a>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ajouter un chapitre</a>
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Ajouter une lesson</a>
+</div>
 
-<div class="ligne" ><h4 class="lignes">Cour: <a href="{% url 'cour'  %}">{{ nom }}</a> >>>> Chapitre</h4></div>
+ {% for c in chapitre %}
 
-        <table >
-            <thead> <!-- En-tête du tableau -->
-               <tr>
-                   <th>N</th>
-                   <th>Titre</th>
-                   <th>Actions</th>
-               </tr>
-            </thead>
-            {% for c in chapitre %}
-            <tr >
 
-                <td>{{ c.id }}</td>
-                <td>{{ c.nom_chapitre }}</td>
-                <td><a href="{% url 'lesson_chapitre' c.id %}">Ajouter Lesson</a> || <a href="{% url 'chapitre_edit' c.id %}">Edit</a> || <a href="{% url 'chapitre_delete' c.id %}">Delete</a> </td>
-            </tr>
+                         <div class="divider"></div>
+                         <div class="section">
+                            {% if c.id in chap_liste %}
+                                <h5>Chapitre {{ c.id }} :  {{ c.nom_chapitre }} </h5>
+                              {% for less in lesson %}
+                                    {% if less.chapitreid_id is c.id %}
+                                         <p>-------lesson {{ less.id }} :  {{ less.nom_lesson }} </p>
+                                    {% endif %}
+                              {% endfor %}
+                            {% endif %}
+                         </div>
 
-            {% endfor %}
-        </table>
+
+ {% endfor %}
+
+
+
 
 
 <script>
-
-
-// Simple list
-Sortable.create(simpleList, { /* options */ });
-
-// List with handle
-Sortable.create(listWithHandle, {
-  handle: '.glyphicon-move',
-  animation: 150
+//recup id chapitre
+   $(document).ready(function(){
+    $("#selchap").change(function(){
+        $a = $("#selchap").val();
+        $("input[id=less]").val($a);
 });
+})
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'lesson_chapitre' %}',
+        data:{
+            less:$("input[name=less]").val(),
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
 
+        }
+      });
+	});
 </script>
 
 </body>
@@ -66,29 +130,6 @@ body {
   cursor: -webkit-grabbing;
 }
 
-    td /* Toutes les cellules des tableaux... */
-{
-    border: 1px solid black; /* auront une bordure de 1px */
-     padding:15px;
-}
-table
-{
-    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
-     padding:15px;
-}
-td
-{
-    border: 1px solid black;
-    padding:15px;
-}
-
-th
-{
-    border: 1px solid black;
-    padding:15px;
-}
-
-.ligne{display:flex;}
 </style>
 
 </html>

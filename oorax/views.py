@@ -181,9 +181,20 @@ def chapitre_cour(request,id):
 
     else:
         form = ChapitreForm()
-
+        formless = LessonForm()
+        chap_liste=[]
+        lesson = Lesson.objects.all()
         chapitre = Chapitre.objects.filter(courid_id=a)
-        return render(request, "registration/chapitre_cour.html",{'form': form,'nom':nom,'chapitre':chapitre})
+        for pp in chapitre:
+            chap_liste.append(pp.id)
+        print(chap_liste)
+        return render(request, "registration/chapitre_cour.html",
+                      {'formless': formless,
+                       'form': form,
+                       'lesson':lesson,
+                       'nom':nom,'a':a,
+                       'chap_liste':chap_liste,
+                       'chapitre':chapitre})
 
 #modiffier chapitre
 def chapitre_edit(request,id):
@@ -211,31 +222,36 @@ def chapitre_delete(request,id):
     return redirect('chapitre_delete', pk=cour.pk)
 
 #Ajouter lesson
-def lesson_chapitre(request,id):
-    chapitre = Chapitre.objects.get(id=id)
+def lesson_chapitre(request):
+    id_chap = int(request.POST["less"])
+    print(id_chap)
+    chapitre = Chapitre.objects.get(id=id_chap)
     a=chapitre.id
+    b=chapitre.courid_id
+
     liste_evalu=[]
     evaluation=Evaluation.objects.all()
     for eva in evaluation:
         liste_evalu.append(eva.id)
-    print(liste_evalu)
+    #print(liste_evalu)
     m=chapitre.courid_id
     nom = chapitre.nom_chapitre
     #form = ChapitreForm(request.POST or None, instance=Cour, )
     if request.method == 'POST':
-        form = LessonForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
+        formless = LessonForm(request.POST)
+        if formless.is_valid():
+            user = formless.save(commit=False)
             user.chapitreid_id = a
             user.save()
-            print(user.chapitreid_id)
-            return redirect('lesson_chapitre',id=chapitre.id)
+            #print(user.chapitreid_id)
+            return redirect('chapitre_cour',id=b)
 
     else:
-        form = LessonForm()
+
         lesson = Lesson.objects.filter(chapitreid_id=a)
         evaluation = Evaluation.objects.exclude(typeId='')
         optEva = Option.objects.all()
+        chapitres = Chapitre.objects.filter(courid_id=b)
         list=[]
         quesevalu = QuestionEvaluation.objects.all()
         for x in quesevalu:
@@ -259,12 +275,13 @@ def lesson_chapitre(request,id):
         for cou in cour:
             if cou.id == m:
                 j=cou.titre
-        return render(request, "registration/lesson_chapitre.html",
+        return render(request, "registration/chapitre_cour.html",
                       {'liste_evalu':liste_evalu,
                         'a':a,
+                       'chapitres':chapitres,
                        'list':list,
                        'optEva':optEva,
-                       'form': form,
+
                        'cour':cour,
                        'j':j,
                        'm':m,
@@ -1000,9 +1017,10 @@ def glisser(request):
            #         print(check,'=',cha.id,'ok')
             #    else:
              #       print(check,'!=',cha.id,'no')
-
+    i=0
     chapitre = Chapitre.objects.filter(courid_id=3)
-    return render(request, 'registration/glisser_deposer.html',{'chapitre':chapitre})
+
+    return render(request, 'registration/glisser_deposer.html',{'chapitre':chapitre,'i':i,})
 
 
 

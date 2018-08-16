@@ -97,7 +97,7 @@
       <div class="card">
              {% if u.etat_cour is False %}
         <div class="card-image">
-            {% if u.image is not Null %}
+            {% if u.image is False %}
            <img src='{{ u.image.url }}' alt="{{ u.image.name }}"  width="100">
             {% endif %}
           <span id="spancolor" class="card-title">{{ u.titre }}</span>
