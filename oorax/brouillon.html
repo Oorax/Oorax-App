@@ -84,3 +84,21 @@ Sortable.create(listWithHandle, {
                 {% endfor %}
              {% endif %}
         {% endfor %}
+
+
+{% for inscri in  liste_inscr %}
+          {% for lis in liste_transact %}
+            {% if inscri.transaction_id in liste_transact %}
+                {% for cou in cour %}
+                    {% if cou.id is inscri.cour_id %}
+                        <li class="collection-item avatar">
+                          <img src='{{ cou.image.url }}' alt="{{ cou.image.name }}" class="circle" width="100">
+                          <span class="title">Titre: {{ cou.titre }}</span>
+                          <p>Description : {{ cou.description }}</p>
+                          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+         {% endfor %}
+     {% endfor %}

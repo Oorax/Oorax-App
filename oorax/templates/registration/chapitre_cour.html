@@ -82,7 +82,9 @@
                                 <h5>Chapitre {{ c.id }} :  {{ c.nom_chapitre }} </h5>
                               {% for less in lesson %}
                                     {% if less.chapitreid_id is c.id %}
-                                         <p>-------lesson {{ less.id }} :  {{ less.nom_lesson }} </p>
+                                         <p id="hidess">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lesson {{ less.id }} :  {{ less.nom_lesson }}
+                                             &nbsp;&nbsp;&nbsp;<a href="{% url 'contenu_lesson' less.id %}">Ajouter Contenu</a>
+                                         </p>
                                     {% endif %}
                               {% endfor %}
                             {% endif %}
@@ -95,7 +97,14 @@
 
 
 
+
+
+
 <script>
+
+
+
+
 //recup id chapitre
    $(document).ready(function(){
     $("#selchap").change(function(){

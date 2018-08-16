@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'index', views.index, name="index"),
     url(r'home', views.home, name="home"),
     url(r'categorie', views.categorie, name="categorie"),
+    url(r'mes-cours', views.mes_cours, name="mes_cours"),
 
     url(r'^cour/(?P<id>\d+)/edite$', views.cour_edit, name='cour_edit'),
     url(r'^cour/(?P<pk>\d+)/delete$', DeleteView.as_view(model=Cour, success_url="oorax/cour"),
@@ -22,6 +23,8 @@ urlpatterns = [
     url(r'^chapitre/(?P<id>\d+)/edite$', views.chapitre_edit, name='chapitre_edit'),
     url(r'^chapitre/(?P<pk>\d+)/delete$', DeleteView.as_view(model=Chapitre, success_url="oorax/cour"),
         name='chapitre_delete'),
+
+    url(r'^cour/(?P<id>\d+)/details$', views.contenu_mes_cours, name='contenu_mes_cours'),
 
     url(r'^lesson/(?P<id>\d+)/edite$', views.lesson_edit, name='lesson_edit'),
     url(r'^lesson/(?P<pk>\d+)/delete$', DeleteView.as_view(model=Lesson, success_url="oorax/cour/"),

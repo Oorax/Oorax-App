@@ -366,12 +366,8 @@ def contenu_lesson(request,id):
         markup =postmarkup.parser.PostMarkup()
         #bbcode = "[b]Hello, World![/b]"
 
-        for c in contenu:
-            plain_txt = markup.render_to_html(c.contenu_texte)
-        print('de la base de donnee',plain_txt)
 
         cour = Cour.objects.all()
-
         for cous in cour:
             if cous.id == g:
                 cou=cous.titre
@@ -399,7 +395,7 @@ def contenu_lesson(request,id):
                        'nom':nom,
                        'chapitre':chapitre,
                        'contenu': contenu,
-                        'plain_txt':plain_txt,
+                       
                        }
                       )
 
@@ -1021,6 +1017,33 @@ def glisser(request):
     chapitre = Chapitre.objects.filter(courid_id=3)
 
     return render(request, 'registration/glisser_deposer.html',{'chapitre':chapitre,'i':i,})
+
+
+#mes cours
+def mes_cours(request):
+    actu_user=request.user
+    actu_user_id=actu_user.id
+    print(actu_user_id)
+    cour=Cour.objects.all()
+    liste_transact=[]
+
+    transaction = Transaction.objects.filter(Q(libelle='Achat') & Q(user_sortie_id=actu_user_id))
+    inscription = Inscription.objects.all()
+    return render(request, 'registration/mes_cours.html',{'cour':cour,'transaction':transaction,'inscription':inscription})
+
+#contenu du cour
+def contenu_mes_cours(request,id):
+    cour = Cour.objects.get(id=id)
+    cour_titre=cour.titre
+    cour_auteur=cour.auteur
+    chapitre = Chapitre.objects.filter(courid_id=cour.id)
+    lesson = Lesson.objects.all()
+    contenu = Contenue.objects.all()
+    return render(request, 'registration/contenu_mes_cours.html',{'contenu':contenu,'lesson':lesson,'chapitre':chapitre,'cour_titre':cour_titre,'cour_auteur':cour_auteur})
+
+
+
+
 
 
 

@@ -21,6 +21,8 @@ class Categorie(models.Model):
 
 class Cour(models.Model):
     #user = models.ManyToManyField(CustomUser)
+    auteur = models.ForeignKey(CustomUser, blank=True, null=True, on_delete=models.CASCADE,
+                                    related_name='+', )
     titre = models.CharField(max_length=45, blank=True, null=True)
     description = models.CharField(max_length=255, blank=True, null=True)
     prix = models.FloatField(null=True, blank=True, default=None)

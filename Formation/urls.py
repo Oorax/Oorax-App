@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls import url
 from oorax import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -27,4 +29,4 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^activate/', include('registration.backends.default.urls')),
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
