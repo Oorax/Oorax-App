@@ -28,10 +28,10 @@
     {% csrf_token %}
   <ul id="sortable_nav" class="sortable ui-sortable">
     {% for c in chapitre %}
-    <li class="ui-state-default " id=""  style="">
-        <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+    <li class="ui-state-default " id="identi{{ c.id }}"  style="">
+        <span class="ui-icon ui-icon-arrowthick-2-n-s" >{{ c.id }}</span>
         {{ c.nom_chapitre }}
-        <div id="recupVal" id="{{ c.id }}"  class="ui-state-default sortable-number">
+        <div id="recupVal{{ c.id }}"   class="ui-state-default sortable-number">
 
         </div>
     </li>
@@ -54,7 +54,7 @@ alert(valeur);
 }
 
 $('#form').click ( function(){
-var GetAttribute= document.getElementsByTagName("li");
+var GetAttribute= document.getElementsByTagName("span") ;
 for(var i=0; i< GetAttribute.length; i++){
   var idmarque=GetAttribute.item(i).getAttribute("id");
    console.log(idmarque);
@@ -78,7 +78,6 @@ $("#sortable_nav").sortable({
             $(this).children('.sortable-number').html(newVal);
             $(this).children('#item_display_order').val(newVal);
 
-           
 
         });
     }

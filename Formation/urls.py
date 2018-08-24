@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^oorax/', include('oorax.urls')),
-    url(r'^compte-credit/', include('oorax.urls')),
+    url(r'^', include('searchs.urls')),
     url(r'^getdetails/', views.getdetails, name="getdetails"),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^activate/', include('registration.backends.default.urls')),

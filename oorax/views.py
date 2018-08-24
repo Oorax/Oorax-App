@@ -1041,6 +1041,28 @@ def contenu_mes_cours(request,id):
     contenu = Contenue.objects.all()
     return render(request, 'registration/contenu_mes_cours.html',{'contenu':contenu,'lesson':lesson,'chapitre':chapitre,'cour_titre':cour_titre,'cour_auteur':cour_auteur})
 
+# pour le moteur de recherche
+#def search_form(request):
+   # return render(request, 'search/view.html')
+
+def search(request):
+    if 'q' in request.GET and request.GET['q']:
+        q = request.GET['q']
+        cours = Cour.objects.filter(titre__icontains=q)
+        annonces = Annonce.objects.filter(titre__icontains=q)
+        for c in cours:
+            print('pour cour',c.titre)
+        for a in annonces:
+            print('pour annonce', a.titre)
+        return render(request, 'search/result.html',
+                      {'cours': cours,
+                       'annonces':annonces,
+                       'query': q})
+
+    else:
+        message = 'You submitted an empty form.'
+    return HttpResponse(message)
+
 
 
 

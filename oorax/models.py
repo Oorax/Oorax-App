@@ -5,7 +5,7 @@ from django_mysql.models import ListCharField
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import User
-
+from django.db.models import Q
 # Create your models here.
 
 class CustomUser(AbstractUser):
@@ -30,6 +30,8 @@ class Cour(models.Model):
     image = models.ImageField(upload_to="logo")
     categorieid = models.ForeignKey(Categorie, blank=True, null=True, on_delete=models.CASCADE,
                                   related_name='+', )
+
+    
 
 class Chapitre(models.Model):
      nom_chapitre = models.CharField(max_length=200, blank=True, null=True)
@@ -88,7 +90,7 @@ class Evaluation(models.Model):
     )
     user = models.ForeignKey(CustomUser, blank=True, null=True, on_delete=models.CASCADE,
                          related_name='+', )
-
+    
 class SessionEvaluation(models.Model):
     #reponsse = models.CharField(max_length=20, blank=True, null=True)
     reponse = ListCharField(
@@ -185,5 +187,9 @@ class AchatEvaluation(models.Model):
     transaction = models.ForeignKey(Transaction, models.DO_NOTHING)
     evaluation = models.ForeignKey(Evaluation, models.DO_NOTHING)
 
+
+class Annonce(models.Model):
+    titre = models.CharField(max_length=45, blank=True, null=True)
+    description = models.CharField(max_length=200, blank=True, null=True)
 
 

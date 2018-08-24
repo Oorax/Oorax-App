@@ -1,0 +1,26 @@
+<html>
+    <head>
+    <title>Book Search</title>
+    </head>
+    <body>
+        <p>You searched for: <strong>{{ query }}</strong></p>
+
+        {% if cours %}
+            <p>Found {{ cours|length }} cour{{ cours|pluralize }}.</p>
+            <ul>
+                {% for cour in cours %}
+                <li>{{ cour.titre }}</li>
+                {% endfor %}
+            </ul>
+        {% elif annonces %}
+            <p>Found {{ annonces|length }} Annonce{{ annonces|pluralize }}.</p>
+            <ul>
+                {% for ann in annonces %}
+                <li>{{ ann.titre }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>no result</p>
+        {% endif %}
+    </body>
+</html>

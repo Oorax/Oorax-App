@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'oorax',
     'django_mysql',
+    'searchs',
 ]
 
 ACCOUNT_ACTIVATION_DAYS=7
