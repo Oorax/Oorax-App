@@ -40,55 +40,25 @@ $(document).ready(function(){
 
 // auto complette
 
-$(function () {
-    var availableTags = [
-        "MongoDB",
-        "ExpressJS",
-        "Angular",
-        "NodeJS",
-        "JavaScript",
-        "jQuery",
-        "jQuery UI",
-        "PHP",
-        "Zend Framework",
-        "JSON",
-        "MySQL",
-        "PostgreSQL",
-        "SQL Server",
-        "Oracle",
-        "Informix",
-        "Java",
-        "Visual basic",
-        "Yii",
-        "Technology",
-        "WilzonMB.com"
-    ];
-    $("#q").autocomplete({
-        source: availableTags,
-        minLength: 0
-    }).focus(function(){
-       $(this).autocomplete('search', $(this).val())
-     });
-});
-/*document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.autocomplete');
-    var instances = M.Autocomplete.init(elems, options);
-  });
-
-  $(document).ready(function(){
-    $('input#search').autocomplete({
-      data: {
-        "Annonce": null,
-        "Actualité":null,
-        "Cours": null,
-        "Evenement":null,
-        "Location":null,
-        "Restaurant":null,
-        "Renseignement":null,
-        "Rencontre":null,
-        "Pharmatie":null,
-        "Google": 'https://placehold.it/250x250'
-      },
+ $(document).ready(function() {
+        BindControls();
     });
-  });
-*/
+
+    function BindControls() {
+        var Countries = [
+            'Cour',
+            'Annonce',
+            'Evènement',
+            'Pharmacie',
+            ];
+
+        $('#tvsearch').autocomplete({
+            source: Countries,
+            minLength: 0,
+            scroll: true
+        }).focus(function() {
+            $(this).autocomplete("search", "");
+        });
+    }
+
+

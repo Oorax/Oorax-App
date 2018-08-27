@@ -1,26 +1,55 @@
-<html>
-    <head>
-    <title>Book Search</title>
-    </head>
-    <body>
-        <p>You searched for: <strong>{{ query }}</strong></p>
 
-        {% if cours %}
-            <p>Found {{ cours|length }} cour{{ cours|pluralize }}.</p>
-            <ul>
-                {% for cour in cours %}
-                <li>{{ cour.titre }}</li>
-                {% endfor %}
-            </ul>
-        {% elif annonces %}
-            <p>Found {{ annonces|length }} Annonce{{ annonces|pluralize }}.</p>
-            <ul>
-                {% for ann in annonces %}
-                <li>{{ ann.titre }}</li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>no result</p>
-        {% endif %}
-    </body>
+{% block content %}
+<html>
+<head>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type ="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"> </script>
+
+</head>
+<body style="font-size: 62.5%;">
+    <p style = "font: 14px arial"> Activez cette case et saisissez des valeurs pour la recherche! </p>
+
+    <div style="font: 14px arial">
+        <input type="text" id="tbCountries" />
+    </div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        BindControls();
+    });
+
+    function BindControls() {
+        var Countries = ['ARGENTINA',
+            'AUSTRALIA',
+            'BRAZIL',
+            'BELARUS',
+            'BHUTAN',
+            'CHILE',
+            'CAMBODIA',
+            'CANADA',
+            'CHINA',
+            'DENMARK',
+            'DOMINICA'];
+
+        $('#tbCountries').autocomplete({
+            source: Countries,
+            minLength: 0,
+            scroll: true
+        }).focus(function() {
+            $(this).autocomplete("search", "");
+        });
+    }
+</script>
+
 </html>
+
+    <style>
+        .ui-autocomplete {
+            curseur: pointeur;
+            hauteur: 120px;
+            overflow-y: défiler;
+        }
+    </style>
+{% endblock content %}

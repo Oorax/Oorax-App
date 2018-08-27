@@ -7,13 +7,16 @@
          <!-- pour editeur de texte debut -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Title</title>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
         <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
         <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
         <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/perso.css' %}"  media="screen,projection"/>
 
+        <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type ="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"> </script>
     </head>
 
     <body>
@@ -41,16 +44,18 @@
                 <h1 class="center-align titre">Trouve vite</h1>
             <nav id="mysearch-bar">
                 <div class="nav-wrapper">
-                <form action="/search/" method="get">
+                <form action="/search/" method="get" autocomplete="off">
                     <div class="input-field">
-                        <input type="text" name="q" id="q" placeholder="recherchez sur trouve vite"/>
+                        <input type="text" name="q" id="tvsearch" placeholder="recherchez sur trouve vite"/>
                     </div>
+
                 </form>
                 </div>
             </nav>
         </div>
 
     </body>
+
 </html>
 
 {% endblock %}

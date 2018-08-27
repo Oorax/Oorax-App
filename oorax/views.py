@@ -27,7 +27,7 @@ def index(request):
     parser = bbcode.Parser()
     code = "[s]a = [1, 2, 3, 4, 5][/s]"
     plain_txt = parser.strip(code)
-    print(plain_txt)
+
     #parser = get_parser()
     #rendered = parser.render('[b]Hello [u]world![/u][/b]')
     #print(rendered)
@@ -38,7 +38,9 @@ def index(request):
     #print(markup.render(bbcode))
     return render(request, 'registration/index.html')
 
+def accueil(request):
 
+    return render(request,'registration/accueil.html')
 
 def home(request):
     cours = Cour.objects.filter(etat_cour=0)
@@ -1048,20 +1050,18 @@ def contenu_mes_cours(request,id):
 def search(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
-        cours = Cour.objects.filter(titre__icontains=q)
-        annonces = Annonce.objects.filter(titre__icontains=q)
-        for c in cours:
-            print('pour cour',c.titre)
-        for a in annonces:
-            print('pour annonce', a.titre)
+        if q is "Cour":
+            print('type du q',q)
+            cours = Cour.objects.filter(titre__icontains=q)
+            annonces = Annonce.objects.filter(titre__icontains=q)
         return render(request, 'search/result.html',
                       {'cours': cours,
                        'annonces':annonces,
                        'query': q})
-
     else:
-        message = 'You submitted an empty form.'
+        message = 'invalid.'
     return HttpResponse(message)
+
 
 
 
