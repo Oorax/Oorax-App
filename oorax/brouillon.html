@@ -102,3 +102,23 @@ Sortable.create(listWithHandle, {
             {% endif %}
          {% endfor %}
      {% endfor %}
+
+{% for interro in lesson %}
+                                        {% for ev in evalu %}
+                                            {% if interro.id in liste_chap %}
+
+                                                <ul>
+                                                    {% if interro.id in ev.typeId %}
+                                                        <li class="dist">
+                                                         <input type="radio"  name="check"  id="checks" value="{{ interro.id }}">{{ interro.nom_lesson }}
+                                                        </li>
+                                                    {% else %}
+                                                        <li>
+                                                         <input type="radio"  name="check"  id="check" value="{{ interro.id }}">{{ interro.nom_lesson }}
+                                                        </li>
+                                                    {% endif %}
+                                                 </ul>
+
+                                            {% endif %}
+                                        {% endfor %}
+                                {% endfor %}

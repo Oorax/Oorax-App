@@ -349,3 +349,304 @@ if cour:
     { % endfor %}
     { % endfor %}
     { % endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # a = chapitre.id
+    auteur = request.user
+    chek = request.POST.getlist('check')
+    conn = db.connect(host="localhost", user="root", password="", database="formation")
+    cur = conn.cursor()
+    liste_ques = []
+    liste_quesf = []
+    for rep in chek:
+        questions = Question.objects.filter(lesson_id=rep)
+        for que in questions:
+            if que in liste_ques:
+                pass
+            else:
+                liste_ques.append(que.id)
+            for op in liste_ques:
+                opquestion = OptionQuestion.objects.filter(question_id=op)
+                for opq in opquestion:
+                    if opq.question_id in liste_quesf:
+                        pass
+                    else:
+                        liste_quesf.append(opq.question_id)
+    print('liste des question des lesson ', liste_ques)
+    print('liste des  question de l evaluation ', liste_quesf)
+    print('les lesson', chek)
+    b = request.POST['interne']
+    if form.is_valid():
+        evaluation = form.save(commit=False)
+        evaluation.types = "Interrogation"
+        if int(b) > 0:
+            evaluation.interne = 1
+        else:
+            evaluation.interne = 0
+        evaluation.user_id = auteur.id
+        evaluation.typeId = chek
+        evaluation.save()
+        x = evaluation.id
+        for qu in liste_quesf:
+            try:
+                cur.execute("INSERT INTO oorax_questionevaluation (evaluation_id,question_id)  VALUES (%s,%s) ",
+                            [x, qu])
+                conn.commit()
+            except:
+                # Rollback in case there is any error
+                conn.rollback()
+        return redirect('interrogation', id=a)
+
+    cour = Cour.objects.get(id=id)
+    cour_titre = cour.titre
+    cour_auteur = cour.auteur
+    lesson = Lesson.objects.all()
+    chapitre = Chapitre.objects.filter(courid_id=cour.id)
+    evalu = Evaluation.objects.all()
+    liste_eva = []
+    for li in lesson:
+
+        if li.chapitreid_id is chapitre[0].id:
+            for ev in evalu:
+                if li.id in ev.typeId:
+                    evaluation = ev.id
+        else:
+            pass
+    contenu = Contenue.objects.all()
+    return render(request, 'registration/contenu_mes_cours.html', {
+        'contenu': contenu, 'lesson': lesson,
+        'chapitre': chapitre, 'cour_titre': cour_titre,
+        'cour_auteur': cour_auteur, 'evaluation': evaluation, })
+
+
+
+
+
+
+{% for interro in lesson %}
+                                        {% for ev in evalu %}
+                                            {% if interro.id in liste_chap %}
+
+                                                <ul>
+                                                    {% if interro.id in ev.typeId %}
+                                                        <li class="dist">
+                                                         <input type="radio"  name="check"  id="checks" value="{{ interro.id }}">{{ interro.nom_lesson }}
+                                                        </li>
+                                                    {% else %}
+                                                        <li>
+                                                         <input type="radio"  name="check"  id="check" value="{{ interro.id }}">{{ interro.nom_lesson }}
+                                                        </li>
+                                                    {% endif %}
+                                                 </ul>
+
+                                            {% endif %}
+                                        {% endfor %}
+                                {% endfor %}
+*
+
+cour = Cour.objects.get(id=id)
+lessons = Lesson.objects.all()
+liste_less = []
+cour_id = cour.id
+cour_titre = cour.titre
+cour_auteur = cour.auteur
+evalua = Evaluation.objects.all()
+sessevalu = SessionEvaluation.objects.all()
+i = 0
+n = 0
+chapitre = Chapitre.objects.filter(courid_id=cour_id)
+while len(chapitre) > 0:
+    lesson = Lesson.objects.filter(chapitreid_id=chapitre[0].id)
+    while len(lesson) > 0:
+        for less in lesson:
+            liste_less.append(less.id)
+            for evas in evalua:
+                for x in evas.typeId:
+                    if x is liste_less[0]:
+                        for sessa in sessevalu:
+                            if sessa.evaluation_id is evas.id:
+                                if sessa.point >= 90:
+                                    a = evas.id
+                                else:
+                                    a = sessa.evaluation_id
+        n = n + 1
+
+    i = i + 1
+
+for evas in evalua:
+    for x in evas.typeId:
+        if x is liste_less[0]:
+            a = evas.id
+        print('montr le a', a)
+        print('montr le x', x)
+
+        for evas in evalua:
+            for x in evas.typeId:
+                print('premier', liste_less[0], 'deuxieme', liste_less[1], x)
+                print('mon', i, 'et mon x', x)
+                if x is liste_less[i]:
+                    print(liste_less[i])
+                    a = evas.id
+                    i = i + 1
+                else:
+
+
+
+
+
+                        if sess.point>=90:
+                            print('vous avez 90 %')
+                        else:
+                            for x in evas.typeId:
+                                if x is liste_less[i]:
+                                    print(x,"ok")
+                                    a = evas.id
+                    else:
+                        print("vous n'avez pas encore fait cette evaluation")
+                        for x in evas.typeId:
+                            if x is liste_less[i]:
+                                print(x, "ok")
+                                a = evas.id
+
+if sessevalu:
+    for sess in sessevalu:
+        if evas.id is sess.evaluation_id:
+            if sess.point >= 90:
+                print('vous avez 90 %')
+                # i = i + 1
+                for x in evas.typeId:
+                    b = i + 1
+                    print(x, 'premier', liste_less[b])
+                    if x is liste_less[i]:
+                        print('deux', b)
+                        print('deuxieme', liste_less[b])
+                        print(x, "ok")
+                        a = evas.id
+                        contenu = Contenue.objects.all()
+                        return render(request, 'registration/contenu_mes_cours.html',
+                                      {'contenu': contenu, 'lesson': lesson,
+                                       'chapitre': chapitre, 'cour_titre': cour_titre,
+                                       'cour_auteur': cour_auteur, 'a': a})
+            else:
+                print('vous n avez pas eu 90%')
+                for x in evas.typeId:
+                    if x is liste_less[i]:
+                        print(x, "ok", evas.id)
+                        a = evas.id
+                        contenu = Contenue.objects.all()
+                        return render(request, 'registration/contenu_mes_cours.html',
+                                      {'contenu': contenu, 'lesson': lesson,
+                                       'chapitre': chapitre, 'cour_titre': cour_titre,
+                                       'cour_auteur': cour_auteur, 'a': a})
+
+        else:
+            # print('vous n avez pas encore fais levaluation')
+            for x in evas.typeId:
+                if x is liste_less[i]:
+                    print(x, "ok")
+                    a = evas.id
+                    contenu = Contenue.objects.all()
+                    return render(request, 'registration/contenu_mes_cours.html',
+                                  {'contenu': contenu, 'lesson': lesson,
+                                   'chapitre': chapitre, 'cour_titre': cour_titre,
+                                   'cour_auteur': cour_auteur, 'a': a})
+else:
+    print('rien dans sesseva ')
+    for x in evas.typeId:
+        if x is liste_less[i]:
+            print(x, "ok")
+            a = evas.id
+            contenu = Contenue.objects.all()
+            return render(request, 'registration/contenu_mes_cours.html',
+                          {'contenu': contenu, 'lesson': lesson,
+                           'chapitre': chapitre, 'cour_titre': cour_titre,
+                           'cour_auteur': cour_auteur, 'a': a})
+
+        for x in evas.typeId:
+            b = i + 1
+            print(x, 'premier', liste_less[b])
+            if x is liste_less[i]:
+                print('deux', b)
+                print('deuxieme', liste_less[b])
+                print(x, "ok")
+                a = evas.id
+                contenu = Contenue.objects.all()
+                return render(request, 'registration/contenu_mes_cours.html',
+                              {'contenu': contenu, 'lesson': lesson,
+                               'chapitre': chapitre, 'cour_titre': cour_titre,
+                               'cour_auteur': cour_auteur, 'a': a})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ## a prendre
+            else:
+                print('vous n avez pas encore fais levaluation')
+                for x in evas.typeId:
+                    if x is liste_less[i]:
+                        print(x, "ok", i)
+                        a = evas.id
+                        contenu = Contenue.objects.all()
+                        return render(request, 'registration/contenu_mes_cours.html',
+                                      {'contenu': contenu, 'lesson': lesson,
+                                       'chapitre': chapitre, 'cour_titre': cour_titre,
+                                       'cour_auteur': cour_auteur, 'a': a})
+            else:
+            print('rien dans sesseva ')
+            for x in evas.typeId:
+                if x is liste_less[i]:
+                    print(x, "ok")
+                    a = evas.id
+                    contenu = Contenue.objects.all()
+                    return render(request, 'registration/contenu_mes_cours.html',
+                                  {'contenu': contenu, 'lesson': lesson,
+                                   'chapitre': chapitre, 'cour_titre': cour_titre,
+                                   'cour_auteur': cour_auteur, 'a': a})
+
+
+
+
+
+
+                ##nouveaun a prendre
+                if poin_lt[0] >= 90:
+                    print('vous avez 90 %', evas.id, poin_lt[-1])
+                    for x in evas.typeId:
+                        if x is liste_less[i - 1]:
+                            a = evas.id
+                            print(x, 'premier', i, a, liste_less[i - 1])
+                            contenu = Contenue.objects.all()
+                            return render(request, 'registration/contenu_mes_cours.html',
+                                          {'contenu': contenu, 'lesson': lesson,
+                                           'chapitre': chapitre, 'cour_titre': cour_titre,
+                                           'cour_auteur': cour_auteur, 'a': a})
+                else:
+                    a = evas.id
+                    print('vous n avez pas 90%', a)
+                    contenu = Contenue.objects.all()
+                    return render(request, 'registration/contenu_mes_cours.html',
+                                  {'contenu': contenu, 'lesson': lesson,
+                                   'chapitre': chapitre, 'cour_titre': cour_titre,
+                                   'cour_auteur': cour_auteur, 'a': a})

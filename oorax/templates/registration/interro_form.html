@@ -16,14 +16,23 @@
             {{ form.as_p }}
             <div class="col-md-6">
 
-                            {% for interro in lesson %}
+                                 {% for interro in lesson %}
+                                     {% if interro.id in liste_chap %}
 
-                                 <ul>
-                                    <li>
-                                     <input type="checkbox" name="check"  id="check" value="{{ interro.id }}">{{ interro.nom_lesson }}
-                                    </li>
-                                 </ul>
-                            {% endfor %}
+
+                                                <ul>
+                                                    {% if interro.id in liste_eva %}
+
+
+                                                    {% else %}
+                                                     <li>
+                                                         <input type="radio"  name="check"  id="check" value="{{ interro.id }}">{{ interro.nom_lesson }}
+                                                     </li>
+                                                    {% endif %}
+                                                 </ul>
+
+                                     {% endif %}
+                                {% endfor %}
 
 
 
@@ -64,5 +73,9 @@ $(document).on('submit','#formulaire',function(e){
 	});
 </script>
 </body>
-
+<style>
+    .dist{
+    color:red;
+    }
+</style>
 {% endblock %}

@@ -47,17 +47,16 @@ def search_form(request):
 def search(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
-        cours = Cour.objects.filter(titre__icontains=q)
-        annonces = Annonce.objects.filter(titre__icontains=q)
-        for c in cours:
-            print('pour cour',c.titre)
-        for a in annonces:
-            print('pour annonce', a.titre)
-        return render(request, 'search/result.html',
-                      {'cours': cours,
-                       'annonces':annonces,
-                       'query': q})
-
+        if q == "Cour":
+            print(q)
+            cours = Cour.objects.all()
+            return render(request, 'search/result.html',{'cours': cours,'query': q})
+        elif q == "Annonce":
+                print(q)
+                annonces = Annonce.objects.all()
+                return render(request, 'search/result.html',{'annonces': annonces,'query':q})
+        else:
+            return HttpResponse("no corresponding")
     else:
-        message = 'You submitted an empty form.'
+        message = 'invalid.'
     return HttpResponse(message)

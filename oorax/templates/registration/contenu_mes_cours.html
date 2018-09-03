@@ -26,7 +26,10 @@
         </blockquote>
 
         <div class="row">
-            <div class="col s6"><i class="material-icons" id="auteur">person_pin</i><span>Ateur : {{ cour_auteur }}</span></div>
+            <div class="col s6">
+                <i class="material-icons" id="auteur">person_pin</i><span>Ateur : {{ cour_auteur }}</span>
+                 <a class="waves-effect waves-light btn modal-trigger" href="{% url 'faire_interro' id=a %}">Faire un quiz</a>
+            </div>
           
         </div>
 

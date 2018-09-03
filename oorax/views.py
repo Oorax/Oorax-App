@@ -669,9 +669,11 @@ def interrogation(request,id):
     if request.method == 'POST':
         form = EvaluationForm(request.POST)
         chapitre = Chapitre.objects.get(id=id)
+        print(chapitre)
         a = chapitre.id
         auteur=request.user
         chek = request.POST.getlist('check')
+        print(chek)
         conn = db.connect(host="localhost", user="root", password="", database="formation")
         cur = conn.cursor()
         liste_ques=[]
@@ -694,6 +696,7 @@ def interrogation(request,id):
         print('liste des  question de l evaluation ', liste_quesf)
         print('les lesson',chek)
         b=request.POST['interne']
+        print(b)
         if form.is_valid():
             evaluation = form.save(commit=False)
             evaluation.types="Interrogation"
@@ -715,13 +718,28 @@ def interrogation(request,id):
                     conn.rollback()
             return redirect('interrogation',id=a)
     else:
-        chapitre = Chapitre.objects.get(id=id)
-        a = chapitre.id
-        print(a)
-        lesson=Lesson.objects.filter(chapitreid_id=a)
+        cour =Cour.objects.get(id=id)
+        chapitre = Chapitre.objects.filter(courid_id=cour.id)
+        lesson = Lesson.objects.all()
+        evalu=Evaluation.objects.all()
+        liste_eva=[]
+        for eva in evalu:
+            for x in eva.typeId:
+                liste_eva.append(x)
+
+        a = cour.id
+        liste_chap=[]
+        for cha in chapitre:
+            for less in lesson:
+                if cha.id is less.chapitreid_id:
+                    liste_chap.append(less.id)
+        print(liste_eva)
 
         form = EvaluationForm()
-        return render(request,'registration/interro_form.html',{'form':form ,'a':a, 'lesson':lesson})
+        return render(request,'registration/interro_form.html',{'form':form ,'a':a,
+                                                                'liste_eva':liste_eva,
+                                                                'evalu':evalu,
+                                                                'liste_chap':liste_chap,'lesson':lesson})
 
 #faire une interro
 def faire_interro(request,id):
@@ -739,7 +757,7 @@ def faire_interro(request,id):
     questionoption = OptionQuestion.objects.all()
     question=Question.objects.all()
     form = EvaluationForm()
-    hazzare=random.sample(liste_quest,1)
+    hazzare=random.sample(liste_quest,5)
     return render(request, 'registration/evaluation.html',
                   {'optEva':optEva,
                    'quesevalu':quesevalu,
@@ -1036,35 +1054,113 @@ def mes_cours(request):
 #contenu du cour
 def contenu_mes_cours(request,id):
     cour = Cour.objects.get(id=id)
+    lesson=Lesson.objects.all()
+    eleve=request.user.id
+    print(eleve)
+    liste_less=[]
+    cour_id=cour.id
     cour_titre=cour.titre
     cour_auteur=cour.auteur
-    chapitre = Chapitre.objects.filter(courid_id=cour.id)
-    lesson = Lesson.objects.all()
-    contenu = Contenue.objects.all()
-    return render(request, 'registration/contenu_mes_cours.html',{'contenu':contenu,'lesson':lesson,'chapitre':chapitre,'cour_titre':cour_titre,'cour_auteur':cour_auteur})
+    sessevalu=SessionEvaluation.objects.all()
+    evalua = Evaluation.objects.all()
 
-# pour le moteur de recherche
-#def search_form(request):
-   # return render(request, 'search/view.html')
+    chapitre = Chapitre.objects.filter(courid_id=cour_id)
+    print('chapitre',chapitre[1].id)
+    poin_lt=[]
+    liste_eva=[]
+    for less in Lesson.objects.filter(chapitreid_id=chapitre[1].id):
+        liste_less.append(less.id)
+        #print('liste lesson',liste_less)
 
-def search(request):
-    if 'q' in request.GET and request.GET['q']:
-        q = request.GET['q']
-        if q is "Cour":
-            print('type du q',q)
-            cours = Cour.objects.filter(titre__icontains=q)
-            annonces = Annonce.objects.filter(titre__icontains=q)
-        return render(request, 'search/result.html',
-                      {'cours': cours,
-                       'annonces':annonces,
-                       'query': q})
+    for evas in evalua:
+        liste_eva.append(evas.id)
+    i=0
+    if sessevalu:
+        for sess in sessevalu:
+            if sess.evaluation_id in liste_eva and sess.userid_id is eleve:
+                poin_lt.append(sess.point)
+                print('point',poin_lt,sess.evaluation_id)
+                pass
+        n=0
+        li=[]
+        while len(liste_less)>i:
+            if poin_lt[-1]>=90:
+                print('1 vous avez 90 %',poin_lt[-1])
+                for x in evalua:
+                    li.append(x.id)
+                for s in sessevalu:
+                    if s.point is poin_lt[-1]:
+                        z=s.evaluation_id
+                        print(z)
+                while len(li)>n:
+                    if z is li[n]:
+                        e=li[n]
+                        c=li.index(e)
+                        a=li[c+1]
+
+                        print('id ==',e,'position',c,'prochaine posi',a)
+                        contenu = Contenue.objects.all()
+                        return render(request, 'registration/contenu_mes_cours.html',
+                                      {'contenu': contenu, 'lesson': lesson,
+                                       'chapitre': chapitre,
+                                       'cour_titre': cour_titre,
+                                       'cour_auteur': cour_auteur, 'a': a}
+                                      )
+                    n=n+1
+                
+
+            else:
+                print('rien')
+                liste_seseva = []
+                print('2 vous navez pas 90%')
+                print(poin_lt[-1])
+                p = poin_lt[-1]
+                for sess in sessevalu:
+                    liste_seseva.append(sess.point)
+                print(liste_seseva[-1])
+                if p is liste_seseva[-1]:
+                    a = sess.evaluation_id
+                    contenu = Contenue.objects.all()
+                    return render(request, 'registration/contenu_mes_cours.html',
+                                  {'contenu': contenu, 'lesson': lesson,
+                                   'chapitre': chapitre,
+                                   'cour_titre': cour_titre,
+                                   'cour_auteur': cour_auteur, 'a': a}
+                                  )
+
+            i=i+1
+        else:
+            a=5
+            print('3 vous navez pas 90%')
+            print(poin_lt[-1])
+            contenu = Contenue.objects.all()
+            return render(request, 'registration/contenu_mes_cours.html',
+                                      {'contenu': contenu, 'lesson': lesson,
+                                        'chapitre': chapitre,
+                                        'cour_titre': cour_titre,
+                                        'cour_auteur': cour_auteur, 'a': a}
+                                      )
+
+
+
+
     else:
-        message = 'invalid.'
-    return HttpResponse(message)
+        print('rien dans sesseva ')
+        for x in evalua:
+            for y in x.typeId:
+                if y is liste_less[i]:
+                    a = x.id
+                    print(y, 'premier', i, a, liste_less[i])
+                    contenu = Contenue.objects.all()
+                    return render(request, 'registration/contenu_mes_cours.html',
+                                          {'contenu': contenu, 'lesson': lesson,
+                                           'chapitre': chapitre, 'cour_titre': cour_titre,
+                                           'cour_auteur': cour_auteur, 'a': a})
 
-
-
-
+    contenu = Contenue.objects.all()
+    return render(request, 'registration/contenu_mes_cours.html',{'contenu':contenu,'lesson':lesson,
+                                                                  'chapitre':chapitre,'cour_titre':cour_titre,
+                                                                  'cour_auteur':cour_auteur,'a':a})
 
 
 

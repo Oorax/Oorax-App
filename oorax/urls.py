@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'home', views.home, name="home"),
     url(r'categorie', views.categorie, name="categorie"),
     url(r'mes-cours', views.mes_cours, name="mes_cours"),
-    url(r'^search/$', views.search,name="search"),
+
     url(r'^cour/(?P<id>\d+)/edite$', views.cour_edit, name='cour_edit'),
     url(r'^cour/(?P<pk>\d+)/delete$', DeleteView.as_view(model=Cour, success_url="oorax/cour"),
         name='cour_delete'),

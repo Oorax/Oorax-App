@@ -71,6 +71,9 @@
     Cour: <a href="{% url 'cour'  %}">{{ nom }}</a>
     <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Ajouter un chapitre</a>
     <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Ajouter une lesson</a>
+    <a class="waves-effect waves-light btn modal-trigger" href=" {% url 'interrogation' id=a %}">Créer Evaluation</a>
+
+    </h4>
 </div>
 
  {% for c in chapitre %}
