@@ -1,0 +1,57 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes quiz</title>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+      <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+      <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="card-panel teal lighten-2"><h1 class="center-align">Test</h1></div>
+
+       <div class="container">
+        <form method="post" action="{% url 'envoi_evaluation' %}" name="formulaire">{% csrf_token %}
+            {% for question in a %}
+                 Question N² {{ key }} : {{ question }}
+                 {% for lis in questionoption %}
+                     {% if question is lis.question_id %}
+                         {% for option in optEva %}
+                            {% if lis.option_id is option.id %}
+                                 <label>
+                                    <ul>
+                                        <li>
+                                            <input type="checkbox" name="check" id="check" value="{{ option.id }}" class="filled-in"  />
+                                            <span>{{ option.libelle }}</span>
+                                        </li>
+                                    </ul>
+                                </label>
+                             {% endif %}
+                         {% endfor %}
+                      {% endif %}
+                 {% endfor %}
+            {% endfor %}
+             <div class="row">
+                <div class="col s6">
+                     <input class="waves-effect waves-light btn modal-trigger" type="submit" value="Envoyer" />
+                </div>
+             </div>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
+<style>
+
+input.waves-button-input {
+    color: white;
+    padding: 12px;
+}
+</style>
+

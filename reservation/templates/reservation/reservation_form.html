@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+    <title>Title</title>
+</head>
+<body>
+<h1>Resevation</h1>
+
+ <ul class="collection">
+       {% for b in session %}
+            <li class="collection-item avatar">
+              <img src="images/yuna.jpg" alt="" class="circle">
+              <span class="title">{{ b.titre_sess }}</span>
+              <p>{{ b.description_sess }}</p>
+                <a href="{% url 'envoi_reserve' b.id %}" class="secondary-content">
+                                     <button class="btn waves-effect waves-light" type="submit" name="action">Réserver
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                             </a>
+            </li>
+       {% endfor %}
+
+  </ul>
+</body>
+</html>

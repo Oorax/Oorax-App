@@ -1,0 +1,41 @@
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+      <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+      <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+<div class="card-panel teal lighten-2"><h5 class="center-align">Vous devez faire l'evaluation du chapitre pour passer au chapitre suivant</h5></div>
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col s6">
+                 <a class="waves-effect waves-light btn modal-trigger" href="{% url 'chap_evalua' id=chapi %}">Commencer</a>
+            </div>
+          
+        </div>
+
+
+
+
+    </div>
+</body>
+
+</html>
+<style>
+#droite {
+  margin: 0px ;
+}
+#auteur{
+color:#ee6e73;
+}
+</style>

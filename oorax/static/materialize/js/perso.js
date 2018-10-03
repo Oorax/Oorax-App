@@ -62,3 +62,31 @@ $(document).ready(function(){
     }
 
 
+//recup id chapitre
+
+function changementType()
+{
+
+
+var type = document.getElementById("test1").value;
+
+console.log(type);
+
+
+if (type == 1)
+{
+document.getElementById("bien").style="display:block";
+
+}
+else if(type==0)
+{
+document.getElementById("good").style="display:block";
+
+}
+else
+{
+
+document.getElementById("bien").style="display:none";
+}
+
+}

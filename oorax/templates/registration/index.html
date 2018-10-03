@@ -7,16 +7,23 @@
          <!-- pour editeur de texte debut -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Title</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
-        <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
-        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
-        <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/perso.css' %}"  media="screen,projection"/>
-
         <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type ="text/css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"> </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/perso.css' %}"  media="screen,projection"/>
+        <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+        <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+
+
     </head>
 
     <body>
@@ -33,12 +40,63 @@
                       </nav>
                     
                       <ul class="sidenav" id="mobile-demo">
-                        <li><a href="sass.html">Sass</a></li>
-                        <li><a href="badges.html">Components</a></li>
-                        <li><a href="collapsible.html">Javascript</a></li>
-                        <li><a href="mobile.html">Mobile</a></li>
+                        <li><a href="sass.html">Profile</a></li>
+                        <li><a href="badges.html"  data-target="mobile-demo2" class="sidenav-trigger">Paramettre</a></li>
+                        <li><a href="collapsible.html">Deconnexion</a></li>
+
                       </ul>
+
+                        <ul class="sidenav" id="mobile-demo2">
+                            <li><a href="sass.html" data-target="mobile-demo3" class="sidenav-trigger">Option de test</a></li>
+                            <li><a href="collapsible.html">Statistique de test</a></li>
+                            <li><a href="collapsible.html">Mise à jour</a></li>
+                        </ul>
+
+
+                        <ul class="sidenav" id="mobile-demo3" >
+                             {% for chec in checked %}
+                                <form method="post" action="{% url 'check' %}" >{% csrf_token %}
+                                <li>
+
+                                          <label>
+                                              {% if chec.check is True %}
+                                                <input onchange="changementType();" type="checkbox" class="filled-in" name="check" id="test1" value="0" checked="checked" />
+                                                <span>Afficher Explication</span>
+                                              {% else %}
+                                                <input onchange="changementType();" type="checkbox" class="filled-in" name="check" id="test2" value="1"  />
+                                                <span>Afficher Explication</span>
+                                              {% endif %}
+                                          </label>
+
+                                </li>
+
+                                <li>
+                                  <label>
+                                    {% if chec.temps is True %}
+                                        <input type="checkbox" class="filled-in" name="checks"  value="0" checked="checked" />
+                                        <span>Afficher Temps</span>
+                                    {% else %}
+                                       <input type="checkbox" class="filled-in" name="checks" value="1" />
+                                        <span>Afficher Temps</span>
+                                    {% endif %}
+                                  </label>
+                                </li>
+                                <li>
+                                  <label>
+                                    <input type="checkbox" class="filled-in" value="3"  />
+                                    <span>Noter à la fin</span>
+                                  </label>
+                                </li>
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Terminer
+                                    <i class="material-icons right"></i>
+                                </button>
+                                      </form>
+                            {% endfor %}
+                        </ul>
+
+            </form>
         </div>
+
 
         <div class="container" >
                 <h1 class="center-align titre">Trouve vite</h1>
@@ -52,10 +110,21 @@
                 </form>
                 </div>
             </nav>
+             <div>
+                <h1 id="bien" style="display:none;color:red;">bonjour</h1>
+                 <h1 id="good" style="display:none;">bonjour tous</h1>
+             </div>
         </div>
 
-    </body>
 
+
+
+    </body>
+<script>
+
+
+
+</script>
 </html>
 
 {% endblock %}

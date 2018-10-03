@@ -25,6 +25,7 @@ class Cour(models.Model):
                                     related_name='+', )
     titre = models.CharField(max_length=45, blank=True, null=True)
     description = models.CharField(max_length=255, blank=True, null=True)
+    objectif= models.CharField(max_length=255, blank=True, null=True)
     prix = models.FloatField(null=True, blank=True, default=None)
     etat_cour = models.BooleanField(default=False)
     image = models.ImageField(upload_to="logo")
@@ -36,12 +37,26 @@ class Cour(models.Model):
 class Chapitre(models.Model):
      nom_chapitre = models.CharField(max_length=200, blank=True, null=True)
      ordre = models.IntegerField(blank=True,null=True)
+     objectif = models.CharField(max_length=255, blank=True, null=True)
      courid = models.ForeignKey(Cour, blank=True, null=True, on_delete=models.CASCADE,
                                     related_name='+', )
 
+class ChapEvaluation(models.Model):
+    point=models.IntegerField(blank=True,null=True)
+    chapitreid = models.ForeignKey(Chapitre, blank=True, null=True, on_delete=models.CASCADE,
+                                   related_name='+', )
+    userid = models.ForeignKey(CustomUser, blank=True, null=True, on_delete=models.CASCADE,
+                               related_name='+', )
+    reponse = ListCharField(
+        base_field=IntegerField(default=None, null=True),
+        size=6,
+        max_length=(6 * 11)  # 6 * 10 character nominals, plus commas
+    )
+
+
 class Lesson(models.Model):
     nom_lesson = models.CharField(max_length=200, blank=True, null=True)
-
+    objectif = models.CharField(max_length=255, blank=True, null=True)
     chapitreid = models.ForeignKey(Chapitre, blank=True, null=True, on_delete=models.CASCADE,
                                   related_name='+', )
 
@@ -70,7 +85,6 @@ class Correction(models.Model):
     description = models.CharField(max_length=200, blank=True, null=True)
     prix = models.FloatField(null=True, blank=True, default=None)
     audiocorige = models.FloatField(null=True, blank=True, default=None)
-
     corrigelien = models.ForeignKey(Lien, blank=True, null=True, on_delete=models.CASCADE,
                                   related_name='+', )
     a_corrigelien = models.ForeignKey(Lien, blank=True, null=True, on_delete=models.CASCADE,
@@ -101,8 +115,13 @@ class SessionEvaluation(models.Model):
     duree = models.IntegerField(blank=True, null=True)
     point = models.IntegerField(blank=True,null=True)
     date_evaluation = models.DateTimeField(blank=True, default=timezone.now)
-    evaluation = models.ForeignKey(Evaluation, blank=True, null=True, on_delete=models.CASCADE,
-                               related_name='+', )
+    evaluation = ListCharField(
+        base_field=IntegerField(default=None, null=True),
+        size=6,
+        max_length=(6 * 11)  # 6 * 10 character nominals, plus commas
+    )
+    user = models.ForeignKey(CustomUser, blank=True, null=True, on_delete=models.CASCADE,
+                             related_name='+', )
     userid= models.ForeignKey(CustomUser, blank=True, null=True, on_delete=models.CASCADE,
                                    related_name='+', )
 
@@ -120,6 +139,8 @@ class TypeQuestion(models.Model):
     description = models.CharField(max_length=45, blank=True, null=True)
 
 class Question(models.Model):
+      explication = models.CharField(max_length=455, blank=True, null=True)
+      visible=models.BooleanField(default=0)
       niveau = models.ForeignKey(Niveau, blank=True, null=True, on_delete=models.CASCADE,
                                   related_name='+', )
       question_texte= models.CharField(max_length=200, blank=True, null=True)
@@ -129,6 +150,11 @@ class Question(models.Model):
                              related_name='+', )
       lesson = models.ForeignKey(Lesson, blank=True, null=True, on_delete=models.CASCADE,
                                   related_name='+', )
+
+class Check(models.Model):
+    check = models.BooleanField(default=0)
+    temps=models.BooleanField(default=0)
+
 
 class Option(models.Model):
     libelle = models.CharField(max_length=45, blank=True, null=True)

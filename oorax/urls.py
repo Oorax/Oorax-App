@@ -14,6 +14,11 @@ urlpatterns = [
     url(r'index', views.index, name="index"),
     url(r'accueil', views.accueil, name="accueil"),
     url(r'home', views.home, name="home"),
+    url(r'sexion-quiz', views.sexion_quiz, name="sexion_quiz"),
+    url(r'^quiz/(?P<id>\d+)/chapitres$', views.mes_quiz, name='mes_quiz'),
+    url(r'^choix-quiz$', views.choix_quiz, name='choix_quiz'),
+    url(r'^check$', views.check, name='check'),
+
     url(r'categorie', views.categorie, name="categorie"),
     url(r'mes-cours', views.mes_cours, name="mes_cours"),
 
@@ -39,6 +44,8 @@ urlpatterns = [
     url(r'^contenue/(?P<pk>\d+)/delete$', DeleteView.as_view(model=Chapitre, success_url="oorax/cour"),
         name='contenu_delete'),
     url(r'^envoi_evaluation/',views.envoi_evaluation,name='envoi_evaluation'),
+    url(r'^envoi_evaluation_chap/',views.envoi_evaluation_chap,name='envoi_evaluation_chap'),
+
     url(r'corrige', views.question_answer,name="question_answer"),
     url(r'inscription/(?P<id>\d+)/cour', views.inscription, name="inscription"),
     url(r'creer/(?P<id>\d+)/question', views.question, name="question"),
@@ -59,6 +66,7 @@ urlpatterns = [
     url(r'interrogation/(?P<id>\d+)/', views.interrogation, name="interrogation"),
 
     url(r'interro/(?P<id>\d+)/', views.faire_interro, name="faire_interro"),
+    url(r'chapitre/(?P<id>\d+)/examen$', views.chap_evalua, name="chap_evalua"),
 
     url(r'cour', views.cour, name="cour"),
     url(r'statistique', views.stat_users, name="stat_users"),

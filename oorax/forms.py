@@ -88,6 +88,11 @@ class SessionEvaluationForm(forms.ModelForm):
         model = SessionEvaluation
         fields = ('reponse',)
 
+class ChapEvaluationForm(forms.ModelForm):
+    class Meta:
+        model = ChapEvaluation
+        fields = ('point',)
+
 class EvaluationForm(forms.ModelForm):
     class Meta:
         model = Evaluation
@@ -98,6 +103,12 @@ class QuestionEvaluationForm(forms.ModelForm):
     class Meta:
         model = QuestionEvaluation
         fields = ('evaluation',)
+
+
+class CheckForm(forms.ModelForm):
+    class Meta:
+        model=Check
+        fields = ('check',)
 
 
 

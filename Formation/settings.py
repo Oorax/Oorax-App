@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'oorax',
     'django_mysql',
     'searchs',
+    'reservation',
 ]
 
 ACCOUNT_ACTIVATION_DAYS=7

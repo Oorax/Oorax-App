@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls import url
 from oorax import views
+#from reservation import views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,6 +25,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^oorax/', include('oorax.urls')),
+    url(r'reservation/', include('reservation.urls')),
     url(r'^', include('searchs.urls')),
     url(r'^getdetails/', views.getdetails, name="getdetails"),
     url(r'^accounts/', include('registration.backends.simple.urls')),

@@ -1,4 +1,5 @@
 import json as simplejson
+import collections
 from pyquery import PyQuery as pq
 import postmarkup
 import bbcode
@@ -27,7 +28,8 @@ def index(request):
     parser = bbcode.Parser()
     code = "[s]a = [1, 2, 3, 4, 5][/s]"
     plain_txt = parser.strip(code)
-
+    a=1
+    checked=Check.objects.filter(id=1)
     #parser = get_parser()
     #rendered = parser.render('[b]Hello [u]world![/u][/b]')
     #print(rendered)
@@ -36,7 +38,7 @@ def index(request):
     #markup = postmarkup.PostMarkup().default_tags()
     #bbcode = "[b]Hello, World![/b]"
     #print(markup.render(bbcode))
-    return render(request, 'registration/index.html')
+    return render(request, 'registration/index.html',{'checked':checked,'a':a})
 
 def accueil(request):
 
@@ -143,7 +145,6 @@ def cour(request):
 def cour_edit(request,id):
     cour = get_object_or_404(Cour, id=id)
     form = CourForm(request.POST or None, instance=cour, )
-
 
     if form.is_valid():
         cat_name = request.POST["hides"]
@@ -757,7 +758,7 @@ def faire_interro(request,id):
     questionoption = OptionQuestion.objects.all()
     question=Question.objects.all()
     form = EvaluationForm()
-    hazzare=random.sample(liste_quest,5)
+    hazzare=random.sample(liste_quest,2)
     return render(request, 'registration/evaluation.html',
                   {'optEva':optEva,
                    'quesevalu':quesevalu,
@@ -775,6 +776,7 @@ def envoi_evaluation(request):
         liste_opt=[]
         liste_lop=[]
         questt=[]
+        evax=[]
         users = request.user
         evalus = SessionEvaluationForm()
         evalu = evalus.save(commit=False)
@@ -789,7 +791,8 @@ def envoi_evaluation(request):
             for qts in liste_chek:
                 qteva=QuestionEvaluation.objects.filter(question_id=qts)
                 for evaid in qteva:
-                    evax=evaid.evaluation_id
+                    evax.append(evaid.evaluation_id)
+                    print(evax)
 
             for opts in options:
                 if opts.juste==0:
@@ -797,6 +800,7 @@ def envoi_evaluation(request):
                 
             if len(liste_opt)==0:
                 evalu.point=(100)
+                liste_lop.append(100)
             else:
                 for faux in liste_opt:
                     listefaux = OptionQuestion.objects.filter(option_id=faux)
@@ -807,22 +811,26 @@ def envoi_evaluation(request):
                             questt.append(f.question_id)
             if len(liste_chek)==len(questt):
                 evalu.point=0
+                liste_lop.append(0)
             else:
                 points=(len(liste_chek)-len(questt))
                 x=int(((points/len(liste_chek))*100))
+                liste_lop.append(x)
                 evalu.point=x
 
 
+
+        point=liste_lop[0]
         print("liste questions evaluation",liste_chek)
         print("liste questions evaluation faux", questt)
         evalu.userid_id=users.id
         evalu.reponse=chek
-        evalu.evaluation_id=evax
+        #evalu.evaluation=evax
         evalu.save()
+        return render(request, "registration/resultat.html", {'point':point})
+    else:
 
-        return HttpResponse('reponse envoyé')
-
-    return render(request, "registration/home.html", )
+        return render(request, "registration/resultat.html" )
 
 #afficher statistque uses
 def stat_users(request):
@@ -1038,7 +1046,6 @@ def glisser(request):
 
     return render(request, 'registration/glisser_deposer.html',{'chapitre':chapitre,'i':i,})
 
-
 #mes cours
 def mes_cours(request):
     actu_user=request.user
@@ -1057,69 +1064,58 @@ def contenu_mes_cours(request,id):
     lesson=Lesson.objects.all()
     eleve=request.user.id
     print(eleve)
+    chapis=[]
+    chas=[]
     liste_less=[]
+    poin_lt = []
+    liste_eva = []
+    dernier_point = []
+    che_point = []
+    cha_liste=[]
+    l=0
+    ca=0
+    tout=0
     cour_id=cour.id
     cour_titre=cour.titre
     cour_auteur=cour.auteur
     sessevalu=SessionEvaluation.objects.all()
     evalua = Evaluation.objects.all()
-
+    chapeva=ChapEvaluation.objects.all()
     chapitre = Chapitre.objects.filter(courid_id=cour_id)
-    print('chapitre',chapitre[1].id)
-    poin_lt=[]
-    liste_eva=[]
-    for less in Lesson.objects.filter(chapitreid_id=chapitre[1].id):
-        liste_less.append(less.id)
-        #print('liste lesson',liste_less)
+    users=CustomUser.objects.all()
 
-    for evas in evalua:
-        liste_eva.append(evas.id)
-    i=0
-    if sessevalu:
-        for sess in sessevalu:
-            if sess.evaluation_id in liste_eva and sess.userid_id is eleve:
-                poin_lt.append(sess.point)
-                print('point',poin_lt,sess.evaluation_id)
-                pass
-        n=0
-        li=[]
-        while len(liste_less)>i:
-            if poin_lt[-1]>=90:
-                print('1 vous avez 90 %',poin_lt[-1])
-                for x in evalua:
-                    li.append(x.id)
-                for s in sessevalu:
-                    if s.point is poin_lt[-1]:
-                        z=s.evaluation_id
-                        print(z)
-                while len(li)>n:
-                    if z is li[n]:
-                        e=li[n]
-                        c=li.index(e)
-                        a=li[c+1]
+    while len(chapitre)>tout:
+        print('chapitre',tout)
 
-                        print('id ==',e,'position',c,'prochaine posi',a)
-                        contenu = Contenue.objects.all()
-                        return render(request, 'registration/contenu_mes_cours.html',
-                                      {'contenu': contenu, 'lesson': lesson,
-                                       'chapitre': chapitre,
-                                       'cour_titre': cour_titre,
-                                       'cour_auteur': cour_auteur, 'a': a}
-                                      )
-                    n=n+1
-                
+        for less in Lesson.objects.all():
+            if less.chapitreid_id is chapitre[tout].id:
+                liste_less.append(less.id)
 
-            else:
-                print('rien')
-                liste_seseva = []
-                print('2 vous navez pas 90%')
-                print(poin_lt[-1])
-                p = poin_lt[-1]
-                for sess in sessevalu:
-                    liste_seseva.append(sess.point)
-                print(liste_seseva[-1])
-                if p is liste_seseva[-1]:
-                    a = sess.evaluation_id
+        print(liste_less)
+        for evas in evalua:
+            for r in liste_less:
+                if r in evas.typeId:
+                    liste_eva.append(evas.id)
+
+        print(liste_eva)
+        if sessevalu:
+            for sess in sessevalu:
+                if sess.evaluation_id in liste_eva and sess.userid_id is eleve:
+                    poin_lt.append(sess.point)
+                    print('point', poin_lt, sess.evaluation_id)
+
+
+            while len(liste_less) > l:
+                if poin_lt[-1] >= 90:
+                    print('vous avez 90 %', poin_lt[-1], 'taille',len(liste_less))
+                    l = l + 1
+                else:
+                    print('vous n avez pas 90%',poin_lt[-1])
+
+                    for se in sessevalu:
+                        if se.point is poin_lt[-1]:
+                            a=se.evaluation_id
+                            print('eva',a)
                     contenu = Contenue.objects.all()
                     return render(request, 'registration/contenu_mes_cours.html',
                                   {'contenu': contenu, 'lesson': lesson,
@@ -1128,43 +1124,270 @@ def contenu_mes_cours(request,id):
                                    'cour_auteur': cour_auteur, 'a': a}
                                   )
 
-            i=i+1
-        else:
-            a=5
-            print('3 vous navez pas 90%')
-            print(poin_lt[-1])
-            contenu = Contenue.objects.all()
-            return render(request, 'registration/contenu_mes_cours.html',
-                                      {'contenu': contenu, 'lesson': lesson,
-                                        'chapitre': chapitre,
-                                        'cour_titre': cour_titre,
-                                        'cour_auteur': cour_auteur, 'a': a}
-                                      )
+                if len(liste_less) > l:
+                    print('lesson',l)
+                    for eva in evalua:
+                        if liste_less[l] in eva.typeId:
+                            a = eva.id
+                            print('evaggg', a, liste_less[-1])
+                            for sessi in sessevalu:
+                                if liste_less[-1] is liste_less[l]:
+                                    p = sessi.point
+                                    if p >= 90:
+                                        if chapeva:
+                                            for chap in chapeva:
+                                                if chap.chapitreid_id is chapitre[tout].id:
+                                                    che_point.append(chap.point)
+
+                                            print('faire',che_point)
+                                            if len(che_point)>=3:
+                                                for d in che_point[-3:]:
+                                                    dernier_point.append(d)
+                                                somm = dernier_point.count(30)
+                                                if somm>=3:
+
+                                                    print('ev', a, tout)
+                                                    contenu = Contenue.objects.all()
+
+                                                print('somme', somm)
+                                                break
+
+                                            else:
+                                                print('faire encore')
+                                                print('chapitre suivant',chapitre[tout].id)
+                                                chapi=chapitre[tout].id
+                                                return render(request, 'registration/evalu_chapitre.html',
+                                                              {
+                                                                  'chapi': chapi, }
+                                                              )
+                                        else:
+                                            if somm>=3:
+                                                pass
+                                            else:
+                                                print('vide')
+                                                chapi = chapitre[tout].id
+                                                return render(request, 'registration/evalu_chapitre.html',
+                                                              {
+                                                                  'chapi': chapi, }
+                                                              )
+                                else:
+                                    print('cest pas fini')
+                else:
+                    print('yyyyyy')
+
+            liste_eva[:] = []
+            liste_less[:] = []
 
 
+        tout = tout + 1
+
+# fiche d'evaluation
+def chap_evalua(request,id):
+    chapitre = Chapitre.objects.get(id=id)
+    a=chapitre.id
+    print(a)
+    questions=Question.objects.all()
+    lessons=Lesson.objects.all()
+    quest_liste=[]
+    less_liste = []
+    for less in lessons:
+        if less.chapitreid_id is a:
+            less_liste.append(less.id)
+
+    print('lesson ', less_liste)
+    for quest in questions:
+        if quest.lesson_id in less_liste:
+            print('question',quest.lesson_id)
+            quest_liste.append(quest.id)
+
+    optEva = Option.objects.all()
+    quesevalu = QuestionEvaluation.objects.all()
+    questionoption = OptionQuestion.objects.all()
+    form = EvaluationForm()
+    hazzare = random.sample(quest_liste, 2)
+    return render(request, 'registration/chap_evalua.html',
+                  {'optEva': optEva,
+                   'quesevalu': quesevalu,
+                   'questionoption': questionoption,
+                   'questions': questions,
+                   'hazzare': hazzare, 'quest_liste': quest_liste,
+                   'form': form, 'a': a})
 
 
-    else:
-        print('rien dans sesseva ')
-        for x in evalua:
-            for y in x.typeId:
-                if y is liste_less[i]:
-                    a = x.id
-                    print(y, 'premier', i, a, liste_less[i])
-                    contenu = Contenue.objects.all()
-                    return render(request, 'registration/contenu_mes_cours.html',
-                                          {'contenu': contenu, 'lesson': lesson,
-                                           'chapitre': chapitre, 'cour_titre': cour_titre,
-                                           'cour_auteur': cour_auteur, 'a': a})
+# envoi des reponses de l'evalution chap
+def envoi_evaluation_chap(request):
+    if request.method == 'POST':
+        chek = request.POST.getlist('check')
+        liste_chek = []
+        liste_opt = []
+        liste_lop = []
+        questt = []
+        users = request.user
+        lessons=Lesson.objects.all()
+        evalus = ChapEvaluationForm()
+        chapitre=Chapitre.objects.all()
+        evalu = evalus.save(commit=False)
+        # je recupere la liste des reponse fauses
+        evax=[]
+        questions = Question.objects.all()
+        for ch in chek:
+            options = OptionQuestion.objects.filter(option_id=ch)
+            for qts in options:
+                if qts.question_id in liste_chek:
+                    pass
+                else:
+                    liste_chek.append(qts.question_id)
+            print('1')
+            for qts in questions:
+                if qts.id in liste_chek:
+                    evax.append(qts.lesson_id)
+            print(evax)
+            y=[]
+            for z in lessons:
+                if z.id in evax:
+                    y.append(z.chapitreid_id)
+                    print('mes reponses',z,y)
 
+            for c in chapitre:
+                if c.id in y:
+                    cha=c.id
+
+
+            for opts in options:
+                if opts.juste == 0:
+                    liste_opt.append(opts.option_id)
+
+            if len(liste_opt) == 0:
+                evalu.point = (100)
+            else:
+                for faux in liste_opt:
+                    listefaux = OptionQuestion.objects.filter(option_id=faux)
+                    for f in listefaux:
+                        if f.question_id in questt:
+                            pass
+                        else:
+                            questt.append(f.question_id)
+            if len(liste_chek) == len(questt):
+                evalu.point = 0
+            else:
+                points = (len(liste_chek) - len(questt))
+                x = int(((points / len(liste_chek)) * 100))
+                evalu.point = x
+
+        print("liste questions evaluation", liste_chek)
+        print("liste questions evaluation faux", questt)
+        evalu.userid_id = users.id
+        evalu.reponse = chek
+        evalu.userid_id=users.id
+        evalu.chapitreid_id = cha
+        evalu.save()
+
+        return HttpResponse('reponse envoyé')
+
+    return render(request, "registration/home.html", )
+
+def sexion_quiz(request):
+    actu_user = request.user
+    actu_user_id = actu_user.id
+    print(actu_user_id)
+    cour = Cour.objects.all()
+    liste_transact = []
+    objects_list = []
+    for row in cour:
+        d = collections.OrderedDict()
+        d['id'] = row.id
+        d['Titre'] = row.titre
+        d['Prix'] = row.prix
+        d['Description'] = row.description
+        d['Auteur'] = row.auteur_id
+        objects_list.append(d)
+    j = simplejson.dumps(objects_list)
+    with open("fichierJson.js", "w") as f_write:
+        simplejson.dump(objects_list, f_write)
+
+    transaction = Transaction.objects.filter(Q(libelle='Achat') & Q(user_sortie_id=actu_user_id))
+    inscription = Inscription.objects.all()
+    return render(request, 'registration/sexion_quiz.html',
+                  {'cour': cour, 'transaction': transaction, 'inscription': inscription})
+
+def mes_quiz(request,id):
+    cour = Cour.objects.get(id=id)
+    cour_id=cour.id
+    cour_titre=cour.titre
+    chapitre = Chapitre.objects.filter(courid_id=cour_id)
+    users=CustomUser.objects.all()
     contenu = Contenue.objects.all()
-    return render(request, 'registration/contenu_mes_cours.html',{'contenu':contenu,'lesson':lesson,
-                                                                  'chapitre':chapitre,'cour_titre':cour_titre,
-                                                                  'cour_auteur':cour_auteur,'a':a})
+    return render(request, 'registration/chapitre_mes_cour.html',
+                    {'contenu': contenu,
+                    'chapitre': chapitre,
+                     'cour_titre':cour_titre,})
 
+def choix_quiz(request):
+    chek = request.POST.getlist('check')
+    cheker = Check.objects.filter(id=1)
+    question = Question.objects.all()
+    print(chek)
+    liste_less=[]
+    liste_quest=[]
+    i=0
+    a = []
+    lesson=Lesson.objects.all()
+    question=Question.objects.all()
+    while len(chek)>i:
+        for less in lesson:
+            if int(chek[i]) is less.chapitreid_id:
+                liste_less.append(less.id)
+        for quest in question:
+            for y in liste_less:
+                if quest.lesson_id is y:
+                    liste_quest.append(quest.id)
+        if len(chek)>=i:
+            hazzare = random.sample(liste_quest, 5)
+            pass
+        else:
+            print('fin')
 
+        a=a+hazzare
+        print(a)
+        print('lesson',chek[i], liste_less,liste_quest)
+        liste_less[:]=[]
+        liste_quest[:] = []
+        i=i+1
+    optEva = Option.objects.all()
+    quesevalu = QuestionEvaluation.objects.all()
+    questionoption = OptionQuestion.objects.all()
+    question = Question.objects.all()
+    return render(request, 'registration/choix_quiz.html',
+    {'optEva': optEva,
+     'quesevalu': quesevalu,
+     'questionoption': questionoption,
+     'question': question,
+     'a': a,
+     'cheker':cheker,
+     'question':question,
+     }
+    )
 
+def check(request):
+    if request.method == 'POST':
+        chek = request.POST.getlist('check')
+        cheks = request.POST.getlist('checks')
+        cheker=Check.objects.filter(id=1)
+        if len(chek)>0:
+            x=True
+        else:
+            x=False
+        if len(cheks)>0:
+            z=True
+        else:
+            z=False
+        for y in cheker:
+            y.check=x
+            y.temps=z
+            y.save()
+            print('firts',chek,cheks)
 
+        return redirect('index')
 
 
 

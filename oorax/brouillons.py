@@ -650,3 +650,380 @@ else:
                                   {'contenu': contenu, 'lesson': lesson,
                                    'chapitre': chapitre, 'cour_titre': cour_titre,
                                    'cour_auteur': cour_auteur, 'a': a})
+
+optEva = Option.objects.all()
+quesevalu = QuestionEvaluation.objects.all()
+questionoption = OptionQuestion.objects.all()
+question = Question.objects.all()
+form = EvaluationForm()
+hazzare = random.sample(quest_liste, 5)
+return render(request, 'registration/chap_evalua.html.html',
+              {'optEva': optEva,
+               'quesevalu': quesevalu,
+               'questionoption': questionoption,
+               'question': question,
+               'hazzare': hazzare, 'quest_liste': quest_liste,
+               'form': form, 'a': a})
+
+while len(dernier_point) > ds:
+    if dernier_point[ds] < 70:
+        print('zero', ds)
+    else:
+        print('bien')
+    ds = ds + 1
+
+##special
+def contenu_mes_cours(request, id):
+    cour = Cour.objects.get(id=id)
+    lesson = Lesson.objects.all()
+    eleve = request.user.id
+    print(eleve)
+    chapis = []
+    liste_less = []
+    poin_lt = []
+    liste_eva = []
+    dernier_point = []
+    che_point = []
+    cha_liste = []
+    ds = 0
+    ca = 0
+    cour_id = cour.id
+    cour_titre = cour.titre
+    cour_auteur = cour.auteur
+    sessevalu = SessionEvaluation.objects.all()
+    evalua = Evaluation.objects.all()
+    chapeva = ChapEvaluation.objects.all()
+    chapitre = Chapitre.objects.filter(courid_id=cour_id)
+    print('chapitre', chapitre[1].id)
+
+    for less in Lesson.objects.filter(chapitreid_id=chapitre[1].id):
+        liste_less.append(less.id)
+        # print('liste lesson',liste_less)
+
+    for evas in evalua:
+        liste_eva.append(evas.id)
+    i = 0
+    if sessevalu:
+        for sess in sessevalu:
+            if sess.evaluation_id in liste_eva and sess.userid_id is eleve:
+                poin_lt.append(sess.point)
+                print('point', poin_lt, sess.evaluation_id)
+                pass
+        print('point de', eleve, poin_lt, sess.evaluation_id)
+        n = 0
+        li = []
+        while len(liste_less) > i:
+            if poin_lt[-1] >= 90:
+                print('1 vous avez 90 %', poin_lt[-1])
+                for x in evalua:
+                    li.append(x.id)
+                for s in sessevalu:
+                    if s.point is poin_lt[-1]:
+                        z = s.evaluation_id
+                        print(z)
+                while len(li) > n:
+                    if z is li[n]:
+                        e = li[n]
+                        c = li.index(e)
+                        print('tai', len(li), 'pour c ', c)
+                        if len(li) - 1 == c:
+                            for ideva in evalua:
+                                if ideva.id is e:
+                                    less_type = ideva.typeId
+
+                            for le in lesson:
+                                if le.id in less_type:
+                                    cha = le.chapitreid_id
+                                    print('fin des d evaluations', less_type, cha)
+
+                            for chap in chapitre:
+                                if chap.id is cha:
+                                    chapi = chap.id
+                                    for che in chapeva:
+                                        if che.chapitreid_id is chapi and che.userid_id is eleve:
+                                            che_point.append(che.point)
+
+                            print(che_point[-3:])
+                            for d in che_point[-3:]:
+                                dernier_point.append(d)
+                            somm = dernier_point.count(30)
+                            print('somme', somm)
+
+                            if somm == 3:
+                                print('bien')
+                                for chap in chapitre:
+                                    cha_liste.append(chap.id)
+                                while len(cha_liste) > ca:
+                                    if cha is cha_liste[ca]:
+                                        sh = cha_liste[ca]
+                                        cg = cha_liste.index(sh)
+                                        chapis.append(cha_liste[cg + 1])
+                                        print("new chap", chapis)
+                                    ca = ca + 1
+                                a = chapis[0]
+                                print("new chap2", a)
+                                contenu = Contenue.objects.all()
+                                return render(request, 'registration/contenu_mes_cours.html',
+                                              {'contenu': contenu, 'lesson': lesson,
+                                               'chapitre': chapitre,
+                                               'cour_titre': cour_titre,
+                                               'cour_auteur': cour_auteur, 'a': a}
+                                              )
+                            else:
+                                for chap in chapitre:
+                                    if chap.id is cha:
+                                        chapi = chap.id
+
+                                        return render(request, 'registration/evalu_chapitre.html',
+                                                      {
+                                                          'chapi': chapi, }
+                                                      )
+
+                        else:
+                            a = li[c + 1]
+                            print('id ==', e, 'position', c, 'prochaine posi', a)
+                            contenu = Contenue.objects.all()
+                            return render(request, 'registration/contenu_mes_cours.html',
+                                          {'contenu': contenu, 'lesson': lesson,
+                                           'chapitre': chapitre,
+                                           'cour_titre': cour_titre,
+                                           'cour_auteur': cour_auteur, 'a': a}
+                                          )
+                    n = n + 1
+
+
+            else:
+                print('rien')
+                liste_seseva = []
+                print('2 vous navez pas 90%')
+                print(poin_lt[-1])
+                p = poin_lt[-1]
+                for sess in sessevalu:
+                    if sess.userid_id is eleve:
+                        liste_seseva.append(sess.point)
+                print(liste_seseva[-1])
+                if p is liste_seseva[-1]:
+                    a = sess.evaluation_id
+                    contenu = Contenue.objects.all()
+                    return render(request, 'registration/contenu_mes_cours.html',
+                                  {'contenu': contenu, 'lesson': lesson,
+                                   'chapitre': chapitre,
+                                   'cour_titre': cour_titre,
+                                   'cour_auteur': cour_auteur, 'a': a}
+                                  )
+
+            i = i + 1
+        else:
+            a = 5
+            print('3 vous navez pas 90%', poin_lt[-1])
+
+            contenu = Contenue.objects.all()
+            return render(request, 'registration/contenu_mes_cours.html',
+                          {'contenu': contenu, 'lesson': lesson,
+                           'chapitre': chapitre,
+                           'cour_titre': cour_titre,
+                           'cour_auteur': cour_auteur, 'a': a}
+                          )
+
+
+
+
+    else:
+        print('rien dans sesseva ')
+        for x in evalua:
+            for y in x.typeId:
+                if y is liste_less[i]:
+                    a = x.id
+                    print(y, 'premier', i, a, liste_less[i])
+                    contenu = Contenue.objects.all()
+                    return render(request, 'registration/contenu_mes_cours.html',
+                                  {'contenu': contenu, 'lesson': lesson,
+                                   'chapitre': chapitre, 'cour_titre': cour_titre,
+                                   'cour_auteur': cour_auteur, 'a': a})
+
+    contenu = Contenue.objects.all()
+    return render(request, 'registration/contenu_mes_cours.html', {'contenu': contenu, 'lesson': lesson,
+                                                                   'chapitre': chapitre, 'cour_titre': cour_titre,
+                                                                   'cour_auteur': cour_auteur, 'a': a})
+
+# special 2
+ print('tout', tout)
+        print('chamitre',chapitre[tout].id)
+
+        for less in Lesson.objects.all():
+            if less.chapitreid_id is chapitre[tout].id:
+                liste_less.append(less.id)
+
+        print('liste lesson',liste_less)
+
+
+        for evas in evalua:
+            for r in liste_less:
+                if r in evas.typeId:
+                    liste_eva.append(evas.id)
+
+        print(liste_eva)
+
+        i=0
+        if sessevalu:
+            for sess in sessevalu:
+                if sess.evaluation_id in liste_eva and sess.userid_id is eleve:
+                    poin_lt.append(sess.point)
+                    print('point',poin_lt,sess.evaluation_id)
+                else:
+                    poin_lt.append('not found')
+                    print(poin_lt[0])
+
+            n=0
+            li=[]
+            if poin_lt[-1] is not "not found":
+                while len(liste_less)>i:
+                    if poin_lt[-1]>=90:
+                        print('1 vous avez 90 %',poin_lt[-1],liste_less)
+                        for x in evalua:
+                            li.append(x.id)
+                        for s in sessevalu:
+                            if s.point is poin_lt[-1]:
+                                z=s.evaluation_id
+                                print(z)
+                        while len(li)>n:
+                            if z is li[n]:
+                                e=li[n]
+                                c=li.index(e)
+                                #print('tai', len(li),e,'pour c ',c)
+                                #for idev in evalua:
+                                 #   if idev.id is e:
+                                  #      for lo in lesson:
+                                   #         if lo.id in idev.typeId:
+                                    #            zer=lo.chapitreid_id
+
+
+                                #print(zer)
+                                if len(li)-1 == c:
+                                    for ideva in evalua:
+                                        if ideva.id is e:
+                                            less_type=ideva.typeId
+
+                                    for le in lesson:
+                                        if le.id in less_type:
+                                            chas.append(le.chapitreid_id)
+                                            cha=chas[0]
+                                            fin='fin'
+                                        else:
+                                            fin='debut'
+
+                                else:
+
+                                    if 1 is 0:
+                                        fin='fin'
+                                    else:
+                                        a = li[c + 1]
+                                        print('id ==', e, 'position', c, 'prochaine posi', a)
+                                        contenu = Contenue.objects.all()
+                                        return render(request, 'registration/contenu_mes_cours.html',
+                                                      {'contenu': contenu, 'lesson': lesson,
+                                                       'chapitre': chapitre,
+                                                       'cour_titre': cour_titre,
+                                                       'cour_auteur': cour_auteur, 'a': a}
+                                                      )
+
+                            n=n+1
+                    else:
+                        print('rien')
+                        liste_seseva = []
+                        print('2 vous navez pas 90%')
+                        print(poin_lt[-1])
+                        p = poin_lt[-1]
+                        for sess in sessevalu:
+                            if sess.userid_id is eleve:
+                                liste_seseva.append(sess.point)
+                        print(liste_seseva[-1])
+                        if p is liste_seseva[-1]:
+                            a = sess.evaluation_id
+                            contenu = Contenue.objects.all()
+                            return render(request, 'registration/contenu_mes_cours.html',
+                                          {'contenu': contenu, 'lesson': lesson,
+                                           'chapitre': chapitre,
+                                           'cour_titre': cour_titre,
+                                           'cour_auteur': cour_auteur, 'a': a}
+                                          )
+
+                    i=i+1
+            else:
+                fin3="not found final"
+                print(fin3)
+        else:
+            print('rien dans sesseva ')
+            for x in evalua:
+                for y in x.typeId:
+                    if y is liste_less[i]:
+                        a = x.id
+                        print(y, 'premier', i, a, liste_less[i])
+                        contenu = Contenue.objects.all()
+                        return render(request, 'registration/contenu_mes_cours.html',
+                                              {'contenu': contenu, 'lesson': lesson,
+                                               'chapitre': chapitre, 'cour_titre': cour_titre,
+                                               'cour_auteur': cour_auteur, 'a': a})
+        if fin3 is "not found final":
+            print('bien')
+            liste_less[:] = []
+            liste_eva[:] = []
+            tout = tout + 1
+            print('tout finale',tout)
+        else:
+            for chap in chapitre:
+                if chap.id is chas[0]:
+                    chapi = chap.id
+                    for che in chapeva:
+                        if che.chapitreid_id is chapi and che.userid_id is eleve:
+                            che_point.append(che.point)
+
+            print(che_point[-3:])
+            for d in che_point[-3:]:
+                dernier_point.append(d)
+            somm = dernier_point.count(30)
+            print('somme', somm)
+
+            if somm >= 3:
+                print('bien')
+                for chap in chapitre:
+                    cha_liste.append(chap.id)
+                while len(cha_liste) > ca:
+                    if chas[0] is cha_liste[ca]:
+                        sh = cha_liste[ca]
+                        cg = cha_liste.index(sh)
+                        chapis.append(cha_liste[cg + 1])
+                        print("new chap", chapis)
+                    ca = ca + 1
+                a = chapis[0]
+                print("new chap2", a)
+
+
+            else:
+                for chap in chapitre:
+                    if chap.id is chas[0]:
+                        chapi = chap.id
+
+                        return render(request, 'registration/evalu_chapitre.html',
+                                      {
+                                          'chapi': chapi, }
+                                      )
+                liste_less[:] = []
+                liste_eva[:] = []
+
+if len(liste_less) > l:
+    for eva in evalua:
+        if liste_less[l] in eva.typeId:
+            a = eva.id
+            print('evaggg', a, liste_less[-1])
+            for sessi in sessevalu:
+                if liste_less[-1] is liste_less[l]:
+                    p = sessi.point
+                    if p >= 90:
+                        s = 'chapitre suivant'
+
+
+
+                        ##cour objectif (champ)
+                        ##chapitre objectif intermediaire(champ)
+                        ##lesson objectif intermediaire(champ)
