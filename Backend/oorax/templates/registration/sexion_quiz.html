@@ -1,0 +1,53 @@
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+      <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+      <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+</head>
+<body>
+<h1>Selectionnez un cour </h1>
+
+ <ul class="collection">
+
+     {% for cou in cour %}
+        {% for cris in inscription %}
+            {% if cou.id is cris.cour_id %}
+                {% for trans in transaction %}
+                    {% if trans.id is cris.transaction_id %}
+                         <li class="collection-item avatar">
+                             {% if cou.image %}
+                             <img src='{{ cou.image.url }}' alt="{{ cou.image.name }}" class="circle" width="100">
+                               {% endif %}
+                             <span class="title">Titre: {{ cou.titre }}</span>
+                             <p>Description : {{ cou.description }}</p>
+
+                             <a href="{% url 'mes_quiz' cou.id %}" class="secondary-content">
+                                     <button class="btn waves-effect waves-light" type="submit" name="action">Ouvrir
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                             </a>
+
+                         </li>
+
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+     {% endfor %}
+
+ </ul>
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+
+
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <title>Material Design Lite</title>
+
+        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/styles.css' %}"  media="screen,projection"/>
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#3372DF">
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+
+        <style>
+            #view-source {
+                position: fixed;
+                display: block;
+                right: 0;
+                bottom: 0;
+                margin-right: 40px;
+                margin-bottom: 40px;
+                z-index: 900;
+            }
+            }
+            #colorsd.colorss{color:black;}
+            a.colorss {
+                    color: black;
+                    }
+             label#searchs {
+        top: 20px;
+    }
+ul#dropcenter{
+    width: 100%;
+}
+.recha{color:white;font-size:10px;}
+#centrer{text-align:-webkit-center;}
+.separe{margin-top:15px;
+        width: 7.5rem;
+    min-width: 7.5rem;
+    height: 7.5rem;
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.26);
+    }
+    #taille,#taille2,#taille3{
+        width: 5.5rem;
+    min-width: 5.5rem;
+    height: 5.5rem;
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.26);
+    }
+    #solde{text-align:right;}
+    .btn.btn-primary{font-size:10px;}
+    a.mdl-navigation__link,a.surligeur {
+    text-decoration: none;
+}
+td.centrer,th.centrer{text-align:center;}
+        </style>
+</head>
+
+{% block content %}
+<body onload="myFunction()">
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Mon Profile</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label id="searchs" class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" id="search">
+                    <label class="mdl-textfield__label"  for="search">Enter your query...</label>
+                </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                <li class="mdl-menu__item">Qui sommes-nous ?</li>
+                <li class="mdl-menu__item">Faq</li>
+                <li class="mdl-menu__item">Contacf</li>
+            </ul>
+        </div>
+    </header>
+
+
+    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+        <header class="demo-drawer-header">
+            <img src='{{ img }}' alt="img"  width="100" class="demo-avatar">
+            <div class="demo-avatar-dropdown">
+                <span>{{ email }}</span>
+                <div class="mdl-layout-spacer"></div>
+                <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                    <i class="material-icons" role="presentation">arrow_drop_down</i>
+                    <span class="visuallyhidden">Accounts</span>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect " id="dropcenter" for="accbtn">
+                    <li class="mdl-menu__item" ><a class="surligeur" href="{% url 'view_profile' %}">Mon profile</a></li>
+                    <li class="mdl-menu__item"><a class="surligeur" href="/oorax/logout">Deconnexion</a></li>
+
+                </ul>
+            </div>
+        </header>
+
+        <nav class="demo-navigation mdl-navigation  mdl-color--blue-grey-800" id="slide-out" >
+            <a class="mdl-navigation__link" href="{% url 'index' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Accueil</a>
+            <a class="mdl-navigation__link" href="{% url 'user_mes_cours' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Mes cours</a>
+            <a class="mdl-navigation__link" href="{% url 'mes_cours' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Cours publiés</a>
+
+            <a class="mdl-navigation__link" href="{% url 'historique' %} "><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Credits</a>
+
+
+        </nav>
+    </div>
+    <!--ul class="sidenav" id="mobile-demo2">
+        <li><a href="sass.html" data-target="mobile-demo3" class="sidenav-trigger">Option de test</a></li>
+        <li><a href="collapsible.html">Statistique de test</a></li>
+        <li><a href="collapsible.html">Mise à jour</a></li>
+    </ul-->
+    <!-- partie paramettre de cour -->
+    <!--ul class="sidenav" id="mobile-demo3" >
+        {% for chec in checked %}
+
+        <form method="post" action="{% url 'check' %}" >{% csrf_token %}
+            <li>
+                <div class="switch">
+                    <label>
+                        {% if chec.check is True %}
+                        <input onclick="myFunction()" type="checkbox" class="filled-in" id="test1" value="1" checked="checked" />
+                        <span class="lever"></span>
+                        Afficher Explication
+                        {% else %}
+                        <input onclick="myFunction()" type="checkbox" class="filled-in" value="0" id="test1" />
+                        <span class="lever"></span>
+                        Afficher Explication
+                        {% endif %}
+                        <input name="less" type="text" value="0" id="less" readonly />
+                    </label>
+
+                </div>
+            </li>
+
+            <li>
+                <div class="switch">
+                    <label>
+                        {% if chec.temps is True %}
+                        <input type="checkbox" onclick="myFunction()" class="filled-in"   id="temps1" value="1" checked="checked" />
+                        <span class="lever"></span>
+                        Afficher Temps
+                        {% else %}
+                        <input type="checkbox" onclick="myFunction()" class="filled-in"  id="temps1" value="0" />
+                        <span class="lever"></span>
+                        Afficher Temps
+                        {% endif %}
+                        <input name="less2" type="text" value="0" id="less2" readonly />
+                    </label>
+
+                </div>
+            </li>
+            <li>
+                <div class="switch">
+                    <label>
+                        {% if chec.ntfin is True %}
+                        <input type="checkbox" onclick="myFunction()" class="filled-in" name="chec1" id="fin1" value="1" checked="checked" />
+                        <span class="lever"></span>
+                        Noter à la fin
+                        {% else %}
+                        <input type="checkbox" onclick="myFunction()" class="filled-in" name="chec2" id="fin1" value="0" />
+                        <span class="lever"></span>
+                        Noter à la fin
+                        {% endif %}
+                    </label>
+                    <input name="less3" type="text" value="0" id="less3" readonly />
+                </div>
+            </li>
+            <button class="nean" type="submit" name="action">
+                <i class="material-icons right">close</i>
+            </button >
+        </form>
+        {% endfor %}
+    </ul-->
+    <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-grid demo-content">
+            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="centrer">
+
+                  <div class="mdl-cell mdl-cell--4-col">
+
+                  </div>
+                  <div class="mdl-cell mdl-cell--4-col">
+
+
+                  </div>
+                  <div class="mdl-cell mdl-cell--4-col">
+
+                  </div>
+
+            </div>
+
+            <div class="demo-graphs mdl-cell mdl-color--white mdl-cell--8-col ">
+
+
+                <div class="media">
+                  <img class="align-self-start mr-3" src="{{ img }}" width="125px" alt="Generic placeholder image">
+                  <div class="media-body">
+                    <h3 class="mt-0"> Pseudo : {{ user.first_name }}</h3>
+                      <p>Nom : {{ user }}</p>
+                      <p>Prenom : {{ user.last_name }}</p>
+                      <p>Email : {{ email }}</p>
+                      <p>Contact : {{ user.contact}}</p>
+
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="demo-cards mdl-cell mdl-cell--4-col mdl-cell--8-col-tablet  mdl-grid--no-spacing">
+                <div class="demo-updates mdl-card mdl-shadow--2dp  mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+
+                    <div class="mdl-card__supporting-text mdl-cell--12-col mdl-grid mdl-color-text--grey-600">
+                        <div class="mdl-cell mdl-cell--6-col">Mon solde : </div>
+                        <div class="mdl-cell mdl-cell--6-col" id="solde">{{ solde }} fcfa</div>
+                    </div>
+
+                    <div class="mdl-card__title mdl-card--expand mdl-color--teal-300">
+                        <h2 class="mdl-card__title-text">1</h2>
+                    </div>
+
+                    <div class="mdl-card__actions mdl-card--border mdl-cell--12-col mdl-grid">
+                        <div class="mdl-cell mdl-cell--4-col cadre">
+                            <a class="recha" href="{% url 'transfert_credit' %}">
+                                <button type="button" class="btn btn-primary">Transferer</button>
+                            </a>
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col cadre ">
+                            <a class="recha" href="{% url 'recharger_compte' %}">
+                                <button type="button" class="btn btn-primary">Recharger</button>
+                            </a>
+                        </div>
+                        <div class="mdl-cell mdl-cell--4-col cadre">
+                            <a class="recha" href="{% url 'historique' %} ">
+                                <button type="button" class="btn btn-primary">Historiques</button>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="demo-separator mdl-cell--1-col"></div>
+                <div class="demo-options mdl-card mdl-color--deep-purple-500 mdl-shadow--2dp  mdl-cell--4-col mdl-cell--3-col-tablet mdl-cell--12-col-desktop">
+                    <div class="mdl-card__supporting-text mdl-color-text--blue-grey-50">
+
+
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--blue-grey-50"></a>
+                        <div class="mdl-layout-spacer"></div>
+                        <i class="material-icons">location_on</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+
+<script>
+
+    function myFunction() {
+        var explic= document.getElementById("test1");
+        var temps = document.getElementById("temps1");
+        var ntfin = document.getElementById("fin1");
+        var text = document.getElementById("text");
+
+        if (explic.checked == true)
+        {
+            document.getElementById("less").value=1
+            document.getElementById("less2").value=0
+            document.getElementById("less3").value=0
+            temps.checked = false;
+            ntfin.checked = false;
+        }
+
+
+        else if(temps.checked == true)
+        {
+
+            document.getElementById("less2").value=1
+            document.getElementById("less").value=0
+        }
+
+        else if(ntfin.checked == true)
+        {
+            document.getElementById("less3").value=1
+            document.getElementById("less").value=0
+
+        }
+
+        else
+        {
+
+            ntfin.checked =true
+            document.getElementById("less").value=0
+            document.getElementById("less2").value=0
+            document.getElementById("less3").value=1
+
+
+        }
+    }
+
+
+    $(document).on('submit','#formulaire',function(e){
+        /*e.preventDefault();*/
+        $.ajax({
+            type:'POST',
+            url:'{% url 'check' %}',
+            data:{
+                less:$("input[name=less]").val(),
+                less2:$("input[name=less2]").val(),
+                less3:$("input[name=less3]").val(),
+
+                csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+            },
+            success:function(){
+
+            }
+        });
+    });
+
+
+   /* $("button").click(function(event){
+        event.preventDefault()
+
+        $.ajax({
+            type:"GET",
+            url: "http://fantasy.premierleague.com/web/api/elements/100/",
+            success: function(data) {
+                $("body").append(JSON.stringify(data));
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.status);
+            },
+            dataType: "jsonp"
+        });
+    });*/
+
+</script>
+</html>
+{% endblock %}

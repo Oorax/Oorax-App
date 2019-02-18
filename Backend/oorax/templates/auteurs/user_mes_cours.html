@@ -1,0 +1,390 @@
+
+
+{% load static %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+    <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/styles.css' %}"  media="screen,projection"/>
+
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.cyan-light_blue.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+
+    <style>
+    a.mdl-navigation__link.active2 {
+    background: black;
+}
+
+
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+        a.colorss {
+    color: black;
+}
+    #solde{text-align:right;}
+      label#searchs {
+    top: 20px;
+}
+table.mdl-data-table.mdl-js-data-table.mdl-shadow--2dp {
+    width: 100%;
+}
+#mobile-demo3 {
+
+  display:none;
+}
+a.mdl-navigation__link,a.surligeur {
+    text-decoration: none;
+}
+td.centrer,th.centrer{text-align:center;}
+    </style>
+</head>
+<body onload="myFunction()">
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Mes cours</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label id="searchs" class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" id="search">
+                    <label class="mdl-textfield__label"  for="search">Enter your query...</label>
+                </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                <li class="mdl-menu__item">Performence</li>
+                <li class="mdl-menu__item">Mise à jour</li>
+                <li class="mdl-menu__item"><button onclick="saFunctions()">Paramettre du cour</button></li>
+
+            </ul>
+        </div>
+
+    </header>
+
+
+    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+       <header class="demo-drawer-header">
+            <img src='{{ img }}' alt="img"  width="100" class="demo-avatar">
+            <div class="demo-avatar-dropdown">
+                <span>{{ email }}</span>
+                <div class="mdl-layout-spacer"></div>
+                <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                    <i class="material-icons" role="presentation">arrow_drop_down</i>
+                    <span class="visuallyhidden">Accounts</span>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                    <li class="mdl-menu__item" ><a class="surligeur" href="{% url 'view_profile' %}">Mon profile</a></li>
+                    <li class="mdl-menu__item"><a class="surligeur" href="/oorax/logout/">Deconnexion</a></li>
+
+                </ul>
+            </div>
+        </header>
+
+        <nav class="demo-navigation mdl-navigation  mdl-color--blue-grey-800" id="slide-out" >
+            <a class="mdl-navigation__link" href="{% url 'index' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Accueil</a>
+            <a class="mdl-navigation__link active2" href="{% url 'user_mes_cours' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Mes cours</a>
+            <a class="mdl-navigation__link" href="{% url 'mes_cours' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Cours publiés</a>
+            <a class="mdl-navigation__link" href="{% url 'historique' %} "><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Credits</a>
+        </nav>
+    </div>
+    <!--ul class="sidenav" id="mobile-demo2">
+        <li><a href="sass.html" data-target="mobile-demo3" class="sidenav-trigger">Option de test</a></li>
+        <li><a href="collapsible.html">Statistique de test</a></li>
+        <li><a href="collapsible.html">Mise à jour</a></li>
+    </ul-->
+
+    <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-grid demo-content">
+
+
+                 <ul class="demo-list-control mdl-list" id="mobile-demo3">
+
+
+                    {% for chec in checked %}
+
+                    <form method="post" action="{% url 'check' %}" >{% csrf_token %}
+                        <li class="mdl-list__item">
+                                <span class="mdl-list__item-primary-content">
+                                      Afficher Explication
+                                </span>
+                                 <span class="mdl-list__item-secondary-action">
+                                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="test1">
+                                        {% if chec.check is True %}
+                                        <input  type="checkbox" onclick="myFunction()" class="mdl-switch__input" id="test1" value="1" checked="checked" />
+
+                                        {% else %}
+                                        <input  type="checkbox" onclick="myFunction()" class="mdl-switch__input" value="0" id="test1" />
+
+                                        {% endif %}
+                                        <input name="less" type="hidden" value="0" id="less" readonly />
+                                    </label>
+                                 </span>
+                        </li>
+
+                        <li class="mdl-list__item">
+                                <span class="mdl-list__item-primary-content">
+                                       Afficher Temps
+                                </span>
+                                <span class="mdl-list__item-secondary-action" >
+                                    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="temps1">
+                                        {% if chec.temps is True %}
+                                        <input type="checkbox" onclick="myFunction()" class="mdl-switch__input"   id="temps1" value="1" checked="checked" />
+
+                                        {% else %}
+                                        <input type="checkbox" onclick="myFunction()" class="mdl-switch__input" id="temps1" value="0" />
+                                        {% endif %}
+                                        <input name="less2" type="hidden" value="0" id="less2" readonly />
+                                    </label>
+                                </span>
+
+                        </li>
+                        <li class="mdl-list__item">
+                            <span class="mdl-list__item-primary-content">
+                                       Noter à la fin
+                                </span>
+                            <span class="mdl-list__item-secondary-action" >
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="fin1">
+                                    {% if chec.ntfin is True %}
+                                    <input type="checkbox" onclick="myFunction()" class="mdl-switch__input" name="chec1" id="fin1" value="1" checked="checked" />
+
+                                    {% else %}
+                                    <input type="checkbox" onclick="myFunction()" class="mdl-switch__input" name="chec2" id="fin1" value="0" />
+
+                                    {% endif %}
+                                </label>
+                                <input name="less3" type="hidden" value="0" id="less3" readonly />
+                            </span>
+                        </li>
+                        <button class="badge badge-complete" type="submit" name="action">
+                            <i class="material-icons right">close</i>
+                        </button>
+                    </form>
+                    {% endfor %}
+                    </ul>
+
+
+            <div class="mdl-cell mdl-cell--12-col">
+
+                <div class="table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+
+                                    <table class="table  mdl-color--white  ">
+                                        <thead class="thead-dark">
+                                            <tr>
+
+                                                <th class="centrer">N</th>
+                                                <th class="centrer">Titre</th>
+                                                <th class="centrer">Categotie</th>
+
+                                                <th class="centrer">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for u in cours %}
+                                            {% if u.id in list_cour %}
+                                            <tr>
+                                                <td class="centrer">{{ u.id }}</td>
+                                                <td class="centrer"> {{ u.titre }}</td>
+                                                {% for b in categories %}
+                                                    {% if b.id == u.categorieid_id %}
+                                                <td class="centrer">  <span class="name">{{ b.nom_categorie }}</span> </td>
+                                                    {% endif %}
+                                                    {% endfor %}
+
+                                                <td class="centrer">
+                                                    <a class="badge badge-complete" href="{% url 'detail_user_cour' u.id %}"><i class="fa fa-plus-square"> Ouvrir</i></a>
+
+                                                    <a class="btn btn-danger" href="{% url 'cour_delete' u.id %}"><i class="fa fa-trash-o"> Delete</i></a>
+
+
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                    {% endfor %}
+                                        </tbody>
+                                    </table>
+                    <div class="mdl-grid mdl-navigation mdl-layout__content">
+            <div class="mdl-cell mdl-cell--2-col"></div>
+            <div class="mdl-cell mdl-cell--8-col">
+                <nav aria-label="...">
+                      {% if cours.has_other_pages %}
+                          <ul class="pagination">
+
+                               {% if cours.has_previous %}
+                                    <li class="page-item">
+                                      <a class="page-link" href="?page={{ cours.previous_page_number }}" >&laquo;</a>
+                                    </li>
+                              {% else %}
+                                  <li class="page-item disabled"><span>&laquo;</span></li>
+                              {% endif %}
+
+                               {% for i in cours.paginator.page_range %}
+                                     {% if cours.number == i %}
+                                        <li class="page-item active"><a class="page-link">{{ i }} <span class="sr-only">(current)</span></a></li>
+                                    {% else %}
+                                        <li class="page-item "><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                    {% endif %}
+                               {% endfor %}
+
+                               {% if cours.has_next %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ cours.next_page_number }}">&raquo;</a></li>
+
+                              {% else %}
+                                <li class="page-item disabled"><span>&raquo;</span></li>
+
+                              {% endif %}
+
+                          </ul>
+                       {% endif %}
+                </nav>
+            </div>
+            <div class="mdl-cell mdl-cell--2-col"></div>
+
+        </div>
+                                </div> <!-- /.table-stats -->
+
+            </div>
+        </div>
+    </main>
+
+</div>
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+
+<script>
+function saFunctions() {
+  var x = document.getElementById("mobile-demo3");
+  if (x.style.display == "none") {
+    x.style.display = "block";
+  }
+  else {
+    x.style.display = "none";
+  }
+}
+
+
+function myFunction() {
+  var explic= document.getElementById("test1");
+  var temps = document.getElementById("temps1");
+  var ntfin = document.getElementById("fin1");
+
+  var text = document.getElementById("text");
+
+  if (explic.checked == true)
+  {
+    document.getElementById("less").value=1
+    document.getElementById("less2").value=0
+    document.getElementById("less3").value=0
+    temps.checked = false;
+    ntfin.checked = false;
+  }
+
+
+  else if(temps.checked == true)
+  {
+
+     document.getElementById("less2").value=1
+     document.getElementById("less").value=0
+  }
+
+  else if(ntfin.checked == true)
+  {
+     document.getElementById("less3").value=1
+     document.getElementById("less").value=0
+
+  }
+
+  else
+  {
+
+    ntfin.checked = true
+    document.getElementById("less").value=0
+    document.getElementById("less2").value=0
+    document.getElementById("less3").value=1
+
+
+  }
+}
+
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'check' %}',
+        data:{
+            less:$("input[name=less]").val(),
+            less2:$("input[name=less2]").val(),
+            less3:$("input[name=less3]").val(),
+
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+
+
+$("button").click(function(event){
+   event.preventDefault()
+
+$.ajax({
+    type:"GET",
+    url: "http://fantasy.premierleague.com/web/api/elements/100/",
+    success: function(data) {
+            $("body").append(JSON.stringify(data));
+        },
+    error: function(jqXHR, textStatus, errorThrown) {
+        },
+   dataType: "jsonp"
+});
+});
+
+
+</script>
+
+</html>
+{% endblock %}
+
+
+

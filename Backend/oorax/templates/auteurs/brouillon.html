@@ -1,10 +1,187 @@
-<!DOCTYPE html>
+{% load static %}
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+     <script type="text/javascript" src=" {% static 'materialize/js/persojquery.js' %}"></script>
+              <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+                <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+
+              <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/styles.css' %}"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/perso.css' %}"  media="screen,projection"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 </head>
 <body>
-$END$
+
+    <div class="grand">
+        <h2>user cour detail</h2><br>
+         {% if cour_image %}
+            <img src='{{ cour_image.url }}' alt="{{ cour_image.name }}"  width="800" height="300">
+         {% endif %}
+        <h3>{{ cour_titre }} </h3>
+        <span>Auteur {{ auteur }}</span><br><br>
+
+        <a href="">#{{ cour_domaine }}</a> ----
+         <a href="">#{{ cour_categorie }}</a>
+        <h4>{{ cour_description }}</h4>
+
+    </div>
+
+<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+  <div class="mdl-tabs__tab-bar">
+      <a href="#starks-panel" class="mdl-tabs__tab is-active">Cours</a>
+      <a href="#lannisters-panel" class="mdl-tabs__tab">Evaluations</a>
+
+  </div>
+
+  <div class="mdl-tabs__panel is-active" id="starks-panel">
+    <div class="col m6" id="test1">
+
+                  <div class="container">
+
+                            <div class="row">
+                                <div class="col s6">
+                                    <i class="material-icons" id="auteur">person_pin</i><span>Auteur : {{ cour_auteur }}</span>
+                                </div>
+                            </div>
+
+                            <ul class="collapsible" data-collapsible="accordion">
+                                 {% for chap in chapitre %}
+                                    <li>
+                                        <div class="collapsible-header">
+                                            <i class="material-icons">filter_drama</i>Chapitre {{ chap.id }} : {{ chap.nom_chapitre }}
+                                        </div>
+                                        <div class="collapsible-body">
+                                            <div class="row">
+                                                <div class="col s12 m12">
+
+                                                    <ul class="collapsible" data-collapsible="accordion">
+                                                        {% for less in lesson %}
+                                                            {% if less.chapitreid_id is chap.id %}
+                                                                <li>
+                                                                    <div class="collapsible-header">
+                                                                        <i class="material-icons">filter_drama</i>Lesson {{ less.id }} : {{ less.nom_lesson }}
+                                                                    </div>
+                                                                    <div class="collapsible-body">
+                                                                         <blockquote id="">
+                                                                            <ul class="collection">
+                                                                                <h4>Achetez les evaluations: </h4>
+                                                                              <li class="collection-item"> Prix : 100F <a href="{% url 'achat_lesson' less.id %}">Acheter </a></li>
+
+                                                                            </ul>
+                                                                         </blockquote>
+                                                                        <hr>
+                                                                        {% for cont in contenu %}
+                                                                            {% if cont.lessoneid_id is less.id %}
+                                                                                <h4>{{ cont.titre }}</h4>
+                                                                                <p>{{ cont.contenu_texte }}</p>
+                                                                             {% endif %}
+                                                                        {% endfor %}
+                                                                    </div>
+                                                                </li>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                  </div>
+              </div>
+  </div>
+  <div class="mdl-tabs__panel" id="lannisters-panel">
+    <div class="col m6" id="test2">
+                  <form method="post" action="{% url 'choix_question' %}" >{% csrf_token %}
+                {% for y in chapitres %}
+                         <div class="section">
+                             {% if y.id in list_chap %}
+                                             <div class="row" >
+                                                     <div class="container" >
+                                                         <div class="col s2"></div>
+                                                          <div class="col s8">
+                                                             <p id="posi">
+                                                                  <label>
+
+                                                                    <span id="chap">Chapitre {{ y.id }} : {{ y.nom_chapitre }} </span>
+                                                                  </label>
+                                                                </p>
+                                                          </div>
+                                                         <div class="col s2"></div>
+                                                     </div>
+                                             </div>
+                             {% endif %}
+
+
+                                        <div class="row" >
+                                             <div class="container" >
+                                                 <div class="col s3"></div>
+                                                  <div class="col s6">
+                                                      {% for x in lesson %}
+                                                        {% if x.id in list_less %}
+                                                        {% if y.id is x.chapitreid_id %}
+                                                                 <p id="lesson">
+                                                                  <label>
+                                                                    <input type="checkbox" id="chec"   name="check" value="{{ x.id }}"  />
+                                                                    <span id="less">{{ x.nom_lesson }} </span>
+                                                                  </label>
+                                                                </p>
+                                                        {% endif %}
+                                                        {% endif %}
+                                                      {% endfor %}
+                                                  </div>
+                                                 <div class="col s3"></div>
+                                            </div>
+                                            </div>
+
+
+                         </div>
+                {% endfor %}
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Commencer
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </form>
+              </div>
+  </div>
+
+</div>
+
 </body>
+<style>
+
+.grand{
+text-align:center;
+}
+
+#droite {
+  margin: 0px ;
+}
+#auteur{
+color:#ee6e73;
+}
+span#chap {
+    font-size: 35px;
+}
+p#posi {
+    padding: 15px;
+    text-align: left;
+}
+#lesson{
+    padding:5px;
+    text-align: left;
+}
+
+</style>
 </html>
+{% endblock %}

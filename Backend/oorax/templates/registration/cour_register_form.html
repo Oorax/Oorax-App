@@ -1,0 +1,105 @@
+
+{% block content %}
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Oorax Autor Admin</title>
+    <meta name="description" content="oorax autor Admin">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="{% static 'img/2.jpg' %}">
+    <link rel="shortcut icon" href="{% static 'img/2.jpg' %}">
+    <link rel="stylesheet" href="{% static 'materialize/css/perso.css' %}">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/pe-icon-7-filled.css' %}">
+
+
+    <link href="{% static 'assets/weather/css/weather-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/calendar/fullcalendar.css' %}" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link href="{% static 'assets/css/charts/chartist.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/lib/vector-map/jqvmap.min.css' %}" rel="stylesheet">
+
+
+
+</head>
+<body>
+
+
+
+
+    <!-- Right Panel -->
+
+     <div class="container">
+            <div class="animated fadeIn">
+                <div class="row">
+                       <div class="col-lg-12">
+                        <div class="card">
+                            <form method="post" action="" enctype="multipart/form-data">
+
+
+                                <div class="card-header"><strong>Company</strong><small> Form</small></div>
+                                <div class="card-body card-block">
+                                    {% csrf_token %}
+                                    <div class="form-group">{{ form.as_p }}</div>
+                                    <input name="users" type="hidden" value="{{ user.id }}" id="users" readonly />
+                                     <label> Domaine:
+                                              <input type="text" name="movies2" id="domaine"  required  list="movies2"/>
+                                              <datalist id="movies2">
+
+                                                  <label> or select one from the list:
+                                                      {% if domaine %}
+
+                                                         <select  name="movies2" id="Dome" >
+                                                              <option value="">----------------------</option>
+                                                                    {% for dom in domaine %}
+                                                              <option value="{{ dom.nom_domaine }}"  id="primes">{{ dom.nom_domaine }}</option>
+                                                                    {% endfor %}
+                                                        </select>
+                                                      {% endif %}
+                                                  </label>
+                                              </datalist>
+                                            </label><br><br>
+                                     <label> Categorie:
+                                              <input type="text" name="movies" id="categories"   required  list="movies"/>
+                                              <datalist id="movies">
+
+                                                  <label> or select one from the list:
+                                                      {% if categories %}
+
+                                                         <select  name="movies" id="categorie" >
+                                                              <option value="">----------------------</option>
+                                                                    {% for cat in categories %}
+                                                              <option value="{{ cat.nom_categorie }}"  id="prime">{{ cat.nom_categorie }}</option>
+                                                                    {% endfor %}
+                                                        </select>
+                                                      {% endif %}
+                                                  </label>
+                                              </datalist>
+                                            </label><br><br>
+                                    <input name="hides" type="hidden"  id="hides"  />
+                                    <input name="hides2" type="hidden"  id="hides2"  />
+                                    <input class="btn btn-success" type="submit" value="Submit">
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     </div>
+
+
+
+
+</body>
+</html>
+{% endblock content %}

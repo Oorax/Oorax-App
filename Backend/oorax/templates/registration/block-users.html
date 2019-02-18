@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Block users</h2>
+
+ <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                 <button type="submit">Block</button>
+              </form>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,393 @@
+
+
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <title>Material Design Lite</title>
+
+         <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/styles.css' %}"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/perso.css' %}"  media="screen,projection"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+
+        <style>
+        img.fluid {
+    WIDTH: 100%;
+    height: 55%;
+    /* BACKGROUND-POSITION: center; */
+    /* background-size: cover; */
+}
+            #view-source {
+                position: fixed;
+                display: block;
+                right: 0;
+                bottom: 0;
+                margin-right: 40px;
+                margin-bottom: 40px;
+                z-index: 900;
+            }
+            }
+            #colorsd.colorss{color:black;}
+            a.colorss {
+                    color: black;
+                    }
+             label#searchs {
+        top: 30px;
+    }
+
+    /*span.mdl-layout-title {
+    display: block;
+    color: #757575 !important;
+    margin-left: 235px;
+}*/
+ul#dropcenter{
+    width: 100%;
+}
+.recha{color:white;font-size:10px;}
+#centrer{text-align:-webkit-center;}
+.separe{margin-top:15px;
+        width: 7.5rem;
+    min-width: 7.5rem;
+    height: 7.5rem;
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.26);
+    }
+    #taille,#taille2,#taille3{
+        width: 5.5rem;
+    min-width: 5.5rem;
+    height: 5.5rem;
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.26);
+    }
+    #solde{text-align:right;}
+    .btn.btn-primary{font-size:10px;}
+    a.mdl-navigation__link,a.surligeur {
+    text-decoration: none;
+}
+div#abonnees {
+    width: 50%;
+}
+#droping,#table th,#table td{font-family: 'Roboto', 'Helvetica', sans-serif;}
+td.centrer,th.centrer{text-align:center;}
+
+.mdl-layout__drawer-button {
+    padding: 10px;
+}
+.mdl-card__actions.mdl-card--border {
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding: 1px;
+    font-size:10px;
+    margin: 1px;
+
+}
+
+a.mdl-navigation__link.active1 {
+    background: black;
+}
+
+li.strongs.list-group-item.justify-content-between {
+    font-weight: 900;
+    font-size: larger;
+}
+#foot{background:none;}
+div#foot2 {
+    background: none;
+}
+#bodal p,#form2 p{padding: 2rem;}
+label#modepayment {
+    margin-left: 25px;
+}
+p#modpays {
+    padding-top: 30px;
+}
+div#modpay {
+    padding: 12px;
+}
+</style>
+</head>
+
+{% block content %}
+<body  id="corps">
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Contenu du Cours</span>
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                    <label id="searchs" class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" id="search">
+                        <label class="mdl-textfield__label"  for="search">Enter your query...</label>
+                    </div>
+                </div>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                    <li class="mdl-menu__item">Qui sommes-nous ?</li>
+                    <li class="mdl-menu__item">Faq</li>
+                    <li class="mdl-menu__item">Contacf</li>
+                </ul>
+            </div>
+        </header>
+
+
+        <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+            <header class="demo-drawer-header">
+                <img src='{{ img }}' alt="img"  width="100" class="demo-avatar">
+                <div class="demo-avatar-dropdown" id="droping">
+                    <span>{{ email }}</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">Accounts</span>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect " id="dropcenter" for="accbtn">
+                        <li class="mdl-menu__item" ><a class="surligeur" href="{% url 'view_profile' %}">Mon profile</a></li>
+                        <li class="mdl-menu__item"><a class="surligeur" href="/oorax/logout">Deconnexion</a></li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <nav class="demo-navigation mdl-navigation  mdl-color--blue-grey-800" id="slide-out" >
+                <a class="mdl-navigation__link " href="{% url 'index' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Accueil</a>
+                <a class="mdl-navigation__link" href="{% url 'user_mes_cours' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Mes cours</a>
+                <a class="mdl-navigation__link" href="{% url 'mes_cours' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Cours publiés</a>
+
+                <a class="mdl-navigation__link" href="{% url 'historique' %} "><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Credits</a>
+
+
+            </nav>
+        </div>
+        <!--ul class="sidenav" id="mobile-demo2">
+            <li><a href="sass.html" data-target="mobile-demo3" class="sidenav-trigger">Option de test</a></li>
+            <li><a href="collapsible.html">Statistique de test</a></li>
+            <li><a href="collapsible.html">Mise à jour</a></li>
+        </ul-->
+        <!-- partie paramettre de cour -->
+        <!--ul class="sidenav" id="mobile-demo3" >
+            {% for chec in checked %}
+
+            <form method="post" action="{% url 'check' %}" >{% csrf_token %}
+                <li>
+                    <div class="switch">
+                        <label>
+                            {% if chec.check is True %}
+                            <input onclick="myFunction()" type="checkbox" class="filled-in" id="test1" value="1" checked="checked" />
+                            <span class="lever"></span>
+                            Afficher Explication
+                            {% else %}
+                            <input onclick="myFunction()" type="checkbox" class="filled-in" value="0" id="test1" />
+                            <span class="lever"></span>
+                            Afficher Explication
+                            {% endif %}
+                            <input name="less" type="text" value="0" id="less" readonly />
+                        </label>
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="switch">
+                        <label>
+                            {% if chec.temps is True %}
+                            <input type="checkbox" onclick="myFunction()" class="filled-in"   id="temps1" value="1" checked="checked" />
+                            <span class="lever"></span>
+                            Afficher Temps
+                            {% else %}
+                            <input type="checkbox" onclick="myFunction()" class="filled-in"  id="temps1" value="0" />
+                            <span class="lever"></span>
+                            Afficher Temps
+                            {% endif %}
+                            <input name="less2" type="text" value="0" id="less2" readonly />
+                        </label>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="switch">
+                        <label>
+                            {% if chec.ntfin is True %}
+                            <input type="checkbox" onclick="myFunction()" class="filled-in" name="chec1" id="fin1" value="1" checked="checked" />
+                            <span class="lever"></span>
+                            Noter à la fin
+                            {% else %}
+                            <input type="checkbox" onclick="myFunction()" class="filled-in" name="chec2" id="fin1" value="0" />
+                            <span class="lever"></span>
+                            Noter à la fin
+                            {% endif %}
+                        </label>
+                        <input name="less3" type="text" value="0" id="less3" readonly />
+                    </div>
+                </li>
+                <button class="nean" type="submit" name="action">
+                    <i class="material-icons right">close</i>
+                </button >
+            </form>
+            {% endfor %}
+        </ul-->
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="centrer">
+                     <div class="grand">
+                        <h2>user cour detail</h2><br>
+                         {% if cour_image %}
+                            <img src='{{ cour_image.url }}' class="fluid "   alt="{{ cour_image.name }}"  >
+                         {% endif %}
+                        <h3>{{ cour_titre }} </h3>
+                        <span>Auteur {{ auteur }}</span><br><br>
+
+                        <a href="">#{{ cour_domaine }}</a> ----
+                         <a href="">#{{ cour_categorie }}</a>
+                        <h4>{{ cour_description }}</h4>
+
+                    </div>
+                      <!--div class="mdl-cell mdl-cell--4-col">
+
+
+                      </div>
+                      <div class="mdl-cell mdl-cell--4-col">
+
+                      </div>
+                      <div class="mdl-cell mdl-cell--4-col">
+
+                      </div-->
+
+                </div>
+
+                <div class="mdl-cell mdl-cell--12-col mdl-color--white">
+
+                    <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                      <div class="mdl-tabs__tab-bar">
+                          <a href="#starks-panel" class="mdl-tabs__tab is-active">Cours</a>
+                          <a href="#lannisters-panel" class="mdl-tabs__tab">Evaluations</a>
+
+                      </div>
+
+                      <div class="mdl-tabs__panel is-active" id="starks-panel">
+                         <div class="mdl-grid">
+
+                             <div class="mdl-cell mdl-cell--12-col">
+
+                                                <div class="row">
+                                                    <div class="col s6">
+                                                        <i class="material-icons" id="auteur">person_pin</i><span>Auteur : {{ cour_auteur }}</span>
+                                                    </div>
+                                                </div>
+
+                                                <ul class="collapsible" data-collapsible="accordion">
+                                                     {% for chap in chapitre %}
+                                                        <li>
+                                                            <div class="collapsible-header">
+                                                                <i class="material-icons">filter_drama</i>Chapitre {{ chap.id }} : {{ chap.nom_chapitre }}
+                                                            </div>
+                                                            <div class="collapsible-body">
+                                                                <div class="row">
+                                                                    <div class="col s12 m12">
+
+                                                                        <ul class="collapsible" data-collapsible="accordion">
+                                                                            {% for less in lesson %}
+                                                                                {% if less.chapitreid_id is chap.id %}
+                                                                                    <li>
+                                                                                        <div class="collapsible-header">
+                                                                                            <i class="material-icons">filter_drama</i>Lesson {{ less.id }} : {{ less.nom_lesson }}
+                                                                                        </div>
+                                                                                        <div class="collapsible-body">
+                                                                                             <blockquote id="">
+                                                                                                <ul class="collection">
+                                                                                                    <h4>Achetez les evaluations: </h4>
+                                                                                                  <li class="collection-item"> Prix : 100F <a href="{% url 'achat_lesson' less.id %}">Acheter </a></li>
+
+                                                                                                </ul>
+                                                                                             </blockquote>
+                                                                                            <hr>
+                                                                                            {% for cont in contenu %}
+                                                                                                {% if cont.lessoneid_id is less.id %}
+                                                                                                    <h4>{{ cont.titre }}</h4>
+                                                                                                    <p>{{ cont.contenu_texte }}</p>
+                                                                                                 {% endif %}
+                                                                                            {% endfor %}
+                                                                                        </div>
+                                                                                    </li>
+                                                                                {% endif %}
+                                                                            {% endfor %}
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                      </div>
+                         </div>
+                      </div>
+                      <div class="mdl-tabs__panel" id="lannisters-panel">
+                        <div class="mdl-cell mdl-cell--12-col">
+                            <form method="post" action="{% url 'choix_question' %}" >{% csrf_token %}
+                                    {% for y in chapitres %}
+                                        {% if y.id in list_chap %}
+                                            <div class="row" >
+                                                <div class="container" >
+                                                    <div class="col s2"></div>
+                                                    <div class="col s8">
+                                                        <p id="posi">
+                                                            <label>
+                                                                <span id="chap">Chapitre {{ y.id }} : {{ y.nom_chapitre }} </span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col s2"></div>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+
+
+                                        {% for x in lesson %}
+                                            {% if x.id in list_less %}
+                                                {% if y.id is x.chapitreid_id %}
+
+                                                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                                        <input type="checkbox" id="chec"  class="mdl-checkbox__input" name="check" value="{{ x.id }}"  />
+                                                        <span id="less" class="mdl-checkbox__label">{{ x.nom_lesson }} </span>
+                                                    </label>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endfor %}
+
+                                    {% endfor %}
+                                            <button class="btn btn-raised btn-primary" type="submit" name="action">Commencer
+
+                                            </button>
+                            </form>
+
+                                  </div>
+                      </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    </div>
+
+    <script></script>
+</body>
+
+</html>
+{% endblock %}

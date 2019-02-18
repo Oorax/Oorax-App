@@ -1,0 +1,56 @@
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+      <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+      <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+<div class="card-panel teal lighten-2"><h5 class="center-align">{{ cour_titre }}</h5></div>
+    <div class="container">
+
+         <form method="post" action="{% url 'choix_quiz' %}" name="formulaire">
+
+            {% csrf_token %}
+            {% for chap in chapitre %}
+
+                <label>
+                    <ul>
+                        <li>
+                            <input type="checkbox" name="check" id="check" value="{{ chap.id }}" class="filled-in"  />
+                            <span>{{ chap.nom_chapitre }}</span>
+                        </li>
+                    </ul>
+                </label>
+            {% endfor %}
+              <div class="row">
+            <div class="col s6">
+                 <input class="waves-effect waves-light btn modal-trigger" type="submit" value="Faire le quiz" />
+            </div>
+
+        </div>
+
+         </form>
+    </div>
+</body>
+
+</html>
+<style>
+#droite {
+  margin: 0px ;
+}
+#auteur{
+color:#ee6e73;
+}
+input.waves-button-input {
+    color: white;
+    padding: 12px;
+}
+</style>

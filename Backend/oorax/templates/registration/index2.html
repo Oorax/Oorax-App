@@ -1,10 +1,166 @@
-<!DOCTYPE html>
+
+{% load static %}
+
+{% block content %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
+    <head>
+        <meta charset="UTF-8">
+         <!-- pour editeur de texte debut -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Title</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+
+        <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+
+        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/perso.css' %}"  media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+    </head>
+<body onload="myFunction()">
+        <div class="row">
+            <ul id="slide-out" class="sidenav">
+
+                <li>
+                    <a href="/oorax/login/" >Connexion</a>
+                </li>
+
+                <li><a href="{% url 'signup' %}">Inscription</a></li>
+            </ul>
+
+
+            <div class="row ooraxx">
+                <div class="col s12 m2"><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></div>
+                <div class="col s12 m8 oorax"><h3 class="oorax">Formnoo</h3></div>
+                <div class="col s12 m2 "></div>
+            </div>
+
+
+        </div>
+        <div class="row">
+        <div class="col s2"></div>
+
+        <div class="col s8">
+            <div class="container bas">
+                <form action="/search/" method="get" autocomplete="off">
+                    <div class="input-field" id="form1">
+                        <input id="search" type="search" name="q" id="q" placeholder="effectuez une recherche" required>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col s2 "></div>
+    </div>
+
 </body>
+
+
+
+
+
+<script type="text/javascript">
+
+function myFunction() {
+  var explic= document.getElementById("test1");
+  console.log(explic)
+  var temps = document.getElementById("temps1");
+  var ntfin = document.getElementById("fin1");
+
+  var text = document.getElementById("text");
+
+  if (explic.checked == true)
+  {
+    document.getElementById("less").value=1
+    document.getElementById("less2").value=0
+    document.getElementById("less3").value=0
+    temps.checked = false;
+    ntfin.checked = false;
+  }
+
+
+  else if(temps.checked == true)
+  {
+
+     document.getElementById("less2").value=1
+     document.getElementById("less").value=0
+  }
+
+  else if(ntfin.checked == true)
+  {
+     document.getElementById("less3").value=1
+     document.getElementById("less").value=0
+
+  }
+
+  else
+  {
+
+    ntfin.checked =true
+    document.getElementById("less").value=0
+    document.getElementById("less2").value=0
+    document.getElementById("less3").value=1
+
+
+  }
+}
+
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'check' %}',
+        data:{
+            less:$("input[name=less]").val(),
+            less2:$("input[name=less2]").val(),
+            less3:$("input[name=less3]").val(),
+
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+
+
+$("button").click(function(event){
+   event.preventDefault()
+
+$.ajax({
+    type:"GET",
+    url: "http://fantasy.premierleague.com/web/api/elements/100/",
+    success: function(data) {
+            $("body").append(JSON.stringify(data));
+        },
+    error: function(jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.status);
+        },
+   dataType: "jsonp"
+});
+});
+
+</script>
 </html>
+<style>
+
+    .oorax{text-align:center;}
+    .bas{margin-top:250px;}
+    input#search {
+    border: 1px solid #949494;
+    padding: 5px;
+    border-radius: 35px;
+}
+#form1 i.material-icons {
+    padding: 20px;
+}
+.ooraxx i.material-icons{
+    padding: 25px;
+}
+button.nean {
+    border: none;
+    background: none;
+}
+</style>
+{% endblock %}

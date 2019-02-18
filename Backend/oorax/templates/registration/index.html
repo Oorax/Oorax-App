@@ -1,0 +1,279 @@
+
+{% load static %}
+
+{% block content %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+         <!-- pour editeur de texte debut -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Title</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+
+        <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+
+        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/perso.css' %}"  media="screen,projection"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+    </head>
+<body onload="myFunction()">
+        <div class="row">
+            <ul id="slide-out" class="sidenav">
+
+                <li>
+                    <a class="dropdown-trigger" data-target="dropdown2">Gestion de compte<i class="material-icons right">arrow_drop_down</i></a>
+                </li>
+
+                <li>
+                    <a class="dropdown-trigger" href="#!" data-target="dropdown1">Gestion de credit<i class="material-icons right">arrow_drop_down</i></a>
+                </li>
+                {% if user.is_superuser %}
+                <li>
+                    <a href="/oorax/administration/" >Administration</a>
+                </li>
+                {% endif %}
+                {% if b == 1 or user.is_superuser %}
+                <li><a class="dropdown-trigger" data-target="dropdown3" href="/oorax/cour/">Gestion de cour<i class="material-icons right">arrow_drop_down</i></a></li>
+                {% endif %}
+                <li><a href="/oorax/logout/">Deconnexion</a></li>
+            </ul>
+                <!--gestion de credit -->
+                <ul id="dropdown1" class="dropdown-content">
+                    <li>
+                      <a class="blue-grey " href="#">Gestion crédit</a>
+                    </li>
+                  <li>
+                      <a class="" href="{% url 'recharger_compte' %}">Charger compte</a>
+                  </li>
+                  <li>
+                      <a class="" href="{% url 'transfert_credit' %}">Transfer de crédit</a>
+                  </li>
+                  <li>
+                      <a class="" href="{% url 'historique' %}">Historique</a>
+                  </li>
+                </ul>
+
+                <!--gestion de compte -->
+                <ul id="dropdown2" class="dropdown-content">
+                    <li><a class="blue-grey " href="#">Gestion compte</a></li>
+                    <li><a href="{% url 'index' %}">Accueil</a></li>
+                    <li><a href="{% url 'view_profile' %}">Mon profile</a></li>
+                    <li><a href="{% url 'user_mes_cours' %}">Mes cours</a></li>
+                    <li><a href="{% url 'historique' %}">Historique</a></li>
+                    <li><a href="badges.html"  data-target="mobile-demo2" class="sidenav-trigger">Paramettre</a></li>
+                </ul>
+
+                <!--gestion de cour -->
+                <ul id="dropdown3" class="dropdown-content">
+                    <li><a class="blue-grey " href="#">Gestion de cour</a></li>
+                    <li><a href="/oorax/cour">Ajouter cour</a></li>
+                    <li><a href="{% url 'mes_cours'%}">Cours publiés</a></li>
+                    <li><a href="#">Abonnes</a></li>
+                    <li><a href="#">Cours vendus</a></li>
+
+                </ul>
+
+            <ul class="sidenav" id="mobile-demo2">
+                <li><a href="sass.html" data-target="mobile-demo3" class="sidenav-trigger">Option de test</a></li>
+                <li><a href="collapsible.html">Statistique de test</a></li>
+                <li><a href="collapsible.html">Mise à jour</a></li>
+            </ul>
+            <ul class="sidenav" id="mobile-demo3" >
+                {% for chec in checked %}
+
+                <form method="post" action="{% url 'check' %}" >{% csrf_token %}
+                    <li>
+                     <div class="switch">
+                        <label>
+                            {% if chec.check is True %}
+                            <input onclick="myFunction()" type="checkbox" class="filled-in" id="test1" value="1" checked="checked" />
+                            <span class="lever"></span>
+                            Afficher Explication
+                            {% else %}
+                            <input onclick="myFunction()" type="checkbox" class="filled-in" value="0" id="test1" />
+                            <span class="lever"></span>
+                            Afficher Explication
+                            {% endif %}
+                            <input name="less" type="text" value="0" id="less" readonly />
+                        </label>
+
+                     </div>
+                    </li>
+
+                    <li>
+                        <div class="switch">
+                            <label>
+                                {% if chec.temps is True %}
+                                <input type="checkbox" onclick="myFunction()" class="filled-in"   id="temps1" value="1" checked="checked" />
+                                <span class="lever"></span>
+                                Afficher Temps
+                                {% else %}
+                                <input type="checkbox" onclick="myFunction()" class="filled-in"  id="temps1" value="0" />
+                                <span class="lever"></span>
+                                Afficher Temps
+                                {% endif %}
+                                <input name="less2" type="text" value="0" id="less2" readonly />
+                            </label>
+
+                        </div>
+                    </li>
+                    <li>
+                        <div class="switch">
+                        <label>
+                            {% if chec.ntfin is True %}
+                            <input type="checkbox" onclick="myFunction()" class="filled-in" name="chec1" id="fin1" value="1" checked="checked" />
+                            <span class="lever"></span>
+                            Noter à la fin
+                             {% else %}
+                             <input type="checkbox" onclick="myFunction()" class="filled-in" name="chec2" id="fin1" value="0" />
+                            <span class="lever"></span>
+                           Noter à la fin
+                            {% endif %}
+                        </label>
+                            <input name="less3" type="text" value="0" id="less3" readonly />
+                        </div>
+                    </li>
+                    <button class="nean" type="submit" name="action">
+                        <i class="material-icons right">close</i>
+                    </button >
+                </form>
+                {% endfor %}
+            </ul>
+            <div class="row ooraxx">
+                <div class="col s12 m2"><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a></div>
+                <div class="col s12 m8 oorax"><h3 class="oorax">Formnoo</h3></div>
+                <div class="col s12 m2 "></div>
+            </div>
+
+
+
+        </div>
+        <div class="row">
+        <div class="col s2"></div>
+
+        <div class="col s8">
+            <div class="container bas">
+                <form action="/search/" method="get" autocomplete="off">
+                    <div class="input-field" id="form1">
+                        <input id="search" type="search" name="q" id="q" placeholder="effectuez une recherche" required>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col s2 "></div>
+    </div>
+
+</body>
+
+
+
+
+
+<script type="text/javascript">
+
+function myFunction() {
+  var explic= document.getElementById("test1");
+  console.log(explic)
+  var temps = document.getElementById("temps1");
+  var ntfin = document.getElementById("fin1");
+
+  var text = document.getElementById("text");
+
+  if (explic.checked == true)
+  {
+    document.getElementById("less").value=1
+    document.getElementById("less2").value=0
+    document.getElementById("less3").value=0
+    temps.checked = false;
+    ntfin.checked = false;
+  }
+
+
+  else if(temps.checked == true)
+  {
+
+     document.getElementById("less2").value=1
+     document.getElementById("less").value=0
+  }
+
+  else if(ntfin.checked == true)
+  {
+     document.getElementById("less3").value=1
+     document.getElementById("less").value=0
+
+  }
+
+  else
+  {
+
+    ntfin.checked =true
+    document.getElementById("less").value=0
+    document.getElementById("less2").value=0
+    document.getElementById("less3").value=1
+
+
+  }
+}
+
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'check' %}',
+        data:{
+            less:$("input[name=less]").val(),
+            less2:$("input[name=less2]").val(),
+            less3:$("input[name=less3]").val(),
+
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+
+
+$("button").click(function(event){
+   event.preventDefault()
+
+$.ajax({
+    type:"GET",
+    url: "http://fantasy.premierleague.com/web/api/elements/100/",
+    success: function(data) {
+            $("body").append(JSON.stringify(data));
+        },
+    error: function(jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.status);
+        },
+   dataType: "jsonp"
+});
+});
+
+</script>
+</html>
+<style>
+
+    .oorax{text-align:center;}
+    .bas{margin-top:250px;}
+    input#search {
+    border: 1px solid #949494;
+    padding: 5px;
+    border-radius: 35px;
+}
+#form1 i.material-icons {
+    padding: 20px;
+}
+.ooraxx i.material-icons{
+    padding: 25px;
+}
+button.nean {
+    border: none;
+    background: none;
+}
+</style>
+{% endblock %}

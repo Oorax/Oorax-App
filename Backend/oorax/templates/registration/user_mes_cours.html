@@ -1,0 +1,70 @@
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+         <script type="text/javascript" src=" {% static 'materialize/js/persojquery.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+      <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+ <div class="row">
+                    <div class="container">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="box-title center">Mes cours</h4>
+                            </div>
+                            <div class="card-body--">
+                                <div class="table-stats order-table ov-h">
+                                    <table class="table ">
+                                        <thead>
+                                            <tr>
+
+                                                <th>N</th>
+                                                <th>Titre</th>
+                                                <th>Categotie</th>
+
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for u in cours %}
+                                            {% if u.id in list_cour %}
+                                            <tr>
+                                                <td class="serial">{{ u.id }}</td>
+                                                <td> {{ u.titre }}</td>
+                                                {% for b in categories %}
+                                                    {% if b.id == u.categorieid_id %}
+                                                <td>  <span class="name">{{ b.nom_categorie }}</span> </td>
+                                                    {% endif %}
+                                                    {% endfor %}
+
+                                                <td>
+                                                    <a class="badge badge-complete" href="{% url 'detail_user_cour' u.id %}"><i class="fa fa-plus-square"> Ouvrir</i></a> ||
+
+                                                    <a class="btn btn-danger" href="{% url 'cour_delete' u.id %}"><i class="fa fa-trash-o"> Delete</i></a>||
+
+
+                                                </td>
+                                            </tr>
+                                        {% endif %}
+                    {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div> <!-- /.table-stats -->
+                            </div>
+                        </div> <!-- /.card -->
+                    </div>  <!-- /.col-lg-8 -->
+
+
+                </div>
+</body>
+<style>
+      .center{text-align:center;}
+</style>
+</html>
+{% endblock %}

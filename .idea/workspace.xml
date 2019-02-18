@@ -1,33 +1,288 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6d22b3bd-247f-4e71-b05f-51625c042ddf" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/oorax/templates/registration/chap_evalua.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oorax/templates/registration/chapitre_mes_cour.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oorax/templates/registration/choix_quiz.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oorax/templates/registration/evalu_chapitre.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oorax/templates/registration/resultat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/oorax/templates/registration/sexion_quiz.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation/templates/base2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation/templates/reservation/matiere_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation/templates/reservation/reservation_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation/templates/reservation/session_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation/templates/reservation/user_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/reservation/urls.py" afterDir="false" />
+    <list default="true" id="30cb1d6b-e018-4fdf-8f9f-220f4ffc8bb0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Formation.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Formation/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Formation/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Formation/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Formation/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oorax/brouillons.py" beforeDir="false" afterPath="$PROJECT_DIR$/oorax/brouillons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oorax/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/oorax/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oorax/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/oorax/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/css/perso.css" beforeDir="false" afterPath="$PROJECT_DIR$/oorax/static/materialize/css/perso.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/js/perso.js" beforeDir="false" afterPath="$PROJECT_DIR$/oorax/static/materialize/js/perso.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/categorie_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/oorax/templates/registration/categorie_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/evaluation.html" beforeDir="false" afterPath="$PROJECT_DIR$/oorax/templates/registration/evaluation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/oorax/templates/registration/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oorax/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/oorax/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oorax/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/oorax/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/oorax/templates/auteurs/abonnees.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/oorax/templates/auteurs/abonnees.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/oorax/templates/auteurs/brouillon.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/oorax/templates/auteurs/brouillon.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/oorax/templates/auteurs/modier_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/oorax/templates/auteurs/modier_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/oorax/templates/registration/auteurs.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/oorax/templates/registration/auteurs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backend/oorax/templates/registration/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/Backend/oorax/templates/registration/index2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formation/.gitignore.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formation/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formation/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formation/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Formation/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fichierJson.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/logo/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/logo/78972373publicite-1-jpg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/logo/9be7195e-004f-4e30-8120-f2a74dd65c90.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/logo/img1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/logo/img3_8msNJbU.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/logo/img4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/logo/img5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/user_None/img2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/user_None/img2_wDyLPeB.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/brouillon.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/brouillons.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0002_auto_20180629_1948.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0003_auto_20180630_1302.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0004_auto_20180702_0938.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0005_auto_20180702_2125.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0006_remove_transaction_transaction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0007_auto_20180702_2140.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0008_auto_20180703_0956.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0009_ooraxcouruser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0010_auto_20180703_1017.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0011_auto_20180703_1023.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0012_delete_service.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0013_auto_20180703_1147.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0014_auto_20180705_0947.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0015_auto_20180705_1122.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0016_auto_20180705_2201.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0017_option_optionquestion_sessionevaluation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0018_auto_20180709_1155.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0019_transaction_date_transaction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0020_remove_transaction_date_transaction.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0021_transaction_date_transactions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0022_auto_20180711_1727.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0023_auto_20180711_1728.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0024_remove_optionquestion_juste.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0025_optionquestion_juste.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0026_auto_20180713_1636.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0027_evaluation_typeid.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0028_auto_20180716_1302.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0029_auto_20180717_1710.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0030_sessionevaluation_reponsse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0031_remove_sessionevaluation_reponsse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0032_auto_20180717_1716.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0033_sessionevaluation_point.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0034_question_niveau.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0035_customuser_email_validated.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0036_chapitre_ordre.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0037_auto_20180808_2008.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0038_auto_20180809_1710.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0039_cour_auteur.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0040_annonce.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0041_chapevaluation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0042_auto_20180904_1214.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0043_auto_20180904_1300.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0044_auto_20180910_1422.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0045_auto_20180910_1820.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0046_auto_20180912_1550.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0047_check.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/0048_check_temps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/serializers.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/css/css/materialize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/css/css/materialize.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/css/docs.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/css/docs.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/css/font.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/css/img3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/css/wbbtheme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/26968391_8089070.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/78972373publicite-1-jpg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/8286855_4029317.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/9782343014920r.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/9782343054827r.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/article-pourquoi-la-publicite-influence.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/code-2620118_1920.jpg.crdownload" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/img1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/img2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/img3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/img4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/maxresdefault-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/img/pub.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/AUTHORS.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/external/jquery/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/images/ui-icons_444444_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/images/ui-icons_555555_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/images/ui-icons_777620_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/images/ui-icons_777777_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/images/ui-icons_cc0000_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/images/ui-icons_ffffff_256x240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/jquery-ui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/jquery-ui.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/jquery-ui.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/jquery-ui.structure.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/jquery-ui.structure.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/jquery-ui.theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/jquery-ui.theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/jquery-ui/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/docs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/jquery.wysibb.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/src/application.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/src/ie-emulation-modes-warning.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/src/pwa.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/vendor/anchor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/vendor/clipboard.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/vendor/holder.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/vendor/jquery-slim.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/js/vendor/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/css/materialize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/css/materialize.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/css/perso.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/jquery-3.2.1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/js/materialize.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/js/materialize.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/js/perso.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/materialize/js/persojquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/LICENSE-MIT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/jquery.wysibb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/lang/ar.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/lang/cn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/lang/de.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/lang/fr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/lang/pl.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/lang/ru.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/lang/tr.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/lang/ua.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/lang/vn.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/preset/phpbb3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/theme/fonts/wysibbiconfont-wb.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/theme/fonts/wysibbiconfont-wb.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/theme/fonts/wysibbiconfont-wb.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/static/wysibb/wysibb.jquery.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/ajax/liste.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/ajax/signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/oorax/chapitre_confirm_delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/oorax/contenu_confirm_delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/oorax/cour_confirm_delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/oorax/lesson_confirm_delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/accueil.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/achat_lesson.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/activate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/activation_complete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/activation_complete_admin_pending.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/activation_email.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/activation_email_subject.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/activations_email.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/actualisation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/admin_approve.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/admin_approve_complete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/admin_approve_complete_email.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/admin_approve_complete_email.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/admin_approve_complete_email_subject.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/admin_approve_email.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/admin_approve_email.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/admin_approve_email_subject.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/bases.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/block-users.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/categorie_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/chap_evalua.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/chapitre_cour.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/chapitre_mes_cour.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/choix_quiz.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/compte_credit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/contenu_mes_cours.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/corrige_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/cour_detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/cour_register_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/detail_stat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/detail_user_cour.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/domaine.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/evalu_chapitre.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/evaluation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/glisser_deposer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/historique.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/inscription_cour.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/interro_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/lesson_chapitre.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/logout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/mes_cours.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/option_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/password_change_done.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/password_change_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/password_reset_complete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/password_reset_confirm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/password_reset_done.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/password_reset_email.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/password_reset_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/profile.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/question.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/recharger_compte.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/registration_base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/registration_closed.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/registration_complete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/registration_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/resend_activation_complete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/resend_activation_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/resultat.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/sexion_quiz.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/stat_users.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/transfert_credit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/typequestion.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/user_mes_cours.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/validate-users.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/templates/registration/white-users.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/tokens.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/oorax/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/migrations/0002_session_prix.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/migrations/0003_auto_20180925_1710.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/migrations/0004_auto_20180925_1727.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/templates/base2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/templates/reservation/matiere_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/templates/reservation/reservation_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/templates/reservation/session_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/templates/reservation/user_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reservation/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/templatetags.class_name.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/templates/search/result.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/templates/search/view.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/templatetags/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/templatetags/class_name.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/searchs/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/testJson.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,125 +291,110 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FUSProjectUsageTrigger">
-    <session id="70557043">
+    <session id="-341384166">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="18" />
-          <entry key="project.open.time.102" value="1" />
-          <entry key="project.open.time.109" value="1" />
-          <entry key="project.open.time.115" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.105" value="1" />
+          <entry key="project.open.time.110" value="1" />
+          <entry key="project.open.time.112" value="1" />
           <entry key="project.open.time.116" value="1" />
-          <entry key="project.open.time.119" value="1" />
-          <entry key="project.open.time.121" value="1" />
           <entry key="project.open.time.123" value="1" />
-          <entry key="project.open.time.13" value="1" />
-          <entry key="project.open.time.163" value="1" />
-          <entry key="project.open.time.21" value="1" />
-          <entry key="project.open.time.211" value="1" />
-          <entry key="project.open.time.252" value="1" />
-          <entry key="project.open.time.292" value="1" />
-          <entry key="project.open.time.47" value="1" />
-          <entry key="project.open.time.54" value="2" />
-          <entry key="project.open.time.60" value="1" />
-          <entry key="project.open.time.62" value="1" />
-          <entry key="project.open.time.65" value="2" />
+          <entry key="project.open.time.134" value="1" />
+          <entry key="project.open.time.153" value="1" />
+          <entry key="project.open.time.157" value="1" />
+          <entry key="project.open.time.160" value="1" />
+          <entry key="project.open.time.183" value="1" />
+          <entry key="project.open.time.465" value="1" />
+          <entry key="project.open.time.49" value="1" />
+          <entry key="project.open.time.53" value="1" />
+          <entry key="project.open.time.55" value="1" />
+          <entry key="project.open.time.56" value="1" />
+          <entry key="project.open.time.58" value="1" />
+          <entry key="project.open.time.61" value="1" />
+          <entry key="project.open.time.62" value="2" />
+          <entry key="project.open.time.63" value="1" />
+          <entry key="project.open.time.65" value="1" />
           <entry key="project.open.time.66" value="1" />
-          <entry key="project.open.time.675" value="1" />
-          <entry key="project.open.time.74" value="1" />
-          <entry key="project.open.time.77" value="2" />
-          <entry key="project.open.time.83" value="2" />
-          <entry key="project.open.time.84" value="1" />
-          <entry key="project.open.time.88" value="1" />
-          <entry key="project.open.time.92" value="1" />
-          <entry key="project.open.time.96" value="1" />
-          <entry key="project.opened" value="33" />
+          <entry key="project.open.time.71" value="1" />
+          <entry key="project.open.time.72" value="1" />
+          <entry key="project.open.time.75" value="1" />
+          <entry key="project.open.time.77" value="1" />
+          <entry key="project.open.time.86" value="1" />
+          <entry key="project.open.time.98" value="1" />
+          <entry key="project.open.time.99" value="2" />
+          <entry key="project.opened" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="585" />
-          <entry key="html" value="2671" />
-          <entry key="js" value="440" />
-          <entry key="py" value="12554" />
+          <entry key="css" value="60" />
+          <entry key="html" value="9461" />
+          <entry key="js" value="36" />
+          <entry key="py" value="3533" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="585" />
-          <entry key="HTML" value="2671" />
-          <entry key="JavaScript" value="440" />
-          <entry key="Python" value="12554" />
+          <entry key="CSS" value="60" />
+          <entry key="HTML" value="9461" />
+          <entry key="JavaScript" value="36" />
+          <entry key="Python" value="3533" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="1" value="1" />
-          <entry key="css" value="3" />
-          <entry key="html" value="83" />
-          <entry key="js" value="8" />
-          <entry key="py" value="53" />
+          <entry key="css" value="4" />
+          <entry key="html" value="114" />
+          <entry key="js" value="3" />
+          <entry key="py" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="3" />
-          <entry key="HTML" value="83" />
-          <entry key="JavaScript" value="9" />
-          <entry key="Python" value="53" />
+          <entry key="CSS" value="4" />
+          <entry key="HTML" value="114" />
+          <entry key="JavaScript" value="3" />
+          <entry key="Python" value="18" />
         </counts>
       </usages-collector>
     </session>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Formnoo" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oorax/models.py">
+        <entry file="file://$PROJECT_DIR$/Backend/oorax/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="85" column="65" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="65" />
+            <state relative-caret-position="36210">
+              <caret line="2166" column="42" selection-start-line="2166" selection-start-column="42" selection-end-line="2166" selection-end-column="42" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-                <marker date="1537790560001" expanded="true" signature="7418:7505" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reservation/forms.py">
+        <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/brouillon.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="646">
+              <caret line="38" selection-start-line="38" selection-end-line="157" selection-end-column="6" />
               <folding>
-                <element signature="e#0#24#0" expanded="true" />
+                <element signature="n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reservation/templates/reservation/user_form.html">
+        <entry file="file://$PROJECT_DIR$/Backend/oorax/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oorax/templates/registration/categorie_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="61" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reservation/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+            <state relative-caret-position="493">
+              <caret line="37" column="59" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="59" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -162,45 +402,64 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/reservation/views.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/detail_user_cour.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+            <state relative-caret-position="2397">
+              <caret line="361" column="56" selection-start-line="361" selection-start-column="56" selection-end-line="361" selection-end-column="56" />
               <folding>
-                <element signature="e#0#20#0" expanded="true" />
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+                <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/auteurs.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+              <folding>
+                <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#6898#7202#0" />
+                <element signature="e#7254#10222#0" />
+                <element signature="n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#button#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#a#0;n#div#2;n#div#2;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#2;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reservation/templates/reservation/reservation_form.html">
+        <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/question.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/reservation/templates/reservation/matiere_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/oorax/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2057">
-              <caret line="164" column="28" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="28" />
+            <state relative-caret-position="2992">
+              <caret line="233" column="81" selection-start-line="233" selection-start-column="52" selection-end-line="233" selection-end-column="81" />
               <folding>
-                <element signature="e#0#25#0" expanded="true" />
-                <element signature="e#1707#2565#0" />
-                <element signature="e#4176#5056#0" />
+                <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -211,23 +470,42 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>padding-</find>
-      <find>get_parser</find>
-      <find>get</find>
-      <find>PostMarkup()</find>
-      <find>render_t</find>
-      <find>get_</find>
-      <find>default</find>
-      <find>default_tag</find>
-      <find>search</find>
-      <find>cha</find>
+      <find>user_mes_</find>
+      <find>sea</find>
+      <find>user_mes</find>
+      <find>inscrit</find>
+      <find>user_cour</find>
+      <find>cour</find>
+      <find>mes_cours</find>
+      <find>profile</find>
+      <find>recharger_comp</find>
+      <find>transfer</find>
+      <find>recharger</find>
+      <find>transfert_credit</find>
+      <find>recharger_compte</find>
+      <find>detail</find>
+      <find>font</find>
+      <find>mdl-layout__dra</find>
+      <find>mdl-layout__drawer</find>
+      <find>contenu_cour</find>
+      <find>question</find>
+      <find>question(</find>
+      <find>chapitre</find>
+      <find>chapitre_cour</find>
+      <find>mes_cour</find>
+      <find>cour_delete</find>
+      <find>hist</find>
+      <find>mes_co</find>
+      <find>user_mes_cours</find>
+      <find>index</find>
+      <find>historique</find>
+      <find>detail_user_cou</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -236,108 +514,75 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/oorax/templates/registration/cour_register_form.html" />
-        <option value="$PROJECT_DIR$/oorax/migrations/0037_auto_20180808_1944.py" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/contenu_cour.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/mes_cours.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/home.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/glisser_deposer.html" />
-        <option value="$PROJECT_DIR$/search/templatetags.class_name.py" />
-        <option value="$PROJECT_DIR$/search/urls.py" />
-        <option value="$PROJECT_DIR$/search/views.py" />
-        <option value="$PROJECT_DIR$/searchs/urls.py" />
-        <option value="$PROJECT_DIR$/search/view.html" />
-        <option value="$PROJECT_DIR$/searchs/templates/search/result.html" />
-        <option value="$PROJECT_DIR$/searchs/templates/search/view.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/accueil.html" />
-        <option value="$PROJECT_DIR$/searchs/views.py" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/question.html" />
-        <option value="$PROJECT_DIR$/oorax/brouillon.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/interro_form.html" />
-        <option value="$PROJECT_DIR$/oorax/static/js/jquery.min.js" />
-        <option value="$PROJECT_DIR$/oorax/static/css/font.css" />
-        <option value="$PROJECT_DIR$/oorax/static/js/jquery-3.2.1" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/chap_evalua.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/evalu_chapitre.html" />
-        <option value="$PROJECT_DIR$/oorax/brouillons.py" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/contenu_mes_cours.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/chapitre_mes_cour.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/evaluation.html" />
-        <option value="$PROJECT_DIR$/oorax/static/materialize/css/perso.css" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/resultat.html" />
-        <option value="$PROJECT_DIR$/oorax/urls.py" />
-        <option value="$PROJECT_DIR$/oorax/static/materialize/js/perso.js" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/choix_quiz.html" />
-        <option value="$PROJECT_DIR$/oorax/forms.py" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/index.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/sexion_quiz.html" />
-        <option value="$PROJECT_DIR$/testJson.js" />
-        <option value="$PROJECT_DIR$/oorax/models.py" />
-        <option value="$PROJECT_DIR$/Formation/settings.py" />
-        <option value="$PROJECT_DIR$/Formation/urls.py" />
-        <option value="$PROJECT_DIR$/reservation/templates/base.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/chapitre_cour.html" />
-        <option value="$PROJECT_DIR$/oorax/templates/registration/categorie_form.html" />
-        <option value="$PROJECT_DIR$/reservation/templates/reservation/session_form.html" />
-        <option value="$PROJECT_DIR$/reservation/templates/reservation/reservation_form.html" />
-        <option value="$PROJECT_DIR$/reservation/templates/reservation/matiere_form.html" />
-        <option value="$PROJECT_DIR$/oorax/views.py" />
-        <option value="$PROJECT_DIR$/reservation/models.py" />
-        <option value="$PROJECT_DIR$/reservation/templates/reservation/user_form.html" />
-        <option value="$PROJECT_DIR$/reservation/forms.py" />
-        <option value="$PROJECT_DIR$/reservation/urls.py" />
-        <option value="$PROJECT_DIR$/reservation/views.py" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/registration/index.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/registration/user_mes_cours.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/modier_profile.html" />
+        <option value="$USER_HOME$/Downloads/mdl-template-dashboard/index.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/registration/index2.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/static/materialize/js/perso.js" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/index.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/recharger_compte.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/registration/home.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/registration/auteurs.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/models.py" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/bases.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/base.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/abonnees.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/registration/profile.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/profile.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/registration/recharger_compte.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/forms.py" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/registration/transfert_credit.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/static/materialize/css/perso.css" />
+        <option value="$PROJECT_DIR$/Backend/oorax/static/materialize/css/styles.css" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/registration/contenu_cour.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/interro_form.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/chapitre_cour.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/urls.py" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/registration/historique.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/auteurs.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/historique.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/mes_cours.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/user_mes_cours.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/question.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/contenu_cour.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/brouillon.html" />
+        <option value="$PROJECT_DIR$/Backend/oorax/views.py" />
+        <option value="$PROJECT_DIR$/Backend/oorax/templates/auteurs/detail_user_cour.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="328" />
-    <option name="width" value="911" />
-    <option name="height" value="735" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Formation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Formation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Formation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Formation" type="462c0819:PsiDirectoryNode" />
-              <item name="oorax" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Formation" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Formation" type="462c0819:PsiDirectoryNode" />
-              <item name="reservation" type="462c0819:PsiDirectoryNode" />
+              <item name="Formnoo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Formnoo" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.CVS" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\1833pirates\Envs\oorax\Lib\site-packages\django\bin\Formation\media\logo" />
-      <recent name="C:\Users\1833pirates\Envs\oorax\Lib\site-packages\django\bin\Formation\oorax\templates\registration" />
-      <recent name="C:\Users\1833pirates\Envs\oorax\Lib\site-packages\django\bin\Formation\oorax\static\css" />
-      <recent name="C:\Users\1833pirates\Envs\oorax\Lib\site-packages\django\bin\Formation\oorax" />
-      <recent name="C:\Users\1833pirates\Envs\oorax\Lib\site-packages\django\bin\Formation\static\js" />
-    </key>
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../myproject/Lib/site-packages/django/bin/ComptaCloud/accounts/views.py" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -356,40 +601,66 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6d22b3bd-247f-4e71-b05f-51625c042ddf" name="Default" comment="" />
-      <created>1530566499677</created>
+      <changelist id="30cb1d6b-e018-4fdf-8f9f-220f4ffc8bb0" name="Default Changelist" comment="" />
+      <created>1548166635563</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1530566499677</updated>
+      <updated>1548166635563</updated>
+      <workItem from="1548166675098" duration="5828000" />
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="5828000" />
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16155572" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32761577" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" side_tool="true" weight="0.32933104" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info id="Favorites" order="0" sideWeight="0.50428814" side_tool="true" weight="0.23485415" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49571183" visible="true" weight="0.23485415" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Python Console" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" sideWeight="0.50428814" side_tool="true" weight="0.23485415" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49571183" visible="true" weight="0.23485415" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Python Console" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="3" />
+      <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -398,438 +669,418 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/models.py</url>
-          <line>184</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/models.py</url>
-          <line>213</line>
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>236</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>95</line>
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>371</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/models.py</url>
-          <line>144</line>
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>971</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>1060</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/forms.py</url>
-          <line>79</line>
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>1157</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>970</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>398</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>516</line>
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>849</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>806</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>787</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>2003</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>841</line>
-          <option name="timeStamp" value="16" />
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>724</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/urls.py</url>
-          <line>29</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>118</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>745</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>771</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>668</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>42</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>456</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>46</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/oorax/views.py</url>
-          <line>227</line>
-          <option name="timeStamp" value="30" />
+          <url>file://$PROJECT_DIR$/Backend/oorax/views.py</url>
+          <line>878</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/PROJET Oorax/Formation/oorax/templates/registration/lesson_chapitre.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/stat_users.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/corrige_form.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/creer_code_secret.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="39" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="39" />
+        <state relative-caret-position="-289" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/domaine.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/evalu_chapitre.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/evaluation.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="121" column="24" lean-forward="true" selection-start-line="121" selection-start-column="24" selection-end-line="122" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/brouillon.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/inscription_cour.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/lesson_chapitre.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="118" column="63" lean-forward="true" selection-start-line="118" selection-start-column="52" selection-end-line="118" selection-end-column="63" />
+        <state relative-caret-position="-1174" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1955">
+          <caret line="115" column="12" lean-forward="true" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/static/css/font.css">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/bases.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
-          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/static/js/jquery.min.js">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/registration/cour_register_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="31942" selection-start-line="3" selection-start-column="31942" selection-end-line="3" selection-end-column="31942" />
-        </state>
+        <state relative-caret-position="-663" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/static/js/jquery-3.2.1">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="22444" selection-start-line="3" selection-start-column="22444" selection-end-line="3" selection-end-column="22444" />
+        <state relative-caret-position="833">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/chap_evalua.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/abonnees.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="391">
+          <caret line="23" selection-start-line="23" selection-end-line="51" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/password_reset_done.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/contenu_mes_cours.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/cour_register_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="21" lean-forward="true" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        <state relative-caret-position="305">
+          <caret line="89" column="85" lean-forward="true" selection-start-line="89" selection-end-line="90" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/evalu_chapitre.html">
+    <entry file="file://$USER_HOME$/Downloads/mdl-template-dashboard/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="85" lean-forward="true" selection-start-line="21" selection-start-column="85" selection-end-line="21" selection-end-column="85" />
+        <state relative-caret-position="115">
+          <caret line="140" column="91" selection-start-line="140" selection-start-column="22" selection-end-line="140" selection-end-column="91" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/interro_form.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/registration/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="42" column="15" selection-start-line="41" selection-start-column="12" selection-end-line="42" selection-end-column="15" />
+        <state relative-caret-position="153">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/brouillons.py">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15827">
-          <caret line="1028" column="62" selection-start-line="1028" selection-start-column="62" selection-end-line="1028" selection-end-column="62" />
+        <state relative-caret-position="637">
+          <caret line="233" column="105" selection-start-line="233" selection-start-column="105" selection-end-line="233" selection-end-column="105" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/compte_credit.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/recharger_compte.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/recharger_compte.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-347">
-          <caret line="9" column="56" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="56" />
+        <state relative-caret-position="656">
+          <caret line="162" column="31" lean-forward="true" selection-start-line="162" selection-start-column="31" selection-end-line="162" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/question.html">
+    <entry file="file://$USER_HOME$/Desktop/PROJET Oorax/Formation/oorax/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7089">
+          <caret line="437" column="13" selection-start-line="437" selection-start-column="4" selection-end-line="437" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="52" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/registration/transfert_credit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="90" selection-start-line="12" selection-start-column="90" selection-end-line="12" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/registration/sexion_quiz.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-306" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/registration/resultat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/registration/question.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-459" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/transfert_credit.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/static/materialize/js/perso.js">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/registration/recharger_compte.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="91" column="1" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
+        <state relative-caret-position="816">
+          <caret line="48" column="25" selection-start-line="48" selection-start-column="25" selection-end-line="48" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/static/materialize/css/perso.css">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/registration/mes_cours.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="833">
+          <caret line="82" column="46" selection-start-line="82" selection-start-column="46" selection-end-line="82" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/fichierJson.js" />
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/choix_quiz.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/choix_quiz.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+        <state relative-caret-position="-1938" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="58" column="30" selection-start-line="58" selection-start-column="30" selection-end-line="58" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/sexion_quiz.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/static/materialize/css/perso.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="1479">
+          <caret line="87" column="8" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/resultat.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/searchs/models.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testJson.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="500" selection-start-column="500" selection-end-column="500" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/searchs/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-221">
-          <caret lean-forward="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fichierJson.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="112" selection-start-column="112" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Formation/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="95" column="38" lean-forward="true" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Formation/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="13" column="69" lean-forward="true" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/registration_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="19" lean-forward="true" selection-start-line="8" selection-start-column="19" selection-end-line="8" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/activations_email.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/accueil.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reservation/templates/base2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="3" selection-start-column="2" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/evaluation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/registration_base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/chapitre_cour.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="131" column="9" lean-forward="true" selection-start-line="104" selection-end-line="131" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reservation/templates/reservation/session_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/chapitre_mes_cour.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="59" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/mes_cours.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="35" column="33" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="35" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/urls.py">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/static/materialize/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="24" column="72" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="72" />
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/index.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/chapitre_mes_cour.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="97" />
+        <state relative-caret-position="-51" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/static/materialize/js/perso.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="35" column="5" selection-start-line="33" selection-start-column="2" selection-end-line="35" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reservation/models.py">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/contenu_mes_cours.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="-612" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/registration/contenu_cour.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="41" selection-start-line="11" selection-end-line="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/models.py">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/interro_form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="85" column="65" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="65" />
+        <state relative-caret-position="45">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/option_page.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/chapitre_cour.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="243" selection-start-line="243" selection-end-line="243" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/registration/historique.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/historique.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="179" column="57" selection-start-line="179" selection-start-column="57" selection-end-line="179" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/user_mes_cours.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="224" column="75" selection-start-line="224" selection-start-column="75" selection-end-line="224" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/mes_cours.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="167" column="89" selection-start-line="167" selection-start-column="89" selection-end-line="167" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/contenu_cour.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="286" column="59" selection-start-line="286" selection-start-column="59" selection-end-line="286" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/cour_detail.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36210">
+          <caret line="2166" column="42" selection-start-line="2166" selection-start-column="42" selection-end-line="2166" selection-end-column="42" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
-            <marker date="1537790560001" expanded="true" signature="7418:7505" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reservation/forms.py">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/brouillon.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="646">
+          <caret line="38" selection-start-line="38" selection-end-line="157" selection-end-column="6" />
           <folding>
-            <element signature="e#0#24#0" expanded="true" />
+            <element signature="n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#2;n#div#1;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reservation/templates/reservation/user_form.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/templates/registration/categorie_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="61" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reservation/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        <state relative-caret-position="493">
+          <caret line="37" column="59" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="59" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reservation/templates/reservation/reservation_form.html">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/detail_user_cour.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="7" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/reservation/templates/reservation/matiere_form.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oorax/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="164" column="28" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="28" />
+        <state relative-caret-position="2397">
+          <caret line="361" column="56" selection-start-line="361" selection-start-column="56" selection-end-line="361" selection-end-column="56" />
           <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#1707#2565#0" />
-            <element signature="e#4176#5056#0" />
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/reservation/views.py">
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/question.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="62" column="34" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+        <state relative-caret-position="2992">
+          <caret line="233" column="81" selection-start-line="233" selection-start-column="52" selection-end-line="233" selection-end-column="81" />
           <folding>
-            <element signature="e#0#20#0" expanded="true" />
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Backend/oorax/templates/auteurs/auteurs.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <element signature="n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="e#6898#7202#0" />
+            <element signature="e#7254#10222#0" />
+            <element signature="n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#2;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#2;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#2;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#a#0;n#div#2;n#div#2;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#2;n#div#0;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>

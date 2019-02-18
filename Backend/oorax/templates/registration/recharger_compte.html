@@ -1,0 +1,151 @@
+
+{% load static %}
+{% block content %}
+
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Title</title>
+              <script type="text/javascript" src=" {% static 'materialize/js/persojquery.js' %}"></script>
+              <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+                <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+
+              <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        </head>
+        <body>
+        <div class="row">
+            <div class="container" >
+                <div class="col s3"></div>
+                    <div class="col s6">
+                        <h3>Réchargez votre compte {{ montemps }}</h3>
+                        {% if omoney %}
+                        <label>Mode de payement: </label>
+                        <select  id="type" onchange="changementType();" >
+                             <option value="">----------------------</option>
+                             {% for money in omoney %}
+                             <option value="{{ money.id }}" name="{{ money.raisonsocial }}"  id="{{ money.id }}">{{ money.raisonsocial }} </option>
+                             {% endfor %}
+                        <select>
+
+                            {% endif %}
+                        <br><br>
+                        <form method="post" id="form1" style="display:none" action="">
+                            {% csrf_token %} {{ form2.as_p }}
+                            <input name="hide" type="hidden"  id="hide" readonly />
+                            <input name="ref" type="hidden"  id="ref" readonly />
+
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Envoyer</a>
+                             <div id="modal1" class="modal">
+                                <div class="modal-content">
+                                  <h4>Rechargement de compte</h4>
+                                  <p>Vous beneficer de 500 f de bonus </p>
+                                </div>
+                                <div class="modal-footer">
+                                 <a class="modal-close waves-effect waves-green btn-flat" href="">Retour</a>
+                                 <button class="modal-close waves-effect waves-green btn-flat" type="submit" name="action">ok
+                                <i class="material-icons right">send</i>
+                                </button>
+                                </div>
+
+                        </form>
+
+
+                        <form method="post" id="form2" style="display:none" action="">
+                            {% csrf_token %}
+                            {{ form3.as_p }}
+                            <input name="hide" type="hidden"  id="hides" readonly />
+
+
+                        </form>
+                    </div>
+
+  </div>
+                    <div class="col s3">
+
+ <ul class="collapsible">
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                    <li>
+                      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    </li>
+                </ul>
+                    </div>
+            </div>
+        </div>
+        </body>
+         <script>
+
+
+                function changementType()
+                {
+
+
+                var type = document.getElementById("type").value;
+
+                console.log(type);
+
+
+                if (type == 5)
+                {
+                document.getElementById("form2").style="display:block";
+                document.getElementById("form1").style="display:none";
+                }
+                else
+                {
+                document.getElementById("form1").style="display:block";
+                document.getElementById("form2").style="display:none";
+                }
+
+                }
+
+
+                 $(document).ready(function(){
+                    $("#type").change(function(){
+                        $a = $("#type").val();
+                        $("input[id=hide]").val($a);
+
+                });
+                })
+                 $(document).ready(function(){
+                    $("#type").change(function(){
+                        $a = $("#type").val();
+                        $("input[id=hides]").val($a);
+                });
+                })
+
+                $(document).ready(function(){
+                    $("#id_reference").change(function(){
+                        $a = $("#id_reference").val();
+                        $("input[id=ref]").val($a);
+                });
+                })
+
+
+                $(document).on('submit','#formulaire',function(e){
+                /*e.preventDefault();*/
+                      $.ajax({
+                        type:'POST',
+                        url:'{% url 'recharger_compte' %}',
+                        data:{
+                            hide:$("input[name=hide]").val(),
+
+                            ref:$("input[name=ref]").val(),
+                          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+                        },
+                        success:function(){
+
+                        }
+                      });
+                    });
+                </script>
+    </html>
+{% endblock %}
+

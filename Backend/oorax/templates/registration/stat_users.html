@@ -1,0 +1,268 @@
+
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+ <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://yourjavascript.com/7174319415/script.js"></script>
+
+</head>
+<body>
+<h1>Recherche</h1>
+ <label> Selectionner un Cour</label>
+         <select  name="cour" id="cour" >
+            <option value="">---------</option>
+            {% for cour in cour %}
+            <option value="{{ cour.id }}">{{ cour.titre }}</option>
+            {% endfor %}
+         </select>
+<label> Selectionner un Chapitre</label>
+        <select name ="chapitre" id="chapitre">
+            <option value="">---------</option>
+
+
+        </select>
+<label> Selectionner une Lesson</label>
+         <select  name="lesson" id="lesson" >
+            <option value="">---------</option>
+         </select><br><br><br>
+<h1>Statistique : {{ user.username }}</h1>
+
+<form method="post" id="form" action="">
+    {% csrf_token %}
+    <input type="text"  name="courid" id="courid" readonly />
+    <input type="text"  name="chapitreid" id="chapitreid" readonly />
+    <input type="text" name="lessonid"  id="lessonid" readonly />
+    <input type="submit" value="submit" />
+</form>
+
+<div class="container">
+
+
+<table border="1">
+
+
+
+
+	  <tr>
+                <thead>
+
+
+                    <tr>
+                        <th>Date de l'evaluation</th>
+                        <th>Evaluation</th>
+                        <th>Point</th>
+                        <th>Details</th>
+                    </tr>
+
+                </thead>
+                {% for stat in sesseva %}
+                    {% for ev in liste_evalu %}
+                        {% if stat.evaluation_id is ev %}
+                             <tr>
+                                   <td>{{ stat.date_evaluation }}</td>
+                                  <td>{{ stat.evaluation_id }}</td>
+                                  <td>{{ stat.point }}</td>
+                                  <td><a href="{% url 'details' stat.evaluation_id %}">Details</a></td>
+                             </tr>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+      </tr>
+
+</table>
+
+</div>
+
+
+
+
+<script>
+
+
+
+ $(document).ready(function(){
+    $("#cour").change(function(){
+        $a = $("#cour").val();
+        $("input[id=courid]").val($a);
+});
+})
+
+$(document).ready(function(){
+    $("#chapitre").change(function(){
+        $a = $("#chapitre").val();
+        $("input[id=chapitreid]").val($a);
+});
+})
+
+$(document).ready(function(){
+    $("#lesson").change(function(){
+        $a = $("#lesson").val();
+        $("input[id=lessonid]").val($a);
+});
+})
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'stat_users' %}',
+        data:{
+            courid:$("input[name=courid]").val(),
+            chapitreid:$("input[name=chapitreid]").val(),
+            lessonid:$("input[name=lessonid]").val(),
+            csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+
+
+
+
+
+
+
+     $(document).ready(function(){
+                 $('select#cour').change(function () {
+                     var optionSelected = $(this).find("option:selected");
+                     var valueSelected  = optionSelected.val();
+                     var chapitre_name   = optionSelected.text();
+
+
+                     data = {'cnt' : chapitre_name };
+                     ajax('cherchap',data,function(result){
+
+                            console.log(result);
+                            $("#chapitre option").remove();
+                            for (var i = result.length - 1; i >= 0; i--) {
+
+                                $("#chapitre").append('<option>'+ result[i].name +'</option>');
+                            };
+
+
+
+                         });
+                 });
+            });
+
+            $(document).ready(function(){
+                 $('select#chapitre').change(function () {
+                     var optionSelected = $(this).find("option:selected");
+                     var valueSelected  = optionSelected.val();
+                     var chapitre_name   = optionSelected.text();
+
+
+                     data = {'cnt' : chapitre_name };
+                     ajax('cherless',data,function(result){
+
+                            console.log(result);
+                            $("#lesson option").remove();
+                            for (var i = result.length - 1; i >= 0; i--) {
+
+                                $("#lesson").append('<option>'+ result[i].name +'</option>');
+                            };
+
+
+
+                         });
+                 });
+            });
+
+
+
+</script>
+</body>
+<style>
+    /* Layout */
+
+.container {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* largeur 250px et "espace restant" */
+  grid-template-rows: 100px 1fr;
+  grid-template-areas: "h n" "a f";
+  height: 300px;
+}
+
+/* Decoration */
+
+* {box-sizing: border-box}
+body {
+	margin: 20px;
+	background: #fff;
+	font-family: "Century Gothic", helvetica, arial, sans-serif;
+	font-size: 1.2em;
+}
+.container {
+	background: beige;
+	border: 3px dotted orange;
+	margin-bottom: 2em;
+}
+div, nav, section, article, aside, header, footer {
+	padding: 10px;
+	color: #fff;
+}
+nav {
+	background: dodgerblue;
+}
+section {
+	background: hotpink;
+}
+article {
+  background: orange;
+}
+aside {
+  background: olivedrab;
+}
+header {
+  background: gray;
+}
+footer {
+  background: crimson;
+}
+div:nth-of-type(3) {
+	background: olivedrab;
+}
+div:nth-of-type(4) {
+	background: hotpink;
+}
+div:nth-of-type(5) {
+	background: slategray;
+}
+
+h1 {
+	margin: 0 0 1em;
+	color: #345;
+	text-align: center;
+  font-family: georgia, "trebuchet ms", arial, serif;
+}
+
+ td /* Toutes les cellules des tableaux... */
+{
+    border: 1px solid black; /* auront une bordure de 1px */
+     padding:15px;
+}
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+     padding:15px;
+}
+td
+{
+    border: 1px solid black;
+    padding:15px;
+}
+
+th
+{
+    border: 1px solid black;
+    padding:15px;
+}
+</style>
+
+{% endblock%}

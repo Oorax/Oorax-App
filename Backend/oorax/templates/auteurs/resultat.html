@@ -1,0 +1,52 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+      <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+      <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+<h1>resultat</h1>
+<div id="progress">
+    <div class="determinate" style="width:{{ point }}%"><h2 class="point">{{ point }}%</h2></div>
+  </div>
+
+            <div>
+                <h1 id="bien" style="display:none;color:red;">bonjour</h1>
+             </div>
+
+<a href="{% url 'details' eva %}">Voir detail</a>
+</body>
+</html>
+<style>
+
+#progress{
+position: relative;
+    height: 30%;
+    display: block;
+    width: 15%;
+    background-color: red;
+
+    border-radius: 100%;
+    margin: .5rem 0 1rem 0;
+    overflow: hidden;
+    }
+    #progress .determinate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: green;
+    -webkit-transition: width .3s linear;
+    transition: width .3s linear;
+}
+h2.point {
+    padding: 45px 20px 45px 70px;
+    color:white;
+}
+</style>

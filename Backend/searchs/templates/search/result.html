@@ -1,0 +1,139 @@
+
+{% block content %}
+{% load static %}
+<html>
+    <head>
+    <title>Book Search</title>
+        <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+                <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+
+              <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+     <div class="row">
+          <div class="container">
+              <h4 class="center">You searched for: <strong>{{ query }}</strong></h4>
+              {% if cours %}
+
+                    <div class="col s2"></div>
+                    <div class="col s9">
+                        <h2 class="header"><p>Found {{ cours|length }} cour{{ cours|pluralize }}.</p></h2>
+                        {% for cour in cours %}
+                        <div class="card horizontal">
+                            {% if cour.image %}
+
+                              <div class="card-image">
+                                 <img src='{{ cour.image.url }}' alt="{{ cour.image.name }}"  width="100">
+
+                              </div>
+                            {% endif %}
+
+                        <div class="card-stacked">
+                            <div class="card-content">
+                                <h3>{{ cour.titre }}</h3>
+                                {% for au in auteur %}
+                                     {% if cour.auteur_id is au.id %}
+                                        <span class="alignleft">Auteur: {{ au.username }}</span><br><br>
+                                     {% endif %}
+                                {% endfor %}
+                                {% for ca in cat %}
+                             {% if cour.categorieid_id is ca.id %}
+                                <a href="">#{{ ca.nom_categorie }}</a> ||
+                             {% endif %}
+                        {% endfor %}
+                        {% for do in dom %}
+                             {% if cour.domaineid_id is do.id %}
+                                <a href="">#{{ do.nom_domaine }}</a><br><br>
+                             {% endif %}
+                        {% endfor %}
+                              <p>{{ cour.description }}.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="{% url 'cour_details' cour.id %}">Detail</a>
+
+
+                                 {% if cour.id in liste_inscri %}
+                                    <a>Dejà incrit</a>
+                                    {% else %}
+                                    <a href="{% url 'inscription' cour.id %}">Inscription</a>
+                                 {% endif %}
+                                        <a href="">{{ cour.id|length }}Commentaires</a>
+
+                            </div>
+                          </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                      <div class="col s2"></div>
+                  </div>
+
+
+
+
+     </div>
+
+        {% elif list_result %}
+             <div class="col s2"></div>
+                    <div class="col s9">
+                        <h2 class="header"></p></h2>
+                        {% for x in cour %}
+                            {% if x.titre in list_result %}
+                                <div class="card horizontal">
+                                    {% if x.image %}
+                                            <img src='{{ x.image.url }}' alt="{{ x.image.name }}" height="200" />
+                                    {% endif %}
+
+                                <div class="card-stacked">
+                                    <div class="card-content">
+                                        <h3>{{ x.titre }}</h3>
+                                        {% for au in auteur %}
+                                             {% if x.auteur_id is au.id %}
+                                                <span class="alignleft">Auteur: {{ au.username }}</span><br><br>
+                                             {% endif %}
+                                        {% endfor %}
+                                        {% for ca in cat %}
+                                     {% if x.categorieid_id is ca.id %}
+                                        <a href="">#{{ ca.nom_categorie }}</a> ||
+                                     {% endif %}
+                                {% endfor %}
+                                {% for do in dom %}
+                                     {% if cour.domaineid_id is do.id %}
+                                        <a href="">#{{ do.nom_domaine }}</a><br><br>
+                                     {% endif %}
+                                {% endfor %}
+                                      <p>{{ x.description }}</p>
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="{% url 'cour_details' x.id %}">Detail</a>
+
+
+                                         {% if cour.id in liste_inscri %}
+                                            <a>Dejà incrit</a>
+                                            {% else %}
+                                            <a href="{% url 'inscription' x.id %}">Inscription</a>
+                                         {% endif %}
+                                                <a href="">{{ x.id|length }}Commentaires</a>
+
+                                    </div>
+                                  </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                      <div class="col s2"></div>
+                  </div>
+
+
+        {% else %}
+            <p>no result</p>
+        {% endif %}
+    </body>
+<style>
+    .alignleft{text-align:left;}
+    .disflex{display:flex;}
+</style>
+</html>
+
+
+{% endblock %}

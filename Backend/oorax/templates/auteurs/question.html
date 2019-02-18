@@ -1,0 +1,379 @@
+
+
+{% load static %}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <title>Material Design Lite</title>
+
+         <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/styles.css' %}"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/perso.css' %}"  media="screen,projection"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+        <style>
+        .mdl-cell.mdl-color--white.mdl-cell--12-col {
+    padding: 30px;
+}
+            #view-source {
+                position: fixed;
+                display: block;
+                right: 0;
+                bottom: 0;
+                margin-right: 40px;
+                margin-bottom: 40px;
+                z-index: 900;
+            }
+            }
+            #colorsd.colorss{color:black;}
+            a.colorss {
+                    color: black;
+                    }
+             label#searchs {
+        top: 30px;
+    }
+
+    /*span.mdl-layout-title {
+    display: block;
+    color: #757575 !important;
+    margin-left: 235px;
+}*/
+ul#dropcenter{
+    width: 100%;
+}
+.recha{color:white;font-size:10px;}
+#centrer{text-align:-webkit-center;}
+.separe{margin-top:15px;
+        width: 7.5rem;
+    min-width: 7.5rem;
+    height: 7.5rem;
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.26);
+    }
+    #taille,#taille2,#taille3{
+        width: 5.5rem;
+    min-width: 5.5rem;
+    height: 5.5rem;
+    box-shadow: 0 1px 1.5px 0 rgba(0,0,0,.12), 0 1px 1px 0 rgba(0,0,0,.26);
+    }
+    #solde{text-align:right;}
+    .btn.btn-primary{font-size:10px;}
+    a.mdl-navigation__link,a.surligeur {
+    text-decoration: none;
+}
+div#abonnees {
+    width: 50%;
+}
+#droping,#table th,#table td{font-family: 'Roboto', 'Helvetica', sans-serif;}
+td.centrer,th.centrer{text-align:center;}
+
+.mdl-layout__drawer-button {
+    padding: 10px;
+}
+.mdl-card__actions.mdl-card--border {
+    border-top: 1px solid rgba(0,0,0,.1);
+    padding: 1px;
+    font-size:10px;
+    margin: 1px;
+
+}
+
+a.mdl-navigation__link.active1 {
+    background: black;
+}
+
+li.strongs.list-group-item.justify-content-between {
+    font-weight: 900;
+    font-size: larger;
+}
+#foot{background:none;}
+div#foot2 {
+    background: none;
+}
+#bodal p,#form2 p{padding: 2rem;}
+label#modepayment {
+    margin-left: 25px;
+}
+p#modpays {
+    padding-top: 30px;
+}
+div#modpay {
+    padding: 12px;
+}
+</style>
+</head>
+
+{% block content %}
+<body  id="corps">
+    <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">Ajouter questions</span>
+                <div class="mdl-layout-spacer"></div>
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                    <label id="searchs" class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                        <i class="material-icons">search</i>
+                    </label>
+                    <div class="mdl-textfield__expandable-holder">
+                        <input class="mdl-textfield__input" type="text" id="search">
+                        <label class="mdl-textfield__label"  for="search">Enter your query...</label>
+                    </div>
+                </div>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                    <i class="material-icons">more_vert</i>
+                </button>
+                <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                    <li class="mdl-menu__item">Qui sommes-nous ?</li>
+                    <li class="mdl-menu__item">Faq</li>
+                    <li class="mdl-menu__item">Contacf</li>
+                </ul>
+            </div>
+        </header>
+        <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+            <header class="demo-drawer-header">
+                <img src='{{ img }}' alt="img"  width="100" class="demo-avatar">
+                <div class="demo-avatar-dropdown" id="droping">
+                    <span>{{ email }}</span>
+                    <div class="mdl-layout-spacer"></div>
+                    <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                        <i class="material-icons" role="presentation">arrow_drop_down</i>
+                        <span class="visuallyhidden">Accounts</span>
+                    </button>
+                    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect " id="dropcenter" for="accbtn">
+                        <li class="mdl-menu__item" ><a class="surligeur" href="{% url 'view_profile' %}">Mon profile</a></li>
+                        <li class="mdl-menu__item"><a class="surligeur" href="/oorax/logout">Deconnexion</a></li>
+
+                    </ul>
+                </div>
+            </header>
+
+            <nav class="demo-navigation mdl-navigation  mdl-color--blue-grey-800" id="slide-out" >
+                <a class="mdl-navigation__link" href="{% url 'index' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Accueil</a>
+                <a class="mdl-navigation__link" href="{% url 'user_mes_cours' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Mes cours</a>
+                <a class="mdl-navigation__link" href="{% url 'mes_cours' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Cours publiés</a>
+
+                <a class="mdl-navigation__link" href="{% url 'historique' %} "><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">local_offer</i>Credits</a>
+
+
+            </nav>
+        </div>
+
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid demo-content">
+                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="centrer">
+
+                      <div class="mdl-cell mdl-cell--4-col">
+
+                      </div>
+                      <div class="mdl-cell mdl-cell--4-col">
+
+                      </div>
+                      <div class="mdl-cell mdl-cell--4-col">
+
+                      </div>
+
+                </div>
+
+                <div class="mdl-cell mdl-color--white mdl-cell--12-col ">
+                        <label> Selectionner un Chapitre</label>
+                                 <select  name="chapitre" id="chapitre" >
+                                    <option value="">---------</option>
+                                    {% for chapitre in chap_liste %}
+                                    <option value="{{ chapitre.nom_chapitre }}">{{ chapitre.nom_chapitre }}</option>
+                                    {% endfor %}
+                                 </select>
+
+                        <br><br>
+
+                        <label> Selectionner une Lesson</label>
+                                <select name ="lesson" id="lesson">
+                                    <option value="">---------</option>
+                                </select>
+
+                        <br><br>
+
+                        <label> Selectionner un Type</label>
+                                 <select  name="typeQ" id="typeQ" >
+                                    <option value="">---------</option>
+                                    {% for type in type_question %}
+                                    <option value="{{ type.id }}">{{ type.libelle }}</option>
+                                    {% endfor %}
+                                 </select>
+                        <br>
+
+                            <br><br>
+                    <form method="post" name="formulaireDynamique" id="form" action="">
+                        {% csrf_token %}
+                         <h4>################# QUESTION ####################</h4>
+                        {{ form.as_p }}
+                        <label> Selectionner un Niveau</label>
+                             <select  name="niveau" id="niveau" >
+                                <option value="">---------</option>
+                                {% for niveau in niveaus %}
+                                <option value="{{ niveau.id }}">{{ niveau.libelle }}</option>
+                                {% endfor %}
+                             </select>
+                        <br><br>
+
+                        <h4>################# OPTION ####################</h4>
+                        <input type="button" class="btn btn-primary btn-lg active" onclick="ajout(this);" value="ajouter un champ"/><br><br>
+
+                        <input type="hidden"  name="essai" id="essai" readonly/>
+                        <input type="hidden"  name="typeid" id="typeid" readonly/>
+                        <input type="hidden" name="lessonid"  id="lessonid" readonly >
+                        <input type="hidden" name="niveaus"  id="niveaus" readonly >
+                        <input type="submit" class="btn btn-primary btn-lg active" value="submit" />
+                    </form>
+                    <p><tt id="results"></tt></p>
+                </div>
+
+            </div>
+
+        </main>
+
+       </div>
+
+    </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="http://yourjavascript.com/7174319415/script.js"></script>
+    <script>
+
+        function ajout(element){
+      var formulaire = window.document.formulaireDynamique;
+      // On clone le bouton d'ajout
+      var ajout = element.cloneNode(true);
+      // Crée un nouvel élément de type "input"
+      var champ = document.createElement("input");
+      // Les valeurs encodée dans le formulaire seront stockées dans un tableau
+      champ.name = "b";
+      champ.type = "text";
+      champ.id = "essais";
+
+    //var str = $( "#form" ).serialize();
+    //$( "#essai" ).val( str );
+      //$("#essai").val($("#form").serialize());
+      var sup = document.createElement("input");
+      sup.value = "supprimer un champ";
+      sup.type = "button";
+      // Ajout de l'événement onclick
+      sup.onclick = function onclick(event)
+         {suppression(this);};
+
+      // On crée un nouvel élément de type "p" et on insère le champ l'intérieur.
+      var bloc = document.createElement("p");
+      bloc.appendChild(champ);
+      formulaire.insertBefore(ajout, element);
+      formulaire.insertBefore(sup, element);
+      formulaire.insertBefore(bloc, element);
+   }
+   function suppression(element){
+   var formulaire = window.document.formulaireDynamique;
+
+   // Supprime le bouton d'ajout
+   formulaire.removeChild(element.previousSibling);
+   // Supprime le champ
+   formulaire.removeChild(element.nextSibling);
+   // Supprime le bouton de suppression
+   formulaire.removeChild(element);
+}
+
+            $(document).ready(function(){
+                 $('select#chapitre').change(function () {
+                     var optionSelected = $(this).find("option:selected");
+                     var valueSelected  = optionSelected.val();
+                     var chapitre_name   = optionSelected.text();
+
+
+                     data = {'cnt' : chapitre_name };
+                     ajax('/getdetails',data,function(result){
+
+                            console.log(result);
+                            $("#lesson option").remove();
+                            for (var i = result.length - 1; i >= 0; i--) {
+
+                                $("#lesson").append('<option>'+ result[i].name +'</option>');
+                            };
+
+
+
+                         });
+                 });
+            });
+
+  $(document).ready(function(){
+    $("#form").change(function(){
+        $a = $("#form").serialize();
+        $("input[id=essai]").val($a);
+});
+})
+
+ $(document).ready(function(){
+    $("#niveau").change(function(){
+        $a = $("#niveau").val();
+        $("input[id=niveaus]").val($a);
+});
+})
+
+$(document).ready(function(){
+    $("#lesson").change(function(){
+        $a = $("#lesson").val();
+        $("input[id=lessonid]").val($a);
+});
+})
+
+
+
+
+$(document).ready(function(){
+    $("#typeQ").change(function(){
+        $a = $("#typeQ").val();
+        $("input[id=typeid]").val($a);
+});
+})
+
+
+//multiple champ
+$(document).ready(function(){
+$("#mytext").change(function(){
+$('input[name="mytext[]"]').each(function() {
+    $("input[id=optionid]").val(($(this).val()));
+});
+});
+})
+
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'question' id=questions %}',
+        data:{
+            lessonid:$("input[name=lessonid]").val(),
+            typeid:$("input[name=typeid]").val(),
+            essai:$("input[name=essai]").val(),
+            csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+
+
+
+
+    </script>
+</body>
+
+</html>
+{% endblock %}

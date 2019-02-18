@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+<body>
+<form id="form" method="post" action="{% url 'option_page' id=question_id %}">
+    {% csrf_token %}
+
+    Question {{ question_id }} : {{ question_text }}<br><br>
+    {% for option in liste %}
+    <ul>
+        <li>
+         <input type="checkbox" name="check"  id="check" value="{{ option }}">{{ option }}
+        </li>
+    </ul>
+    {% endfor %}
+    <br>
+    <br>
+
+  <input type="text"  name="checks" id="checks">
+    <input type="submit" value="Submit" id="btn">
+</form>
+
+<script>
+$(document).ready(function(){
+    $("#form").change(function(){
+        $a = $("#form").serialize();
+        $("input[id=essai]").val($a);
+});
+})
+
+ $(function(){
+	$('#btn').click(function(){
+        var valeurs = new Array();
+		$('input:checked[name=check]').each(function(){
+		var t = $(this).val();
+		$("input[id=checks]").val(t);
+		valeurs.push(t);
+		console.log(t);
+
+	})
+	})
+})
+</script>
+
+</body>
+{% endblock %}

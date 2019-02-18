@@ -1,0 +1,28 @@
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src=" {% static 'materialize/js/persojquery.js' %}"></script>
+      <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+
+      <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container bas">
+        <a class="waves-effect waves-light btn-large" href="{% url '__actualisation__' %}">Actualisez</a>
+    </div>
+</body>
+</html>
+<style>
+
+    .bas {
+  margin-top: 100px ;
+}
+
+</style>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<link type="text/css" rel="stylesheet" href= "{% static 'jquery-ui/jquery-ui.css' %}"  media="screen,projection"/>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script type="text/javascript" src=" {% static 'jquery-ui/jquery-ui.js' %}"></script>
+
+<!--link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.js.com/jquery.js-1.11.1.min.js"></script>
+<script src="//rubaxa.github.io/Sortable/Sortable.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+ <!--link type="text/css" rel="stylesheet" href= "{% static 'jquery.js-ui.css' %}"  media="screen,projection"/>
+ <script type="text/javascript" src=" {% static 'jquery.js-ui/jquery.js-ui.min.js' %}"></script-->
+  <!--script src="{% static 'jquery.js-ui/external/jquery.js/jquery.js.js' %}"></script-->
+
+
+
+<form method="post" id="form" action="">
+    {% csrf_token %}
+  <ul id="sortable_nav" class="sortable ui-sortable">
+    {% for c in chapitre %}
+    <li class="ui-state-default " id="identi{{ c.id }}"  style="">
+        <span class="ui-icon ui-icon-arrowthick-2-n-s" >{{ c.id }}</span>
+        {{ c.nom_chapitre }}
+        <div id="recupVal{{ c.id }}"   class="ui-state-default sortable-number">
+
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+
+        <input type="button" onclick="myFunction()" />
+     <input type="submit" value="submit" />
+</form>
+
+<script>
+
+
+
+function myFunction() {
+var mon_contenu=$("#recupVal").text();
+console.log(mon_contenu);
+var valeur = document.getElementById("recupVal").innerHTML;
+alert(valeur);
+}
+
+$('#form').click ( function(){
+var GetAttribute= document.getElementsByTagName("span") ;
+for(var i=0; i< GetAttribute.length; i++){
+  var idmarque=GetAttribute.item(i).getAttribute("id");
+   console.log(idmarque);
+   }
+
+})
+
+$("#sortable_nav").sortable({
+    placeholder: "ui-state-highlight",
+    helper: 'clone',
+    sort: function(e, ui) {
+        $(ui.placeholder).html(Number($("#sortable_nav > li:visible").index(ui.placeholder)) + 1);
+    },
+    update: function(event, ui) {
+        var $lis = $(this).children('li');
+
+        $lis.each(function() {
+            var $li = $(this);
+
+            var newVal = $(this).index() + 1;
+            $(this).children('.sortable-number').html(newVal);
+            $(this).children('#item_display_order').val(newVal);
+
+
+        });
+    }
+});
+$("#sortable_nav").disableSelection();
+
+</script>
+</body>
+
+</html>
+<style>
+.sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+.sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+.sortable li span { position: absolute; margin-left: -1.3em; }
+.ui-state-highlight { height: 1.5em; line-height: 1.2em; }
+.sortable-number { width: 25px;float: right;line-height: 1em;text-align: center;font-weight: bold; }
+    select#listWithHandle {
+    margin-left: 300px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+</style>

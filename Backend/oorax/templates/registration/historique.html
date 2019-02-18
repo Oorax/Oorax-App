@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<body>
+{% if request.user.is_authenticated %}
+<h2>Mon historique</h2>
+
+
+        <table>
+            <thead> <!-- En-tête du tableau -->
+               <tr>
+
+                   <th>Date</th>
+                   <th>Action</th>
+                   <th>Type</th>
+                   <th>Service</th>
+                   <th>Montant</th>
+
+               </tr>
+            </thead>
+{{ lui }}
+
+    {% for tran in users %}
+
+
+
+            <tr>
+                <td>{{ tran.date_transactions }}</td>
+                <td>{{ tran.libelle }}</td>
+                {% if tran.user_entree_id is request.user.id %}
+                <td>Entre</td>
+                {% else %}
+                <td>Sortie</td>
+                {% endif %}
+                 <td>nean</td>
+                <td>{{ tran.montant }}</td>
+
+
+
+            </tr>
+            {% endfor %}
+
+
+
+
+        </table>
+
+<script>
+
+</script>
+{% endif %}
+</body>
+<style>
+    td /* Toutes les cellules des tableaux... */
+{
+    border: 1px solid black; /* auront une bordure de 1px */
+     padding:15px;
+}
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+     padding:15px;
+}
+td
+{
+    border: 1px solid black;
+    padding:15px;
+}
+
+th
+{
+    border: 1px solid black;
+    padding:15px;
+}
+
+
+</style>
+{% endblock %}
+

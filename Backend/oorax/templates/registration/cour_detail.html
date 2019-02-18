@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="grand">
+    <h2>cour detail</h2><br>
+     {% if cour_image %}
+        <img src='{{ cour_image.url }}' alt="{{ cour_image.name }}"  width="800" height="300">
+     {% endif %}
+    <h3>{{ cour_titre }}</h3>
+    <span>Auteur {{ auteur }}</span><br><br>
+
+    <a href="">#{{ cour_domaine }}</a> ----
+     <a href="">#{{ cour_categorie }}</a>
+    <h4>{{ cour_description }}</h4>
+
+     {% if cour_id in liste_inscri %}
+         <a>Dejà incrit</a>
+     {% else %}
+         <a href="{% url 'inscription' cour_id %}">Inscription</a>----
+     {% endif %}
+
+</div>
+
+</body>
+<style>
+    .grand{text-align:center;}
+</style>
+</html>

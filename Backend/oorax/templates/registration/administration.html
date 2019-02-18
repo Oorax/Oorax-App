@@ -1,0 +1,90 @@
+
+{% block content %}
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Oorax Autor Admin</title>
+    <meta name="description" content="oorax autor Admin">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/pe-icon-7-filled.css' %}">
+
+
+    <link href="{% static 'assets/weather/css/weather-icons.css' %}" rel="stylesheet" />
+    <link href="{% static 'assets/calendar/fullcalendar.css' %}" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link href="{% static 'assets/css/charts/chartist.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/lib/vector-map/jqvmap.min.css' %}" rel="stylesheet">
+
+
+    <style>
+    </style>
+
+</head>
+<body>
+
+            <div class="orders">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="box-title">Mes cours</h4>
+                            </div>
+                            <div class="card-body--">
+                                <div class="table-stats order-table ov-h">
+                                    <table class="table ">
+                                        <thead>
+                                            <tr>
+
+                                                <th>N</th>
+                                                <th>Nom</th>
+                                                <th>contact</th>
+                                                <th>Email</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for u in users %}
+
+                                            <tr>
+                                                <td class="serial">{{ u.id }}</td>
+                                                <td> {{ u.username }}</td>
+                                                 <td><span class="count">{{ u.contact }}</span></td>
+                                                 <td><span class="count">{{ u.email }}</span></td>
+                                                <td>
+
+                                                    <a class="badge badge-complete btn" href="{% url 'activation_liste' u.id %}"><i class="fa fa-trash-o"> Activer</i></a>||
+                                                    <a class=" btn-danger" href="{% url 'block_liste' u.id %}"><i class="fa fa-plus-square"> Blocker</i></a> ||
+                                                    <a class="badge badge-complete" href="{% url 'white_liste' u.id %}"><i class="fa fa-pencil"> Deblocker</i></a> ||
+
+
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div> <!-- /.table-stats -->
+                            </div>
+                        </div> <!-- /.card -->
+                    </div>  <!-- /.col-lg-8 -->
+
+
+                </div>
+            </div> <!-- /.order -->
+       <!-- /#right-panel -->
+
+
+
+
+</body>
+</html>
+{% endblock content %}

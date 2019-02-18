@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+<div class="row">
+        <div class="container">
+        <form action="http://127.0.0.1:8000/oorax/login/"  method="POST" enctype="multipart/form-data" class="col s6" >
+        {% csrf_token %}
+            <div class="row">
+                    <div class="input-field col s12">
+                    <input id="text" name="username" type="text" value class="validate">
+                    <label for="text">Username</label>
+                    </div>
+                </div>
+
+        
+        <div class="row">
+            <div class="input-field col s12">
+            <input id="password"  name="password" type="password" value class="validate">
+            <label for="password">Password</label>
+            </div>
+        </div>
+        
+        <button class="btn waves-effect waves-light" type="submit" >Submit
+            <i class="material-icons right">send</i>
+        </button>
+        </form>
+        </div>
+  </div>
+
+
+  <a href="http://127.0.0.1:8000/users/"> Liste users</a>

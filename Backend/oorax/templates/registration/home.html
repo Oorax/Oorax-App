@@ -1,0 +1,172 @@
+
+
+{% block content %}
+
+     <!-- pour editeur de texte debut -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	  <script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script>
+	  <link rel="stylesheet" href="http://cdn.wysibb.com/css/default/wbbtheme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+      <!--Let browser know website is optimized for mobile-->
+
+
+<body>
+
+
+
+  <nav class="nav-extended">
+
+        <div class="nav-wrapper">
+
+          <a href="#!" class="brand-logo bottom">Aide Scolaire</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <a href="mobile.html" class="brand-logo right"><i class="material-icons">more_vert</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">Javascript</a></li>
+            <li><a href="mobile.html">Mobile</a></li>
+          </ul>
+        </div>
+
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">Sass</a></li>
+    <li><a href="badges.html">Components</a></li>
+    <li><a href="collapsible.html">Javascript</a></li>
+    <li><a href="mobile.html">Mobile</a></li>
+    <li><a class="sidenav-close" href="#!"><i class="large material-icons">close</i></a></li>
+  </ul>
+
+<div class="row">
+
+    <!--slider debut -->
+      <div class="slider">
+    <ul class="slides">
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
+        <div class="caption left-align">
+          <h3>Left Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
+        <div class="caption right-align">
+          <h3>Right Aligned Caption</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+      <li>
+        <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
+        <div class="caption center-align">
+          <h3>This is our big Tagline!</h3>
+          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+        </div>
+      </li>
+    </ul>
+  </div>
+<!--slider fin-->
+<div class="card">
+    <div class="cards-tabs">
+      <ul class="tabs tabs-fixed-width">
+        <li class="tab"><a href="#test4" class="active" >Test 1</a></li>
+        <li class="tab"><a href="#test5" >Test 2</a></li>
+
+      </ul>
+    </div>
+    <div class="card-content grey lighten-4">
+      <div id="test4">Test 1</div>
+      <div id="test5">Test 2</div>
+    </div>
+  </div>
+
+    <div class="container">
+        {% for u in cours %}
+      <div class="card">
+             {% if u.etat_cour is False %}
+        <div class="card-image">
+            {% if u.image %}
+                <img src='{{ u.image.url }}' alt="{{ u.image.name }}"  width="100">
+            {% endif %}
+          <span id="spancolor" class="card-title">{{ u.titre }}</span>
+        </div>
+        <div class="card-content">
+          <p>{{ u.description }}</p>
+        </div>
+        <div class="card-action">
+          <a href="{% url 'inscription' u.id %}">
+             <button type="button" class="btn btn-primary">Inscription</button>
+          </a>
+             <span class="badge red " id="prixcolor">{{ u.prix }} fcfa</span>
+        </div>
+
+     {% endif %}
+      </div>
+         {% endfor %}
+    </div>
+
+  </div>
+
+
+
+    <p>Vous n'etes pas autoriser</p>
+
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+ document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.slider');
+    var instances = M.Slider.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.slider').slider();
+  });
+
+</script>
+</body>
+<style>
+
+span#prixcolor {
+    color: white;
+}
+@media only screen and (min-width: 200px) and (max-width: 640px) {
+  .bloc {
+    display:block;
+    clear:both;
+  }
+  body {
+    background: #ebebeb;
+  }
+#spancolor{
+color:#1a237e;
+}
+span#prixcolor {
+    color: white;
+}
+}
+</style>
+{% endblock %}
+

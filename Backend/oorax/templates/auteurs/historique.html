@@ -1,0 +1,566 @@
+
+{% load static %}
+
+{% block content %}
+
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+
+        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/styles.css' %}"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/perso.css' %}"  media="screen,projection"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+
+    <style>
+    a.mdl-navigation__link.active4 {
+    background: black;
+}
+
+
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+        a.colorss {
+    color: black;
+}
+      label#searchs {
+    top: 30px;
+}
+
+table.mdl-cell--4-col-phone.mdl-cell--12-col.mdl-data-table.mdl-shadow--2dp.mdl-js-data-table {
+    width: 100%;
+}
+a.mdl-navigation__link,a.surligeur {
+    text-decoration: none;
+}
+
+td.centrer,th.centrer{text-align:center;}
+    </style>
+</head>
+<body onload="myFunction()">
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+            <div class=" mdl-cell mdl-grid">
+
+              <div class="mdl-cell--6-col mdl-cell--8-col-tablet">
+                <h3 class="mdl-layout-title">Mes credits :</h3>
+              </div>
+              <div class="mdl-cell--6-col mdl-cell--8-col-tablet">
+                    <span class="mdl-layout-title"><h3 class="mdl-layout-title">{{ solde }} fcfa</h3></span>
+              </div>
+            </div>
+
+
+
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+                <label id="searchs" class="mdl-button mdl-js-button mdl-button--icon" for="search">
+                    <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" id="search">
+                    <label class="mdl-textfield__label"  for="search">Enter your query...</label>
+                </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
+                <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
+                <li class="mdl-menu__item"> <a  class="surligeur" href="{% url 'recharger_compte' %}">Recharger compte</a></li>
+                <li class="mdl-menu__item"><a class="surligeur" href="{% url 'transfert_credit' %}" >Transfert dde credit</a></li>
+
+            </ul>
+        </div>
+    </header>
+
+
+    <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
+       <header class="demo-drawer-header">
+            <img src='{{ img }}' alt="img"  width="100" class="demo-avatar">
+            <div class="demo-avatar-dropdown">
+                <span>{{ email }}</span>
+                <div class="mdl-layout-spacer"></div>
+                <button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+                    <i class="material-icons" role="presentation">arrow_drop_down</i>
+                    <span class="visuallyhidden">Accounts</span>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
+                    <li class="mdl-menu__item" ><a class="surligeur" href="{% url 'view_profile' %}">Mon profile</a></li>
+                    <li class="mdl-menu__item"><a class="surligeur" href="/oorax/logout/">Deconnexion</a></li>
+
+                </ul>
+            </div>
+        </header>
+
+        <nav class="demo-navigation mdl-navigation  mdl-color--blue-grey-800" id="slide-out" >
+             <a class="mdl-navigation__link" href="{% url 'index' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Accueil</a>
+            <a class="mdl-navigation__link" href="{% url 'user_mes_cours' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Mes cours</a>
+            <a class="mdl-navigation__link" href="{% url 'mes_cours' %}"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Cours publiés</a>
+
+            <a class="mdl-navigation__link active4" href="{% url 'historique' %} "><i class="mdl-color-text--blue-grey-400 active material-icons" role="presentation">local_offer</i>Credits</a>
+
+        </nav>
+    </div>
+
+
+    <main class="mdl-layout__content mdl-color--grey-100">
+        <div class="mdl-grid demo-content">
+
+                <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" id="centrer">
+
+                  <div class="mdl-cell mdl-cell--6-col">
+                      <ul class="list-group">
+                      <button class="btn btn-primary btn-lg active" id="myBtn"  type="button" role="button" aria-pressed="true">Transfert</button>
+                      </ul>
+
+                  </div>
+                  <div class="mdl-cell mdl-cell--6-col">
+                      <ul class="list-group" >
+
+                        <button  class="btn btn-success btn-lg active" id="myBtn2"  role="button" aria-pressed="true">Recharger</button>
+
+                      </ul>
+
+
+                  </div>
+
+
+
+            </div>
+
+            <div class="mdl-cell mdl-cell--12-col">
+               {% if request.user.is_authenticated %}
+
+
+<div class="table-responsive table-responsive-sm table-responsive-md table-responsive-lg table-responsive-xl">
+
+        <table class="table mdl-color--white">
+            <thead class="thead-dark "> <!-- En-tête du tableau -->
+               <tr>
+                    <th class="centrer" scope="col">N°</th>
+                   <th class="centrer" scope="col">Date</th>
+                   <th class="centrer" scope="col">Action</th>
+                   <th class="centrer" scope="col">Type</th>
+                   <th class="centrer" scope="col">Service</th>
+                   <th class="centrer" scope="col">Montant</th>
+
+               </tr>
+            </thead>
+
+
+    {% for tran in users %}
+
+
+
+            <tr>
+                <td class="centrer">{{ forloop.counter }}</td>
+                <td class="centrer">{{ tran.date_transactions }}</td>
+                <td class="centrer">{{ tran.libelle }}</td>
+                {% if tran.user_entree_id is request.user.id %}
+                <td class="centrer">Entre</td>
+                {% else %}
+                <td class="centrer">Sortie</td>
+                {% endif %}
+                 <td class="centrer">nean</td>
+                <td class="centrer">{{ tran.montant }}</td>
+
+
+
+            </tr>
+            {% endfor %}
+
+
+
+
+        </table>
+
+        <div class="mdl-grid mdl-navigation mdl-layout__content">
+            <div class="mdl-cell mdl-cell--2-col"></div>
+            <div class="mdl-cell mdl-cell--8-col">
+                <nav aria-label="...">
+                      {% if users.has_other_pages %}
+                          <ul class="pagination">
+
+                               {% if users.has_previous %}
+                                    <li class="page-item">
+                                      <a class="page-link" href="?page={{ users.previous_page_number }}" >&laquo;</a>
+                                    </li>
+                              {% else %}
+                                  <li class="page-item disabled"><span>&laquo;</span></li>
+                              {% endif %}
+
+                               {% for i in users.paginator.page_range %}
+                                     {% if users.number == i %}
+                                        <li class="page-item active"><a class="page-link">{{ i }} <span class="sr-only">(current)</span></a></li>
+                                    {% else %}
+                                        <li class="page-item "><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                    {% endif %}
+                               {% endfor %}
+
+                               {% if users.has_next %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ users.next_page_number }}">&raquo;</a></li>
+
+                              {% else %}
+                                <li class="page-item disabled"><span>&raquo;</span></li>
+
+                              {% endif %}
+
+                          </ul>
+                       {% endif %}
+                </nav>
+            </div>
+            <div class="mdl-cell mdl-cell--2-col"></div>
+
+        </div>
+</div>
+
+{% endif %}
+
+            </div>
+
+
+        </div>
+    </main>
+</div>
+
+<div id="myModal" class="modal mdl-grid">
+<div  class="mdl-cell mdl-cell--12-col">
+
+  <!-- Modal content -->
+  <div class="modal-contents ">
+
+    <div class="modal-body ">
+
+        <form method="post" id="form1"  action="">
+            <div class="card-header"><strong>Transfert de </strong><small> Credit</small></div>
+
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <label>Identifiant du beneficière: </label><input name="idents" type="texte"  id="idents"  />
+                <input name="ident" type="hidden"  id="ident" readonly />
+                <input name="montant" type="hidden" id="montant" readonly />
+
+             <div class="modal-footer">
+
+                    <button type="button"  class="btn btn-outline-light close1">Annuler</button>
+                    <button type="submit" class="btn btn-outline-light">Enregistrer</button>
+
+             </div>
+        </form>
+
+  </div>
+
+  </div>
+</div>
+</div>
+
+
+<div id="myModal2" class="modal mdl-grid">
+<div  class="mdl-cell mdl-cell--12-col">
+
+  <!-- Modal content -->
+  <div class="modal-contents ">
+
+    <div class="modal-body ">
+
+        <h3>Réchargez votre compte {{ montemps }}</h3>
+                        {% if omoney %}
+                        <label>Mode de payement: </label>
+                        <select  id="type" onchange="changementType();" >
+                             <option value="">----------------------</option>
+                             {% for money in omoney %}
+                             <option value="{{ money.id }}" name="{{ money.raisonsocial }}"  id="{{ money.id }}">{{ money.raisonsocial }} </option>
+                             {% endfor %}
+                        </select>
+
+                            {% endif %}
+                        <br><br>
+                        <form method="post" id="form2" style="display:none" action="">
+                            {% csrf_token %} {{ form2.as_p }}
+                            <input name="hide" type="hidden"  id="hide" readonly />
+                            <input name="ref" type="hidden"  id="ref" readonly />
+
+
+                                 <div class="modal-footer">
+
+                                      <button type="button"  class="btn btn-outline-light close2">Annuler</button>
+                                        <button type="submit" class="btn btn-outline-light">Enregistrer</button>
+
+
+                                    </div>
+
+                        </form>
+
+
+                        <form method="post" id="form3" style="display:none" action="">
+                            {% csrf_token %}
+                            {{ form3.as_p }}
+                            <input name="hide" type="text"  id="hides" readonly />
+
+
+                        </form>
+
+  </div>
+  </div>
+</div>
+</div>
+
+</body>
+
+<script>
+
+
+// Get the modal
+var modal = document.getElementById('myModal');
+var modal2 = document.getElementById('myModal2');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var btn2 = document.getElementById("myBtn2");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close1")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+btn2.onclick = function() {
+    modal2.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+
+}
+span2.onclick = function() {
+modal2.style.display = "none";
+
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+    modal2.style.display = "none";
+
+  }
+}
+
+
+    function myFunction() {
+        var explic= document.getElementById("test1");
+        var temps = document.getElementById("temps1");
+        var ntfin = document.getElementById("fin1");
+
+        var text = document.getElementById("text");
+
+        if (explic.checked == true)
+        {
+            document.getElementById("less").value=1
+            document.getElementById("less2").value=0
+            document.getElementById("less3").value=0
+            temps.checked = false;
+            ntfin.checked = false;
+        }
+
+
+        else if(temps.checked == true)
+        {
+
+            document.getElementById("less2").value=1
+            document.getElementById("less").value=0
+        }
+
+        else if(ntfin.checked == true)
+        {
+            document.getElementById("less3").value=1
+            document.getElementById("less").value=0
+
+        }
+
+        else
+        {
+
+            ntfin.checked =true
+            document.getElementById("less").value=0
+            document.getElementById("less2").value=0
+            document.getElementById("less3").value=1
+
+
+        }
+    }
+
+
+    $(document).on('submit','#formulaire',function(e){
+        /*e.preventDefault();*/
+        $.ajax({
+            type:'POST',
+            url:'{% url 'check' %}',
+            data:{
+                less:$("input[name=less]").val(),
+                less2:$("input[name=less2]").val(),
+                less3:$("input[name=less3]").val(),
+
+                csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+            },
+            success:function(){
+
+            }
+        });
+    });
+
+
+   /* $("button").click(function(event){
+        event.preventDefault()
+
+        $.ajax({
+            type:"GET",
+            url: "http://fantasy.premierleague.com/web/api/elements/100/",
+            success: function(data) {
+                $("body").append(JSON.stringify(data));
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.status);
+            },
+            dataType: "jsonp"
+        });
+    });*/
+
+
+/* debut script transfert de credit */
+
+ $(document).ready(function(){
+    $("#idents").change(function(){
+        $a = $("#idents").val();
+        $("input[id=ident]").val($a);
+
+});
+})
+
+$(document).ready(function(){
+    $("#id_montant").change(function(){
+        $a = $("#id_montant").val();
+        $("input[id=montant]").val($a);
+
+});
+})
+
+$(document).on('submit','#form1',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'transfert_credit' %}',
+        data:{
+            ident:$("input[name=ident]").val(),
+            montant:$("input[name=montant]").val(),
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+
+/* fin script transfert de credit */
+
+/* debut script rechagement */
+
+ function changementType()
+                {
+
+
+                var type = document.getElementById("type").value;
+
+                console.log(type);
+
+
+                if (type == 5)
+                {
+                document.getElementById("form3").style="display:block";
+                document.getElementById("form2").style="display:none";
+                }
+                else
+                {
+                document.getElementById("form2").style="display:block";
+                document.getElementById("form3").style="display:none";
+                }
+
+                }
+
+
+                 $(document).ready(function(){
+                    $("#type").change(function(){
+                        $a = $("#type").val();
+                        $("input[id=hide]").val($a);
+
+                });
+                })
+                 $(document).ready(function(){
+                    $("#type").change(function(){
+                        $a = $("#type").val();
+                        $("input[id=hides]").val($a);
+                });
+                })
+
+                $(document).ready(function(){
+                    $("#id_reference").change(function(){
+                        $a = $("#id_reference").val();
+                        $("input[id=ref]").val($a);
+                });
+                })
+
+
+                $(document).on('submit','#form2',function(e){
+                /*e.preventDefault();*/
+                      $.ajax({
+                        type:'POST',
+                        url:'{% url 'recharger_compte' %}',
+                        data:{
+                            hide:$("input[name=hide]").val(),
+
+                            ref:$("input[name=ref]").val(),
+                          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+                        },
+                        success:function(){
+
+                        }
+                      });
+                    });
+
+/* fin script rechargemenr */
+
+</script>
+</html>
+{% endblock %}
+
+
+

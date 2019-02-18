@@ -1,0 +1,86 @@
+{% load static %}
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+    <title>Title</title>
+
+       {% block stylesheet %}{% endblock %}
+
+    <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+  </head>
+
+<body>
+<div class="container">
+    <h1>Enrégistrer matière</h1>
+    {% block content %}
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+         <input name="mat" type="hidden"  id="mat" readonly />
+        <div class="input-field col s12">
+        <select name="session"   id="session">
+          <option value="" disabled selected>Choose your option</option>
+            {% for b in session %}
+                <option value="{{ b.id }}">{{ b.titre_sess }}</option>
+            {% endfor %}
+
+        </select>
+        <label>Materialize Select</label>
+      </div>
+        <input type="submit" value="enregistrer" />
+    </form>
+</div>
+
+{% endblock %}
+
+
+
+<script>
+//recup id chapitre
+   $(document).ready(function(){
+    $("#session").change(function(){
+        $a = $("#session").val();
+        $("input[id=mat]").val($a);
+});
+})
+$(document).on('submit',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'matiere' %}',
+        data:{
+            mat:$("input[name=mat]").val(),
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+</script>
+</body>
+</html>
+
+        <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type ="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"> </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"> </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+        <link type="text/css" rel="stylesheet"  href= "{% static 'materialize/css/perso.css' %}"  media="screen,projection"/>
+        <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+        <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>

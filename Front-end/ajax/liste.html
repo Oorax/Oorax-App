@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>GEO API</h2>
+{% for l in list %}
+  <p>Your ip address is <strong>{{ l }}</strong>, and you are probably in <strong>{{ country }}</strong> right now.</p>
+{% endfor %}
+{% endblock %}
+</body>
+</html>

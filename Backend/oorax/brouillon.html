@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ {% for l in lesson %}
+    {% for eva in liste_evalu %}
+        {% for qe in quesevalu %}
+            {% if eva is qe.evaluation_id %}
+                {% for q in question %}
+                    {% if qe.question_id is q.id %}
+
+
+                        <tr>
+                            <td>{{ l.id }}</td>
+                            {% if l.id is q.lesson_id %}
+
+                            <td><button><a href="{% url 'faire_interro' id=eva %}">Evaluation {{ eva }}</a></button></td>
+                            {% else %}
+                            <td>{{ l.nom_lesson }} </td>
+                              {% endif %}
+                             <td><a href="{% url 'contenu_lesson' l.id %}">Ajouter Contenu</a> || <a href="{% url 'lesson_edit' l.id %}">Edit</a> || <a href="{% url 'lesson_delete' l.id %}">Delete</a> </td>
+
+                        </tr>
+
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+</body>
+</html>
+
+ <table >
+            <thead> <!-- En-tête du tableau -->
+               <tr>
+                   <th>N</th>
+                   <th>Titre</th>
+                   <th>Actions</th>
+               </tr>
+            </thead>
+            {% for c in chapitre %}
+            <tr >
+
+                <td>{{ c.id }}</td>
+                <td>{{ c.nom_chapitre }}</td>
+                <td>
+                    <a href="{% url 'lesson_chapitre' c.id %}">Ajouter Lesson</a> ||
+                    <a href="{% url 'chapitre_edit' c.id %}">Edit</a> ||
+                    <a href="{% url 'chapitre_delete' c.id %}">Delete</a> </td>
+            </tr>
+
+            {% endfor %}
+        </table>
+
+
+// Simple list
+Sortable.create(simpleList, { /* options */ });
+
+// List with handle
+Sortable.create(listWithHandle, {
+  handle: '.glyphicon-move',
+  animation: 150
+});
+
+
+ {% for less in lesson %}
+             {% if less.chapitre_id in chap_liste %}
+                {% for ch in chap_liste %}
+                    {% for c in chapitre %}
+                        <div class="divider"></div>
+                       <div class="section">
+                            {% if ch is c.id %}
+                                   <h5>Chapitre {{ c.id }} :  {{ c.nom_chapitre }} </h5>
+                                   <p>-------lesson {{ less.id }} :  {{ less.nom_lesson }} </p>
+                            {% else %}
+                              <h5>Chapitre {{ c.id }} :  {{ c.nom_chapitre }} </h5>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+             {% endif %}
+        {% endfor %}
+
+
+{% for inscri in  liste_inscr %}
+          {% for lis in liste_transact %}
+            {% if inscri.transaction_id in liste_transact %}
+                {% for cou in cour %}
+                    {% if cou.id is inscri.cour_id %}
+                        <li class="collection-item avatar">
+                          <img src='{{ cou.image.url }}' alt="{{ cou.image.name }}" class="circle" width="100">
+                          <span class="title">Titre: {{ cou.titre }}</span>
+                          <p>Description : {{ cou.description }}</p>
+                          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+         {% endfor %}
+     {% endfor %}
+
+{% for interro in lesson %}
+                                        {% for ev in evalu %}
+                                            {% if interro.id in liste_chap %}
+
+                                                <ul>
+                                                    {% if interro.id in ev.typeId %}
+                                                        <li class="dist">
+                                                         <input type="radio"  name="check"  id="checks" value="{{ interro.id }}">{{ interro.nom_lesson }}
+                                                        </li>
+                                                    {% else %}
+                                                        <li>
+                                                         <input type="radio"  name="check"  id="check" value="{{ interro.id }}">{{ interro.nom_lesson }}
+                                                        </li>
+                                                    {% endif %}
+                                                 </ul>
+
+                                            {% endif %}
+                                        {% endfor %}
+                                {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+      <script type="text/javascript" src=" {% static 'materialize/js/materialize.min.js' %}"></script>
+        <script type="text/javascript" src=" {% static 'materialize/js/perso.js' %}"></script>
+      <link type="text/css" rel="stylesheet" href= "{% static 'materialize/css/materialize.min.css' %}"  media="screen,projection"/>
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+<h1>Mes cours</h1>
+
+ <ul class="collection">
+
+     {% for cou in cour %}
+        {% for inscri in inscription %}
+            {% if cou.id is inscri.cour_id %}
+                {% for trans in transaction %}
+                    {% if trans.id is inscri.transaction_id %}
+                         <li class="collection-item avatar">
+                             {% if cou.image %}
+                             <img src='{{ cou.image.url }}' alt="{{ cou.image.name }}" class="circle" width="100">
+                               {% endif %}
+                             <span class="title">Titre: {{ cou.titre }}</span>
+                             <p>Description : {{ cou.description }}</p>
+
+                             <a href="{% url 'contenu_mes_cours' cou.id %}" class="secondary-content">
+                                     <button class="btn waves-effect waves-light" type="submit" name="action">Ouvrir
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                             </a>
+
+                         </li>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+     {% endfor %}
+
+ </ul>
+
+</body>
+</html>
+
+
+{% load static %}
+{% block content %}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<body>
+
+
+
+
+
+
+            <form method="post" action="" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            {{ form.as_p }}
+                <input name="users" type="hidden" value="{{ user.id }}" id="users" readonly />
+
+               <label> Categorie:
+
+
+                  <input type="text" name="movies" id="categories"    list="movies"/>
+
+
+                  <datalist id="movies">
+
+                      <label> or select one from the list:
+                          {% if categories %}
+
+                             <select  name="movies" id="categorie" >
+                                  <option value="">----------------------</option>
+                                        {% for cat in categories %}
+                                  <option value="{{ cat.nom_categorie }}"  id="prime">{{ cat.nom_categorie }}</option>
+                                        {% endfor %}
+                            </select>
+                          {% endif %}
+                      </label>
+                  </datalist>
+                </label><br><br>
+                <input name="hides" type="hidden"  id="hides" readonly />
+                <input type="submit" value="submit" />
+
+            </form>
+
+
+<script>
+
+
+$(document).ready(function(){
+    $("#categories").change(function(){
+        $a = $("#categories").val();
+        $("input[id=hides]").val($a);
+});
+})
+
+$(document).on('submit','#formulaire',function(e){
+/*e.preventDefault();*/
+      $.ajax({
+        type:'POST',
+        url:'{% url 'cour' %}',
+        data:{
+            hides:$("input[name=hides]").val(),
+          csrfmiddlewaretoken:$("input[name=csrfmiddlewaretoken]").val()
+        },
+        success:function(){
+
+        }
+      });
+	});
+
+
+</script>
+
+</body>
+<style>
+    td /* Toutes les cellules des tableaux... */
+{
+    border: 1px solid black; /* auront une bordure de 1px */
+     padding:15px;
+}
+table
+{
+    border-collapse: collapse; /* Les bordures du tableau seront collées (plus joli) */
+     padding:15px;
+}
+td
+{
+    border: 1px solid black;
+    padding:15px;
+}
+
+th
+{
+    border: 1px solid black;
+    padding:15px;
+}
+
+
+</style>
+{% endblock %}
+
+
+
+
+
+
+    <body>
+        <div class="row">
+                <nav id="mysearch-bar2">
+                        <div class="nav-wrapper">
+                          <a href="#!" class="brand-logo">Logo</a>
+                          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                          <ul class="right hide-on-med-and-down">
+                            <li><a href="sass.html">S'inscrire</a></li>
+                            <li><a href="mobile.html">Se connecter</a></li>
+                            <li><a href="{% url 'user_mes_cours' %}">Mes cours</a></li>
+                          </ul>
+                        </div>
+                      </nav>
+
+                      <ul class="sidenav" >
+                        <li><a href="sass.html">Profile</a></li>
+                        <li><a href="badges.html"  data-target="mobile-demo2" class="sidenav-trigger">Paramettre</a></li>
+                        <li><a href="collapsible.html">Deconnexion</a></li>
+                          <li><a href="mobile.html">Mes cours</a></li>
+
+                      </ul>
+
+                        <ul class="sidenav" id="mobile-demo2">
+                            <li><a href="sass.html" data-target="mobile-demo3" class="sidenav-trigger">Option de test</a></li>
+                            <li><a href="collapsible.html">Statistique de test</a></li>
+                            <li><a href="collapsible.html">Mise à jour</a></li>
+                        </ul>
+
+
+                        <ul class="sidenav" id="mobile-demo3" >
+                             {% for chec in checked %}
+                                <form method="post" action="{% url 'check' %}" >{% csrf_token %}
+                                <li>
+
+                                          <label>
+                                              {% if chec.check is True %}
+                                                <input onchange="changementType();" type="checkbox" class="filled-in" name="check" id="test1" value="0" checked="checked" />
+                                                <span>Afficher Explication</span>
+                                              {% else %}
+                                                <input onchange="changementType();" type="checkbox" class="filled-in" name="check" id="test2" value="1"  />
+                                                <span>Afficher Explication</span>
+                                              {% endif %}
+                                          </label>
+
+                                </li>
+
+                                <li>
+                                  <label>
+                                    {% if chec.temps is True %}
+                                        <input type="checkbox" class="filled-in" name="checks"  value="0" checked="checked" />
+                                        <span>Afficher Temps</span>
+                                    {% else %}
+                                       <input type="checkbox" class="filled-in" name="checks" value="1" />
+                                        <span>Afficher Temps</span>
+                                    {% endif %}
+                                  </label>
+                                </li>
+                                <li>
+                                  <label>
+                                    <input type="checkbox" class="filled-in" value="3"  />
+                                    <span>Noter à la fin</span>
+                                  </label>
+                                </li>
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Terminer
+                                    <i class="material-icons right"></i>
+                                </button>
+                                      </form>
+                            {% endfor %}
+                        </ul>
+
+            </form>
+        </div>
+
+
+        <div class="container" >
+                <h1 class="center-align titre">Trouve vite</h1>
+            <nav id="mysearch-bar">
+                <div class="nav-wrapper">
+                <form action="/search/" method="get" autocomplete="off">
+                    <div class="input">
+                        <input type="text" name="q" id="q" placeholder="recherchez sur trouve vite"/>
+                    </div>
+
+                </form>
+                </div>
+            </nav>
+             <div>
+                <h1 id="bien" style="display:none;color:red;">bonjour</h1>
+                 <h1 id="good" style="display:none;">bonjour tous</h1>
+             </div>
+        </div>
+
+
+
+
+    </body>
+
+
+
+
+            <ul>
+                {% for x in cour %}
+                    {% if x.titre in list_result %}
+                            <li>
+                                 {% if x.image %}
+                                    <img src='{{ x.image.url }}' alt="{{ x.image.name }}"  width="100">
+                                 {% endif %}
+                                 {{ x.id }} ---> {{ x.titre }}
+                            </li>
+                            <span>Auteur: {{ user }}</span>
+                              {% for ca in cat %}
+                             {% if cour.categorieid_id is ca.id %}
+                                <a href="">#{{ ca.nom_categorie }}</a> ||
+                             {% endif %}
+                        {% endfor %}
+                        {% for do in dom %}
+                             {% if cour.domaineid_id is do.id %}
+                                <a href="">#{{ do.nom_domaine }}</a><br><br>
+                             {% endif %}
+                        {% endfor %}
+                            &nbsp;<a href="{% url 'cour_details' x.id %}">Detail</a>------
+                            &nbsp;
+
+                                 {% if cour.id in liste_inscri %}
+                                    <a>Dejà incrit</a>
+                                    {% else %}
+                                    <a href="">Inscription</a>----
+                                 {% endif %}
+
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+
+
+
+
+oninput="this.className = ''"
+
+
+ <div id="modal2" class="modal">
+                        <div class="modal-content">
+                          <h4>Explication question {{ q.id }} :{{ q.question_texte }}</h4>
+                          <p>{{ q.explication }}</p>
+                        </div>
+                        <div class="modal-footer">
+                          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                        </div>
+                    </div>
+
+/*
+
+
+$(document).ready(function() {
+  var ckbox = $("input[name='check']");
+  var chkId = '';
+  $('input').on('click', function() {
+
+    if (ckbox.is(':checked')) {
+      $("input[name='check']:checked").each ( function() {
+   			chkId = $(this).value + ",";
+        chkId = chkId.slice(0, -1);
+ 	  });
+
+       // x= $(this).attr('class')
+       //alert(x);
+	  	if (x == "False")
+	  	{
+	  	    document.getElementById("incorrect").innerHTML = "incorrecte"+' '+y.length;
+	  	    var element = document.getElementById("incorrect");
+            element.classList.add("mystyle");
+	  	}
+        else
+        {
+            document.getElementById("incorrect").innerHTML = "bien joué"+' '+x;
+            var element = document.getElementById("incorrect");
+            element.classList.add("mystyles");
+        }
+
+            document.getElementById("demo").innerHTML = x;
+            //alert ( $(this).val() ); // return all values of checkboxes checked
+        // return value of checkbox checked
+    }
+     else{
+
+            document.getElementById("incorrect").innerHTML = null;
+            document.getElementById("correct").innerHTML = null;
+             var elements = document.getElementById("correct");
+             elements.classList.remove("mystyles");
+             var elements = document.getElementById("incorrect");
+             elements.classList.remove("mystyle");
+           }
+
+
+
+  });
+});*/

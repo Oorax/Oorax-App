@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+    
+$(document).ready(function(){
+
+    $("#jsonButtons").click(function(){
+        console.log("cool2");
+            $.ajax({
+                url: "http://127.0.0.1:8000/users/",
+                type:'get',
+
+                dataType:"json",
+                success: function(data , jqXHR, textStatus,) {
+                        $("body").append(JSON.stringify(data));
+                        console.log(data)
+                    },
+                error: function(jqXHR, textStatus, errorThrown) {
+                        console.log('erreurss',jqXHR.status);
+                    }
+
+            })
+    });
+
+    
+});
+/*
+
+$.get('http://127.0.0.1:8000/users') 
+    .done((data) => console.log('cool',data))
+    .fail((error) => console.error('echeque',error))
+    .always(() => console.log('Done'));
+
+*/
+</script>
+</head>
+<body>
+
+<button id="jsonButtons">Get</button>
+
+
+<div id="jsonData" style="width:300px; display: block;margin-top: 30px;border: 1px solid black;
+height: 200px;"></div>
+<input type="button" value="show content" onclick="Ajax();" />     
+</body>
+</html>
+ 

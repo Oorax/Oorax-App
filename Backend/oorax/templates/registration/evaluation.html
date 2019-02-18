@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+<h1>Evaluation </h1>
+<div class="col-md-12">
+
+    <div class="col-md-6">
+        <form method="post" action="{% url 'envoi_evaluation' %}" name="formulaire">{% csrf_token %}
+            {% for question in hazzare %}
+                 Question N² {{ key }} : {{ question }}
+                 {% for lis in questionoption %}
+                     {% if question is lis.question_id %}
+                         {% for option in optEva %}
+
+                            {% if lis.option_id is option.id %}
+                                <ul>
+                                   <li>
+                                       <input type="checkbox" name="check"  id="check" value="{{ option.id }}">{{ option.libelle }}
+                                   </li>
+                                </ul>
+
+                             {% endif %}
+                         {% endfor %}
+                      {% endif %}
+                 {% endfor %}
+            {% endfor %}
+
+
+
+
+
+
+            <input type="submit" value="submit" />
+
+        </form>
+    </div>
+
+
+</div>
+
+<script language="JavaScript">
+
+
+
+
+</script>
+</body>
+
+{% endblock %}
